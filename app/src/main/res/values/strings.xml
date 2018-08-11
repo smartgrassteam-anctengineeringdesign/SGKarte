@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">smartGlass_systemflow</string>
+    <string name="MainActivity_name">Home</string>
+    <string name="PatientListActivity_name">PatientList</string>
+    <string name="QRCodeRecognitionActivity_name">QRcode</string>
+
+
 </resources>
