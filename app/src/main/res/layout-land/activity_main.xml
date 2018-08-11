@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/MoveQRcodebutton"
+        android:id="@+id/MoveQRcodeButton"
         android:layout_width="274dp"
         android:layout_height="wrap_content"
         android:text="QRコード読取り"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="患者一覧"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/MoveQRcodebutton"
+        app:layout_constraintEnd_toStartOf="@+id/MoveQRcodeButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.MoveQRcodebutton).setOnClickListener(MoveQRcodeButtonOnClickListener);
+        findViewById(R.id.MoveQRcodeButton).setOnClickListener(MoveQRcodeButtonOnClickListener);
         findViewById(R.id.MovePatientListButton).setOnClickListener(MovePatientListButtonOnClickListener);
     }
 
