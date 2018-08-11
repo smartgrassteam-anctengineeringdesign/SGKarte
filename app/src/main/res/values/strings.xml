@@ -4,6 +4,7 @@
     <string name="PatientListActivity_label_name">PatientList</string>
     <string name="QRCodeRecognitionActivity_label_name">QRcodeRecognition</string>
     <string name="CheakQRcodeActivity_label_name">CheakQRcode</string>
+    <string name="PatientInfoDetailActivity_label_name">PatientInfoDetail</string>
 
 
 </resources>

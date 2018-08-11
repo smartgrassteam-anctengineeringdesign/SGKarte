@@ -7,15 +7,16 @@ import android.view.View;
 
 public class CheakQRcodeActivity extends AppCompatActivity {
 
-    //リスナー登録
-    /*View.OnClickListener MoveQRcodeButtonOnClickListener = new View.OnClickListener() {
+    //リスナー登録　OKボタン　患者情報の詳細を表示する
+    View.OnClickListener MovePatientInfoDetailButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplication(), QRCodeRecognitionActivity.class);
+            Intent intent = new Intent(getApplication(), PatientInfoDetailActivity.class);
             startActivity(intent);
         }
     };
-    */
+
+    //リスナー登録　QRコード際読取りボタン
     View.OnClickListener ReQRCodeRecognitionButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -30,6 +31,8 @@ public class CheakQRcodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cheak_qrcode);
 
         findViewById(R.id.ReQRCodeRecognitionButton).setOnClickListener(ReQRCodeRecognitionButtonOnClickListener);
+        findViewById(R.id.MovePatientInfoDetailButton).setOnClickListener(MovePatientInfoDetailButtonOnClickListener);
+
 
     }
 

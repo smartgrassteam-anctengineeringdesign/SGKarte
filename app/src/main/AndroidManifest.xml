@@ -33,6 +33,11 @@
             android:label="@string/CheakQRcodeActivity_label_name"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name=".PatientInfoDetailActivity"
+            android:label="@string/PatientInfoDetailActivity_label_name"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
 
 </manifest>
