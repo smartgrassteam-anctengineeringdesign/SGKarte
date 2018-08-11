@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //ボタンが押された時に発動
         findViewById(R.id.MoveQRcodeButton).setOnClickListener(MoveQRcodeButtonOnClickListener);
         findViewById(R.id.MovePatientListButton).setOnClickListener(MovePatientListButtonOnClickListener);
     }
