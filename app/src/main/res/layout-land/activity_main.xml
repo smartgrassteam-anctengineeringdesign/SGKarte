@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/MoveQRcodebutton"
-        android:layout_width="wrap_content"
+        android:layout_width="274dp"
         android:layout_height="wrap_content"
         android:text="QRコード読取り"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,11 +17,12 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@+id/MovePatientListButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
 
     <Button
         android:id="@+id/MovePatientListButton"
-        android:layout_width="122dp"
+        android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:text="患者一覧"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +30,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

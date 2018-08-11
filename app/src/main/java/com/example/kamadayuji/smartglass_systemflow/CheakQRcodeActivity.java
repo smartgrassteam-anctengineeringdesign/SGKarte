@@ -9,4 +9,8 @@ public class CheakQRcodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cheak_qrcode);
+    }
+
+    //QRコードから読み取った情報を整理して表示する
+
 }

@@ -23,7 +23,6 @@ public class QRCodeRecognitionActivity extends AppCompatActivity {
 
         //ボタンが押された時に発動
         findViewById(R.id.MoveAfterQrRecognitonButton).setOnClickListener(MoveAfterQrRecognitonButtonOnClickListener);
-
     }
 
     //以下、QRcode読取りに関するプログラムを書く
