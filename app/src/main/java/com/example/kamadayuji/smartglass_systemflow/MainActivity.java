@@ -8,7 +8,6 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     //リスナー登録
-
     View.OnClickListener MoveQRcodeButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -16,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         }
     };
-    //リスナー登録
     View.OnClickListener MovePatientListButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
