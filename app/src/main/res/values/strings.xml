@@ -8,5 +8,6 @@
     <string name="CheakQRcodeActivity_label_name">CheakQRcode</string>
     <string name="PatientInfoDetailActivity_label_name">PatientInfoDetail</string>
     
+    <!-- PatientInfoDetailActivity 関連-->
 
 </resources>
