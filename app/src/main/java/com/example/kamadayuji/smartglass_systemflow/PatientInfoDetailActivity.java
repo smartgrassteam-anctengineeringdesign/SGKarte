@@ -10,4 +10,5 @@ public class PatientInfoDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info_detail);
     }
+
 }
