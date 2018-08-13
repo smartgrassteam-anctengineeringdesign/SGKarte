@@ -19,7 +19,7 @@ public class QRCodeRecognitionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrcode_recognition);
+        setContentView(R.layout.activity02_qrcode_recognition);
 
         //ボタンが押された時に発動
         findViewById(R.id.MoveAfterQrRecognitonButton).setOnClickListener(MoveAfterQrRecognitonButtonOnClickListener);

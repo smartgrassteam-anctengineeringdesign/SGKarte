@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity01_main);
         //ボタンが押された時に発動
-        findViewById(R.id.MoveQRcodeButton).setOnClickListener(MoveQRcodeButtonOnClickListener);
-        findViewById(R.id.MovePatientListButton).setOnClickListener(MovePatientListButtonOnClickListener);
+        findViewById(R.id.button01MoveQRcode).setOnClickListener(MoveQRcodeButtonOnClickListener);
+        findViewById(R.id.button01MovePatientList).setOnClickListener(MovePatientListButtonOnClickListener);
     }
 
 }

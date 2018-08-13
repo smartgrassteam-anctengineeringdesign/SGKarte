@@ -8,6 +8,6 @@ public class PatientRegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_registration);
+        setContentView(R.layout.activity04_patient_registration);
     }
 }

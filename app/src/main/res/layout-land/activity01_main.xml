@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/MoveQRcodeButton"
+        android:id="@+id/button01MoveQRcode"
         android:layout_width="274dp"
         android:layout_height="wrap_content"
         android:text="QRコード読取り"
@@ -16,17 +16,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@+id/MovePatientListButton"
+        app:layout_constraintStart_toEndOf="@+id/button01MovePatientList"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.68" />
 
     <Button
-        android:id="@+id/MovePatientListButton"
+        android:id="@+id/button01MovePatientList"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:text="患者登録"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button01MoveQRcode"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933" />
+
+    <Button
+        android:id="@+id/button01MovePatientRegistration"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:text="患者一覧"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/MoveQRcodeButton"
+        app:layout_constraintEnd_toStartOf="@+id/button01MoveQRcode"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"

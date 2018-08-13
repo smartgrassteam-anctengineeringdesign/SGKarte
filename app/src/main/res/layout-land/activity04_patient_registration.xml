@@ -14,7 +14,8 @@
         android:layout_marginStart="16dp"
         android:text="ID"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="39dp" />
+        tools:layout_editor_absoluteY="39dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/edit04Id"
@@ -23,7 +24,8 @@
         android:layout_marginStart="8dp"
         android:text="aaa"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="39dp" />
+        tools:layout_editor_absoluteY="39dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/text04Name"
@@ -32,7 +34,8 @@
         android:layout_marginStart="16dp"
         android:text="氏名"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="91dp" />
+        tools:layout_editor_absoluteY="91dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edit04Name"
@@ -40,7 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="72dp" />
+        tools:layout_editor_absoluteY="72dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/text04Age"
@@ -49,7 +53,8 @@
         android:layout_marginStart="16dp"
         android:text="年齢"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="143dp" />
+        tools:layout_editor_absoluteY="143dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edit04Age"
@@ -60,13 +65,14 @@
         tools:layout_editor_absoluteY="124dp" />
 
     <TextView
-        android:id="@+id/text04Affiliation "
+        android:id="@+id/text04Affiliation"
         android:layout_width="29dp"
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
         android:text="所属"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="193dp" />
+        tools:layout_editor_absoluteY="193dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edit04Affiliation"
@@ -74,7 +80,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="174dp" />
+        tools:layout_editor_absoluteY="174dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/text04Detail"
