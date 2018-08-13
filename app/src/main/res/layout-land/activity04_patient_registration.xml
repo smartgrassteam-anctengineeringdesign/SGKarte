@@ -8,13 +8,15 @@
 
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/text04Id"
         android:layout_width="29dp"
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
         android:text="ID"
+        app:layout_constraintBottom_toTopOf="@+id/text04Name"
+        app:layout_constraintStart_toEndOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="39dp"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -23,8 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="aaa"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text04Id"
+        app:layout_constraintStart_toEndOf="@+id/text04Id"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="39dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -33,8 +36,9 @@
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
         android:text="氏名"
+        app:layout_constraintBottom_toTopOf="@+id/text04Age"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="91dp"
+        app:layout_constraintTop_toBottomOf="@+id/text04Id"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -42,8 +46,8 @@
         android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text04Name"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="72dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -52,8 +56,9 @@
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
         android:text="年齢"
+        app:layout_constraintBottom_toTopOf="@+id/text04Affiliation"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="143dp"
+        app:layout_constraintTop_toBottomOf="@+id/text04Name"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -61,8 +66,9 @@
         android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text04Age"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="124dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/text04Affiliation"
@@ -70,8 +76,9 @@
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
         android:text="所属"
+        app:layout_constraintBottom_toTopOf="@+id/text04Detail"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="193dp"
+        app:layout_constraintTop_toBottomOf="@+id/text04Age"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -79,8 +86,8 @@
         android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text04Affiliation"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="174dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -91,16 +98,16 @@
         android:layout_marginStart="16dp"
         android:text="詳細"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text04Affiliation" />
 
 
     <EditText
         android:id="@+id/edit04Detail"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text04Detail"
         app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     <android.support.constraint.Guideline
@@ -123,5 +130,50 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="13dp" />
+
+    <Button
+        android:id="@+id/button04PatientRegistration"
+        android:layout_width="219dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="登録"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button04MovePatientList"
+        app:layout_constraintVertical_bias="0.866" />
+
+    <Button
+        android:id="@+id/button04MovePatientList"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:text="患者一覧"
+        app:layout_constraintBottom_toTopOf="@+id/button04PatientRegistration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/text04LogField" />
+
+    <TextView
+        android:id="@+id/text04LogField"
+        android:layout_width="303dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button04MovePatientList"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:layout_editor_absoluteX="329dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:text="クリア"
+        app:layout_constraintEnd_toStartOf="@+id/button04PatientRegistration"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/button04PatientRegistration" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,28 +1,33 @@
 <resources>
     <string name="app_name">smartGlass_systemflow</string>
 
-    <!-- label_name -->
-    <string name="MainActivity_label_name">Home</string>
-    <string name="PatientListActivity_label_name">PatientList</string>
-    <string name="QRCodeRecognitionActivity_label_name">QRcodeRecognition</string>
-    <string name="CheakQRcodeActivity_label_name">CheakQRcode</string>
-    <string name="PatientInfoDetailActivity_label_name">PatientInfoDetail</string>
-
 
     <!-- activity01_main 01 関連-->
+    <string name="MainActivity_label_name">Home</string>
+
 
     <!-- cheak_qrcode 02 関連-->
+    <string name="CheakQRcodeActivity_label_name">CheakQRcode</string>
+
 
     <!-- qrcode_recognition 03 関連-->
+    <string name="QRCodeRecognitionActivity_label_name">QRcodeRecognition</string>
+
 
     <!-- patient_registration 04 関連-->
+    <string name="PatientRegistrationlActivity_label_name">患者登録</string>
     <string name="text04_id">ID</string>
     <string name="text04_hinttext"></string>
 
 
     <!-- patient_list 05 関連-->
 
+    <string name="PatientListActivity_label_name">PatientList</string>
+
+
     <!-- patient_info_detail 06 関連-->
+    <string name="PatientInfoDetailActivity_label_name">PatientInfoDetail</string>
+
 
 
 </resources>

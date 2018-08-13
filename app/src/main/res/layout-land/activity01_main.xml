@@ -24,19 +24,6 @@
         android:id="@+id/button01MovePatientList"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
-        android:text="患者登録"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button01MoveQRcode"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
-
-    <Button
-        android:id="@+id/button01MovePatientRegistration"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
         android:text="患者一覧"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button01MoveQRcode"
@@ -45,6 +32,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.68" />
+
+    <Button
+        android:id="@+id/button01MovePatientRegistration"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:text="患者登録"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button01MoveQRcode"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
