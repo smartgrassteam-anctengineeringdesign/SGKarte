@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/text04Id"
+        android:id="@+id/editText04Id"
         android:layout_width="29dp"
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="aaa"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text04Id"
-        app:layout_constraintStart_toEndOf="@+id/text04Id"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText04Id"
+        app:layout_constraintStart_toEndOf="@+id/editText04Id"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         tools:ignore="MissingConstraints" />
 
@@ -38,11 +38,11 @@
         android:text="氏名"
         app:layout_constraintBottom_toTopOf="@+id/text04Age"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text04Id"
+        app:layout_constraintTop_toBottomOf="@+id/editText04Id"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/edit04Name"
+        android:id="@+id/editText04Name"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -69,14 +69,14 @@
         android:layout_marginStart="172dp"
         android:text="性別"
         app:layout_constraintBottom_toTopOf="@+id/text04Affiliation"
-        app:layout_constraintEnd_toStartOf="@+id/edit04Sex"
+        app:layout_constraintEnd_toStartOf="@+id/editText04Sex"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text04Name"
         app:layout_constraintVertical_bias="0.488"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/edit04Age"
+        android:id="@+id/editText04Age"
         android:layout_width="91dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -87,7 +87,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/edit04Sex"
+        android:id="@+id/editText04Sex"
         android:layout_width="103dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -110,7 +110,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/edit04Affiliation"
+        android:id="@+id/editText04Affiliation"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -131,7 +131,7 @@
 
 
     <EditText
-        android:id="@+id/edit04Detail"
+        android:id="@+id/editText04Detail"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

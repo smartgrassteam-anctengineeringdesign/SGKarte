@@ -1,7 +1,12 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -9,17 +14,110 @@ public class PatientRegistrationActivity extends AppCompatActivity {
 
     private EditText mEditText04Name;           // 氏名
     private EditText mEditText04Age;            // 年齢
+    private EditText mEditText04Sex;            // 性別
     private EditText mEditText04Affiliation;    // 所属
     private EditText mEditText04Detail;         // 詳細
 
     private TextView mText04Kome01;             // 氏名の※印
     private TextView mText04Kome02;             // 年齢の※印
-    private TextView mText04Kome03;             // 個数の※印
-    private TextView mText04Kome04;             // 単価の※印
+    private TextView mText04Kome03;             // 性別の※印
+
+    private Button mButton04MovePatientList;         //[患者一覧] 患者一覧へ遷移
+    private Button mButton04PatientRegistration;     //[登録] DBへデータを登録
+    private Button mButton04Clear;                   //[クリア] EditTextに入力されている文字をクリアする
+
+    private Intent intent;
+
+
+    //リスナ登録
+    //[患者一覧]押下でpatientListActivityへ遷移
+    View.OnClickListener button04MovePatientListOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplication(), PatientListActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    //[登録]ボタン押下でデータベースに登録
+    View.OnClickListener button04PatientRegistrationOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // キーボードを非表示
+            InputMethodManager inputMethodManager =
+                    (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+            // DBに登録
+            saveList();
+        }
+    };
+
+    //[クリア]ボタンを押した時の処理
+    View.OnClickListener button04ClearOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // ToDo:クリアボタンを押下した時の処理を追加する
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity04_patient_registration);
+
+
+        //各部品の結びつけ
+        findViews();
+
+        //初期値設定
+        init();
+
+        //リスナの設置
+        mButton04MovePatientList.setOnClickListener(button04MovePatientListOnClickListener);
+        mButton04PatientRegistration.setOnClickListener(button04PatientRegistrationOnClickListener);
+        mButton04Clear.setOnClickListener(button04ClearOnClickListener);
+
     }
+
+
+
+    private void findViews() {
+        mEditText04Name = (EditText) findViewById(R.id.editText04Name);   // 品名
+        mEditText04Age = (EditText) findViewById(R.id.editText04Age);     // 産地
+        mEditText04Sex = (EditText) findViewById(R.id.editText04Sex);     // 個数
+        mEditText04Affiliation = (EditText) findViewById(R.id.editText04Affiliation);       // 単価
+        mEditText04Detail = (EditText) findViewById(R.id.editText04Detail);       // 単価
+
+
+        // mText04Kome01 = (TextView) findViewById(R.id.text04Kome01);             // 氏名の※印
+        // mText04Kome02 = (TextView) findViewById(R.id.text04Kome02);             // 年齢※印
+        // mText04Kome03 = (TextView) findViewById(R.id.text04Kome03);             // 性別の※印
+
+        mButton04MovePatientList = (Button) findViewById(R.id.button04MovePatientList);           // 遷移
+        mButton04PatientRegistration = (Button) findViewById(R.id.button04PatientRegistration);   // 登録
+        mButton04Clear = (Button) findViewById(R.id.button04Clear);                               //  クリア
+    }
+
+    private void init() {
+        mEditText04Name.setText("");
+        mEditText04Age.setText("");
+        mEditText04Sex.setText("");
+        mEditText04Affiliation.setText("");
+        mEditText04Detail.setText("");
+
+        mEditText04Name.requestFocus();     //フォーカスを氏名のEditTextに指定
+    }
+
+
+
+    // Todo: private void saveListから書き始める
+    private void saveList() {
+        
+    }
+
+
+
+
 }
