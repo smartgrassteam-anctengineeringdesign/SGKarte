@@ -18,10 +18,11 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener MovePatientListButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-        Intent intent = new Intent(getApplication(), PatientListActivity.class);
-        startActivity(intent);
+            Intent intent = new Intent(getApplication(), PatientListActivity.class);
+            startActivity(intent);
         }
     };
+
 
 
     @Override

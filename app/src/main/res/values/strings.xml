@@ -7,7 +7,22 @@
     <string name="QRCodeRecognitionActivity_label_name">QRcodeRecognition</string>
     <string name="CheakQRcodeActivity_label_name">CheakQRcode</string>
     <string name="PatientInfoDetailActivity_label_name">PatientInfoDetail</string>
-    
-    <!-- PatientInfoDetailActivity 関連-->
+
+
+    <!-- activity_main 01 関連-->
+
+    <!-- cheak_qrcode 02 関連-->
+
+    <!-- qrcode_recognition 03 関連-->
+
+    <!-- patient_registration 04 関連-->
+    <string name="text04_id">ID</string>
+    <string name="text04_hinttext"></string>
+
+
+    <!-- patient_list 05 関連-->
+
+    <!-- patient_info_detail 06 関連-->
+
 
 </resources>
