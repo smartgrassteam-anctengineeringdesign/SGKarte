@@ -16,13 +16,16 @@
 
     <!-- patient_registration 04 関連-->
     <string name="PatientRegistrationlActivity_label_name">患者登録</string>
-    <string name="text04_id">ID</string>
-    <string name="text04_hinttext"></string>
+
 
 
     <!-- patient_list 05 関連-->
 
     <string name="PatientListActivity_label_name">PatientList</string>
+
+    <string name="text05_title_id">ID</string>
+    <string name="text05_title_age">年齢</string>
+    <string name="text05_title_sex">性別</string>
 
 
     <!-- patient_info_detail 06 関連-->
