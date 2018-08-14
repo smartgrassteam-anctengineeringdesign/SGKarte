@@ -9,6 +9,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+// ToDo:年齢のedittextには整数しか入力できないようにする
+// ToDo:性別はテキスト入力ではなく、選択制にする
+// ToDo:IDの仕組みをしっかりする
 
 public class PatientRegistrationActivity extends AppCompatActivity {
 
@@ -57,7 +62,8 @@ public class PatientRegistrationActivity extends AppCompatActivity {
     View.OnClickListener button04ClearOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            // ToDo:クリアボタンを押下した時の処理を追加する
+            //初期値処理
+            init();
         }
     };
 
@@ -84,16 +90,16 @@ public class PatientRegistrationActivity extends AppCompatActivity {
 
 
     private void findViews() {
-        mEditText04Name = (EditText) findViewById(R.id.editText04Name);   // 品名
-        mEditText04Age = (EditText) findViewById(R.id.editText04Age);     // 産地
-        mEditText04Sex = (EditText) findViewById(R.id.editText04Sex);     // 個数
+        mEditText04Name = (EditText) findViewById(R.id.editText04Name);   // 氏名
+        mEditText04Age = (EditText) findViewById(R.id.editText04Age);     // 年齢
+        mEditText04Sex = (EditText) findViewById(R.id.editText04Sex);     // 性別
         mEditText04Affiliation = (EditText) findViewById(R.id.editText04Affiliation);       // 単価
         mEditText04Detail = (EditText) findViewById(R.id.editText04Detail);       // 単価
 
 
-        // mText04Kome01 = (TextView) findViewById(R.id.text04Kome01);             // 氏名の※印
-        // mText04Kome02 = (TextView) findViewById(R.id.text04Kome02);             // 年齢※印
-        // mText04Kome03 = (TextView) findViewById(R.id.text04Kome03);             // 性別の※印
+         mText04Kome01 = (TextView) findViewById(R.id.text04Kome01);             // 氏名の※印
+         mText04Kome02 = (TextView) findViewById(R.id.text04Kome02);             // 年齢※印
+         mText04Kome03 = (TextView) findViewById(R.id.text04Kome03);             // 性別の※印
 
         mButton04MovePatientList = (Button) findViewById(R.id.button04MovePatientList);           // 遷移
         mButton04PatientRegistration = (Button) findViewById(R.id.button04PatientRegistration);   // 登録
@@ -112,12 +118,52 @@ public class PatientRegistrationActivity extends AppCompatActivity {
 
 
 
-    // Todo: private void saveListから書き始める
+
     private void saveList() {
-        
+
+        // 各EditTextで入力されたテキストを取得
+        String strName = mEditText04Name.getText().toString();
+        String strAge = mEditText04Age.getText().toString();
+        String strSex = mEditText04Sex.getText().toString();
+        String strAffiliation = mEditText04Affiliation.getText().toString();
+        String strDetail = mEditText04Detail.getText().toString();
+
+        //EditTextが空白の場合
+        if (strName.equals("") || strAge.equals("") || strSex.equals("") ) {
+            if (strName.equals("")) {
+                mText04Kome01.setText("※");     // 氏名が空白の場合、※印を表示
+            } else {
+                mText04Kome01.setText("");      // 空白でない場合は※印を消す
+            }
+
+            if (strAge.equals("")) {
+                mText04Kome02.setText("※");     // 年齢が空白の場合、※印を表示
+            } else {
+                mText04Kome02.setText("");      // 空白でない場合は※印を消す
+            }
+
+            if (strSex.equals("")) {
+                mText04Kome03.setText("※");     // 性別が空白の場合、※印を表示
+            } else {
+                mText04Kome03.setText("");      // 空白でない場合は※印を消す
+            }
+
+
+            Toast.makeText(PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
+
+        } else {        // EditTextが全て入力されている場合
+
+            // 入力された単価と個数は文字列からint型へ変換
+            int iAge = Integer.parseInt(strAge);
+
+            // DBへの登録処理
+            DBAdapter dbAdapter = new DBAdapter(this);
+            dbAdapter.openDB();                                         // DBの読み書き
+            dbAdapter.saveDB(strName, iAge, strSex, strAffiliation,strDetail);   // DBに登録
+            dbAdapter.closeDB();                                        // DBを閉じる
+
+            init();     // 初期値設定
+
+        }
     }
-
-
-
-
 }
