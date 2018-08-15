@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DBAdapter {
 
@@ -91,6 +92,7 @@ public class DBAdapter {
             // 第2引数：更新する条件式
             // 第3引数：ContentValues
             db.insert(DB_TABLE, null, values);      // レコードへ登録
+            Log.d("log","insert " + values);
 
 
             db.setTransactionSuccessful();
@@ -210,11 +212,12 @@ public class DBAdapter {
             String createTbl = "CREATE TABLE " + DB_TABLE + " ("
                     + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COL_NAME + " TEXT NOT NULL,"
-                    + COL_AGE + " INTEGER NOT NULL,"
-                    + COL_SEX + "TEXT NOT NULL,"
-                    + COL_AFFILIATION + " TEXT NOT NULL,"
-                    + COL_DETAIL + " TEXT NOT NULL"
+                    + COL_AGE + " INTGER NOT NULL,"
+                    + COL_SEX + " TEXT NOT NULL,"
+                    + COL_AFFILIATION + " TEXT,"
+                    + COL_DETAIL + " TEXT"
                     + ");";
+            //Log.d("log","createtable");
 
             db.execSQL(createTbl);      //SQL文の実行
         }

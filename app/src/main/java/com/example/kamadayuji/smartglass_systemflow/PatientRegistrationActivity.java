@@ -159,7 +159,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
             // DBへの登録処理
             DBAdapter dbAdapter = new DBAdapter(this);
             dbAdapter.openDB();                                         // DBの読み書き
-            dbAdapter.saveDB(strName, iAge, strSex, strAffiliation,strDetail);   // DBに登録
+            dbAdapter.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
             dbAdapter.closeDB();                                        // DBを閉じる
 
             init();     // 初期値設定
