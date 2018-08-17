@@ -201,7 +201,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
             } while (c.moveToNext());
         }
 
-        mText04Id.setText(String.valueOf(getNumber));
+        mText04Id.setText(String.valueOf(getNumber++));
 
         c.close();
         dbAdapter.closeDB();
