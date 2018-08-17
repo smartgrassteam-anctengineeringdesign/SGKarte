@@ -1,7 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
+    <!-- 氏名 -->
+    <TextView
+        android:id="@+id/text06Name"
+        android:layout_width="608dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/text06TitleId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.49"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <!-- タイトル：ID -->
+    <TextView
+        android:id="@+id/text06TitleId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/text05_title_id"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text06Id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text06Name" />
+
+    <!-- データ表示用：ID -->
+    <TextView
+        android:id="@+id/text06Id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleId"
+        app:layout_constraintEnd_toStartOf="@+id/text06TitleAge"
+        app:layout_constraintStart_toEndOf="@+id/text06TitleId" />
+
+    <!-- タイトル：年齢 -->
+    <TextView
+        android:id="@+id/text06TitleAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:text="@string/text05_title_age"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text06Id"
+        app:layout_constraintEnd_toStartOf="@+id/text06TitleSex"
+        app:layout_constraintStart_toEndOf="@+id/text06Id" />
+
+    <!-- データ表示用：年齢 -->
+    <TextView
+        android:id="@+id/text06Age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        android:layout_marginStart="97dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleAge"
+        app:layout_constraintEnd_toEndOf="@+id/text06TitleSex"
+        app:layout_constraintStart_toStartOf="@+id/text06TitleAge" />
+
+    <!-- タイトル：性別 -->
+    <TextView
+        android:id="@+id/text06TitleSex"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text05_title_sex"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text06Age"
+        app:layout_constraintEnd_toStartOf="@+id/text06Sex"
+        app:layout_constraintStart_toEndOf="@+id/text06TitleAge" />
+
+    <!-- データ表示用：性別 -->
+    <TextView
+        android:id="@+id/text06Sex"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="31dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
+
+
