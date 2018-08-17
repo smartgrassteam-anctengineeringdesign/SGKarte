@@ -21,6 +21,7 @@ public class PatientListItem {
         this.name = name;
         this.age = age;
         this.sex = sex;
+        
     }
 
     /**
