@@ -3,7 +3,6 @@ package com.example.kamadayuji.smartglass_systemflow;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -15,7 +14,7 @@ public class DBAdapter {
     private final static int DB_VERSION = 1;
 
     /**
-     * DBのカラム名
+     * DBのカラム名 PatientList
      */
     public final static String COL_ID = "_id";
     public final static String COL_NAME = "name";

@@ -3,7 +3,7 @@
 
 
     <!-- activity01_main 01 関連-->
-    <string name="MainActivity_label_name">Home</string>
+    <string name="MainActivity_label_name">smartGlass_systemflow</string>
 
 
     <!-- cheak_qrcode 02 関連-->

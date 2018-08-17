@@ -2,8 +2,11 @@ package com.example.kamadayuji.smartglass_systemflow;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -15,7 +18,10 @@ import android.widget.Toast;
 // ToDo:性別はテキスト入力ではなく、選択制にする
 // ToDo:IDの仕組みをしっかりする
 
+
 public class PatientRegistrationActivity extends AppCompatActivity {
+
+    private TextView mText04Id;   //Id primaryautocrementの最大値(table patientListより自動生成)+1の値を入れる
 
     private EditText mEditText04Name;           // 氏名
     private EditText mEditText04Age;            // 年齢
@@ -77,6 +83,10 @@ public class PatientRegistrationActivity extends AppCompatActivity {
         //各部品の結びつけ
         findViews();
 
+        //最新Idの取得＆更新
+        displayId();
+
+
         //初期値設定
         init();
 
@@ -88,8 +98,10 @@ public class PatientRegistrationActivity extends AppCompatActivity {
     }
 
 
-
     private void findViews() {
+
+        mText04Id = (TextView) findViewById(R.id.edit04Id);     //Id autoincrement
+
         mEditText04Name = (EditText) findViewById(R.id.editText04Name);   // 氏名
         mEditText04Age = (EditText) findViewById(R.id.editText04Age);     // 年齢
         mEditText04Sex = (EditText) findViewById(R.id.editText04Sex);     // 性別
@@ -162,8 +174,36 @@ public class PatientRegistrationActivity extends AppCompatActivity {
             dbAdapter.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
             dbAdapter.closeDB();                                        // DBを閉じる
 
+            displayId();
             init();     // 初期値設定
 
         }
+    }
+
+    //Idの取得＆表示
+    //ToDo: 患者登録画面復帰時にも新規登録する患者のIDの表示の更新を行う
+    private void displayId() {
+
+        DBAdapterSqliteSequence dbAdapter = new DBAdapterSqliteSequence(this);
+        String[] columns = {"seq"};
+        String[] name ={"patientList"};
+        String column = "name";
+
+        int getNumber = 0;
+
+        dbAdapter.openDB();
+        Cursor c = dbAdapter.searchDB(columns,column,name);
+
+        if (c.moveToFirst()) {
+            do {
+                getNumber = c.getInt(0);    //c.getInt(0);についてはif文の外でやるとエラーになる
+                Log.d("取得したCursor(ID):", String.valueOf(getNumber));
+            } while (c.moveToNext());
+        }
+
+        mText04Id.setText(String.valueOf(getNumber));
+
+        c.close();
+        dbAdapter.closeDB();
     }
 }

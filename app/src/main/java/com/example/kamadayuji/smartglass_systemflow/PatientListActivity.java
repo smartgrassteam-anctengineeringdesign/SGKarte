@@ -18,6 +18,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//ToDo : 患者一覧閲覧時、一度読み込んだ患者情報について、二度読み込むような動きをするため動作が遅い。改善したい。
 public class PatientListActivity extends AppCompatActivity {
 
     private DBAdapter dbAdapter;
@@ -218,13 +220,13 @@ public class PatientListActivity extends AppCompatActivity {
 
             // 取得した各データを各TextViewにセット
             holder.text05Name.setText(patientListItem.getName());
-            Log.d("ok","getName");
+            //Log.d("ok","getName");
             holder.text05Id.setText(String.valueOf(patientListItem.getId()));
-            Log.d("ok","getid");
+            //Log.d("ok","getid");
             holder.text05Age.setText(String.valueOf(patientListItem.getAge()));
-            Log.d("ok","getage");
+            //Log.d("ok","getage");
             holder.text05Sex.setText(patientListItem.getSex());
-            Log.d("ok","getsex");
+            //Log.d("ok","getsex");
 
             return view;
 
