@@ -181,7 +181,6 @@ public class PatientRegistrationActivity extends AppCompatActivity {
     }
 
     //Idの取得＆表示
-    //ToDo: 患者登録画面復帰時にも新規登録する患者のIDの表示の更新を行う
     private void displayId() {
 
         DBAdapterSqliteSequence dbAdapter = new DBAdapterSqliteSequence(this);
@@ -197,11 +196,11 @@ public class PatientRegistrationActivity extends AppCompatActivity {
         if (c.moveToFirst()) {
             do {
                 getNumber = c.getInt(0);    //c.getInt(0);についてはif文の外でやるとエラーになる
-                Log.d("取得したCursor(ID):", String.valueOf(getNumber));
+                Log.d("取得したIDの最大値", String.valueOf(getNumber));
             } while (c.moveToNext());
         }
 
-        mText04Id.setText(String.valueOf(getNumber++));
+        mText04Id.setText(String.valueOf(++getNumber));
 
         c.close();
         dbAdapter.closeDB();
