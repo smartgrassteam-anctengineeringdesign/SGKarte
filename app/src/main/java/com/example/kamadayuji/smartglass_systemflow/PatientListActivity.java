@@ -2,6 +2,7 @@ package com.example.kamadayuji.smartglass_systemflow;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -50,7 +51,7 @@ public class PatientListActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
 
                     //IDを取得する
-                    patientListItem = items.get(position);
+                    patientListItem =items.get(position);
                     int patientListId = patientListItem.getId();
 
                     dbAdapter.openDB();     //DBの読み込み(読み書きの方)
@@ -72,10 +73,31 @@ public class PatientListActivity extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
 
-            return false;
+            //trueの場合、長押し後onClickは発生しない
+            return true;
 
         }
     };
+
+    //タップで患者詳細情報画面へ
+    AdapterView.OnItemClickListener mListView05OnItemOnClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+
+            //IDを取得する
+            patientListItem = items.get(position);
+            final int patientListId = patientListItem.getId();
+
+            Intent intent = new Intent(getApplication(), PatientInfoDetailActivity.class);
+
+            //取得したidをintentに入れる
+            intent = intent.putExtra("KEYID", patientListId);
+            Log.d("KEYID",String.valueOf(patientListId));
+
+            startActivity(intent);
+        }
+    };
+
 
 
     @Override
@@ -99,6 +121,7 @@ public class PatientListActivity extends AppCompatActivity {
         loadPatinentList(); //DBを読み込む&更新する処理
 
         //リスナ登録
+        mListView05.setOnItemClickListener(mListView05OnItemOnClickListener);
         mListView05.setOnItemLongClickListener(mListView05OnItemLongClickListener);
     }
 
