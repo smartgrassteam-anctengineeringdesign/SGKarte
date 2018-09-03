@@ -4,9 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="Base">#dbf3ff</color>
-    <color name="Mane">#2ba7e0</color>
-    <color name="ManeDark">#2b98e0</color>
-    
+    <color name="Main">#2ba7e0</color>
+    <color name="MainDark">#2b7fe0</color>
     <color name="Accent">#e25c33</color>
     <color name="Black">#232323</color>
 </resources>

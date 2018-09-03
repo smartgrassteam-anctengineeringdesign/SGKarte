@@ -10,13 +10,13 @@
 
     <style name="My_Theme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/Mane</item>
-        <item name="colorPrimaryDark">@color/ManeDark</item>
+        <item name="colorPrimary">@color/Main</item>
+        <item name="colorPrimaryDark">@color/MainDark</item>
         <item name="colorAccent">@color/Accent</item>
         <item name="android:colorForeground">@color/Black</item>
         <item name="android:navigationBarColor">@color/Black</item>
         <item name="android:colorBackground">@color/Base</item>
-        <item name="android:statusBarColor">@color/ManeDark</item>
+        <item name="android:statusBarColor">@color/MainDark</item>
     </style>
 
     <style name="myTheme" parent="android:Theme.Material.Light.NoActionBar" />

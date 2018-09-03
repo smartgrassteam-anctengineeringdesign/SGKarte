@@ -112,7 +112,7 @@
     <EditText
         android:id="@+id/editText04Affiliation"
         android:layout_width="239dp"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Affiliation"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -179,6 +179,7 @@
         android:layout_width="303dp"
         android:layout_height="43dp"
         android:background="@color/Base"
+        android:backgroundTint="@color/Main"
         android:text="患者一覧"
         app:layout_constraintBottom_toTopOf="@+id/button04PatientRegistration"
         app:layout_constraintEnd_toEndOf="parent"
@@ -198,15 +199,15 @@
 
     <Button
         android:id="@+id/button04Clear"
-        android:layout_width="77dp"
-        android:layout_height="wrap_content"
-        android:background="@color/Base"
-        android:elevation="0dp"
+        android:layout_width="88dp"
+        android:layout_height="40dp"
+        android:background="@drawable/activity04_button_background"
         android:text="クリア"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button04PatientRegistration"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/button04PatientRegistration" />
+        app:layout_constraintTop_toBottomOf="@+id/button04MovePatientList" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline6"
