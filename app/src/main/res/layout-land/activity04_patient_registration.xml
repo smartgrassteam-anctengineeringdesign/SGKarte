@@ -165,7 +165,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="@color/Accent"
-        android:stateListAnimator="@mipmap/ic_launcher"
         android:text="登録"
         android:textColor="@color/Black"
         app:layout_constraintBottom_toBottomOf="parent"
