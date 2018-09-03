@@ -25,6 +25,8 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="yugo" />
+        android:text="yugo"
+        android:background=""
+        />
 
 </LinearLayout>
