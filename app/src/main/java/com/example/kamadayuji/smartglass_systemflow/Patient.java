@@ -1,11 +1,9 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
-
 import android.util.Log;
-
 import java.io.Serializable;
 
-public class Patient implements Serializable{
+public class Patient implements Serializable {
     protected int id;
     protected String name;
     protected int age;
@@ -24,7 +22,7 @@ public class Patient implements Serializable{
      * @param detail String 詳細
      */
 
-    public Patient(int id, String name, int age, String sex,String affiliation,String detail) {
+    public Patient(int id, String name, int age, String sex, String affiliation, String detail) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -32,6 +30,7 @@ public class Patient implements Serializable{
         this.affiliation = affiliation;
         this.detail = detail;
     }
+
     /**
      * IDを取得
      * getId()
