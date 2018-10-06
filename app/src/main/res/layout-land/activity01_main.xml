@@ -9,42 +9,49 @@
 
     <Button
         android:id="@+id/button01MoveQRcode"
-        android:layout_width="274dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:text="QRコード読取り"
+        android:background="@drawable/activity01_button_background_1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/button01MovePatientRegistration"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@+id/button01MovePatientList"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.364" />
 
     <Button
         android:id="@+id/button01MovePatientList"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:text="患者一覧"
+        android:background="@drawable/activity01_button_background_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button01MoveQRcode"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.364" />
 
     <Button
         android:id="@+id/button01MovePatientRegistration"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:text="患者登録"
+        android:background="@drawable/activity01_button_background_1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button01MoveQRcode"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button01MoveQRcode"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
+        app:layout_constraintVertical_bias="0.364" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
