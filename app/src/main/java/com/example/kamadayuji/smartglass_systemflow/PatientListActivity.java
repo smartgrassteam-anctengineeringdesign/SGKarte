@@ -2,6 +2,7 @@ package com.example.kamadayuji.smartglass_systemflow;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +32,20 @@ public class PatientListActivity extends AppCompatActivity {
 
     //参照するDBのカラム：ID,氏名,年齢,性別
     private String[] columns = {"_id","name","age","sex"};
+    //参照DBカラム：所属,詳細
+    private String[] columnsGetDetail = {"affiliation","detail"};
 
+    //Patient Listを作成
+    private List<Patient> patientItems;
+    protected Patient patient;
 
+    //選択した患者のみ、所属と詳細を取得する
+    private String patientAffiliation;
+    private String patientDetail;
 
     //リスナ設定
     //リストビューの中身長押しした時の処理
+    //ToDo:長押しした時は、「編集」、「削除」、「詳細な患者情報」等ボタンが出てくるようにしてそれぞれの処理をさせる
     AdapterView.OnItemLongClickListener mListView05OnItemLongClickListener = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -50,7 +61,7 @@ public class PatientListActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
 
                     //IDを取得する
-                    patientListItem = items.get(position);
+                    patientListItem =items.get(position);
                     int patientListId = patientListItem.getId();
 
                     dbAdapter.openDB();     //DBの読み込み(読み書きの方)
@@ -72,10 +83,48 @@ public class PatientListActivity extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
 
-            return false;
+            //trueの場合、長押し後onClickは発生しない
+            return true;
 
         }
     };
+
+    //タップで患者詳細情報画面へ
+    AdapterView.OnItemClickListener mListView05OnItemOnClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+
+            //IDを取得する
+            patientListItem = items.get(position);
+
+            final int patientListId = patientListItem.getId();
+
+            //所属、詳細を取得
+            loadPatientDetailInfo(patientListId);
+
+
+            //患者情報を格納するリストを生成
+            patientItems = new ArrayList<>();
+
+            //patientを生成
+            patient = new Patient(
+                    patientListId,
+                    patientListItem.getName(),
+                    patientListItem.getAge(),
+                    patientListItem.getSex(),
+                    patientAffiliation,
+                    patientDetail);
+
+            patientItems.add(patient);
+
+            Intent intent = new Intent(getApplication(), PatientInfoDetailActivity.class);
+
+            //患者情報をintentに入れる
+            intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
+            startActivity(intent);
+        }
+    };
+
 
 
     @Override
@@ -99,6 +148,7 @@ public class PatientListActivity extends AppCompatActivity {
         loadPatinentList(); //DBを読み込む&更新する処理
 
         //リスナ登録
+        mListView05.setOnItemClickListener(mListView05OnItemOnClickListener);
         mListView05.setOnItemLongClickListener(mListView05OnItemLongClickListener);
     }
 
@@ -231,5 +281,32 @@ public class PatientListActivity extends AppCompatActivity {
             return view;
 
         }
+    }
+
+    /**
+     * 選択された患者の所属、詳細をDBから取得する
+     * loadPatientDetailInfo
+     */
+
+    private void loadPatientDetailInfo(int id){
+
+        dbAdapter.openDB();
+
+        String column = "_id";
+        String[] selectionArgs = {String.valueOf(id)};
+
+        Cursor c = dbAdapter.searchDB(columnsGetDetail,column, selectionArgs);
+
+        if(c.moveToFirst()) {
+            do{
+                patientAffiliation = c.getString(0);
+                patientDetail = c.getString(1);
+            } while (c.moveToNext());
+        }
+        Log.d("がんばって取得した所属",patientAffiliation);
+        Log.d("がんばたて取得した詳細",patientDetail);
+
+        c.close();
+        dbAdapter.closeDB();
     }
 }
