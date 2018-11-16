@@ -31,11 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="24dp"
         android:text="体温"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/ListView07BodyTemp"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/ListView07BodyTemp" />
 
     <Button
         android:id="@+id/button07MoveBloodPressReg"
@@ -52,11 +52,11 @@
     <TextView
         android:id="@+id/text07BloodPressure"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginStart="24dp"
         android:text="血圧"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/listView07BloodPressure"
         app:layout_constraintStart_toEndOf="@+id/ListView07BodyTemp" />
 
@@ -66,7 +66,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/listView07BloodPressure"
         app:layout_constraintHorizontal_bias="0.39"
@@ -87,5 +87,105 @@
         app:layout_constraintStart_toStartOf="@+id/ListView07BodyTemp"
         app:layout_constraintTop_toBottomOf="@+id/ListView07BodyTemp"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/text08-2TitleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        app:layout_constraintStart_toStartOf="@+id/text08-2Name"
+        app:layout_constraintTop_toBottomOf="@+id/text08-2Name" />
+
+    <TextView
+        android:id="@+id/text08-2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yuji Kamada"
+        app:layout_constraintStart_toStartOf="@+id/ListView07BodyTemp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text08-2TitleAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="年齢"
+        app:layout_constraintStart_toEndOf="@+id/text08-2ID2"
+        app:layout_constraintTop_toBottomOf="@+id/text08-2Name" />
+
+    <TextView
+        android:id="@+id/text08-2ID2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/text08-2TitleId"
+        app:layout_constraintTop_toBottomOf="@+id/text08-2Name" />
+
+    <TextView
+        android:id="@+id/text08-2Age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="22"
+        app:layout_constraintStart_toEndOf="@+id/text08-2TitleAge"
+        app:layout_constraintTop_toTopOf="@+id/text08-2TitleAge" />
+
+    <TextView
+        android:id="@+id/text08-2TitleSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="性別"
+        app:layout_constraintStart_toEndOf="@+id/text08-2Age"
+        app:layout_constraintTop_toTopOf="@+id/text08-2Age" />
+
+    <TextView
+        android:id="@+id/text08-2Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="男"
+        app:layout_constraintStart_toEndOf="@+id/text08-2TitleSex"
+        app:layout_constraintTop_toTopOf="@+id/text08-2TitleSex" />
+
+    <TextView
+        android:id="@+id/text08-2TitleAffiliation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="所属"
+        app:layout_constraintStart_toEndOf="@+id/text08-2Sex"
+        app:layout_constraintTop_toTopOf="@+id/text08-2Sex" />
+
+    <TextView
+        android:id="@+id/text08-2Affiliation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="旭川高専"
+        app:layout_constraintStart_toEndOf="@+id/text08-2TitleAffiliation"
+        app:layout_constraintTop_toTopOf="@+id/text08-2TitleAffiliation" />
+
+    <TextView
+        android:id="@+id/text08-2TitleDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="詳細"
+        app:layout_constraintStart_toEndOf="@+id/text08-2Affiliation"
+        app:layout_constraintTop_toTopOf="@+id/text08-2Affiliation" />
+
+    <TextView
+        android:id="@+id/text08-2Detail"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:text="若年高血圧で少し困っている"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/listView07BloodPressure"
+        app:layout_constraintStart_toEndOf="@+id/text08-2TitleDetail"
+        app:layout_constraintTop_toTopOf="@+id/text08-2TitleDetail" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text08DiastolicPress"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:text="最低血圧"
+        tools:layout_editor_absoluteX="183dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <TextView
+        android:id="@+id/text08Pulse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="脈拍"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="188dp" />
+
+    <TextView
+        android:id="@+id/text08SystolicPress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="最高血圧"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <TextView
+        android:id="@+id/text08Date2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="日時"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <TextView
+        android:id="@+id/text08Id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/text08IdNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="001"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/edit08DateAndTime"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="YYYY/MM/DD HH:MM"
+        android:inputType="date|time"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="53dp" />
+
+    <EditText
+        android:id="@+id/edit08DiastolicPress"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="最低血圧"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <EditText
+        android:id="@+id/edit08Pulse"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="脈拍"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="173dp" />
+
+    <EditText
+        android:id="@+id/edit08SystolicPress"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="最高血圧"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+</android.support.constraint.ConstraintLayout>
