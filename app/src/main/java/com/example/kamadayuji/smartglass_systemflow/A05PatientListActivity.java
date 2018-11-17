@@ -24,7 +24,7 @@ import java.util.List;
 //ToDo : 患者一覧閲覧時、一度読み込んだ患者情報について、二度読み込むような動きをするため動作が遅い。改善したい。
 public class A05PatientListActivity extends AppCompatActivity {
 
-    private DBAdapter dbAdapter;
+    private DBAdapterPatientList dbAdapterPatientList;
     private MyBaseAdapter myBaseAdapter;
     private List<PatientListItem> items;
     private ListView mListView05;
@@ -64,10 +64,10 @@ public class A05PatientListActivity extends AppCompatActivity {
                     patientListItem =items.get(position);
                     int patientListId = patientListItem.getId();
 
-                    dbAdapter.openDB();     //DBの読み込み(読み書きの方)
-                    dbAdapter.selectDelete(String.valueOf(patientListId));
+                    dbAdapterPatientList.openDB();     //DBの読み込み(読み書きの方)
+                    dbAdapterPatientList.selectDelete(String.valueOf(patientListId));
                     Log.d("Long click : ", String.valueOf(patientListId));
-                    dbAdapter.closeDB();
+                    dbAdapterPatientList.closeDB();
                     loadPatinentList();
                 }
             });
@@ -133,7 +133,7 @@ public class A05PatientListActivity extends AppCompatActivity {
         setContentView(R.layout.activity05_patient_list);
 
         //DBAdapterのコンストラクタを呼び出し
-        dbAdapter = new DBAdapter(this);
+        dbAdapterPatientList = new DBAdapterPatientList(this);
 
 
         //itemsのArrayList生成
@@ -163,10 +163,10 @@ public class A05PatientListActivity extends AppCompatActivity {
         //ArrayAdapterに対してListViewのリスト(items)の更新
         items.clear();
 
-        dbAdapter.openDB();     //DBの読み込み
+        dbAdapterPatientList.openDB();     //DBの読み込み
 
         //DBのデータの取得
-        Cursor c = dbAdapter.getDB(columns);
+        Cursor c = dbAdapterPatientList.getDB(columns);
 
         if (c.moveToFirst()) {
             do {
@@ -187,7 +187,7 @@ public class A05PatientListActivity extends AppCompatActivity {
             } while (c.moveToNext());
         }
         c.close();
-        dbAdapter.closeDB();                    // DBを閉じる
+        dbAdapterPatientList.closeDB();                    // DBを閉じる
         mListView05.setAdapter(myBaseAdapter);  // ListViewにmyBaseAdapterをセット
         myBaseAdapter.notifyDataSetChanged();   // Viewの更新
     }
@@ -290,12 +290,12 @@ public class A05PatientListActivity extends AppCompatActivity {
 
     private void loadPatientDetailInfo(int id){
 
-        dbAdapter.openDB();
+        dbAdapterPatientList.openDB();
 
         String column = "_id";
         String[] selectionArgs = {String.valueOf(id)};
 
-        Cursor c = dbAdapter.searchDB(columnsGetDetail,column, selectionArgs);
+        Cursor c = dbAdapterPatientList.searchDB(columnsGetDetail,column, selectionArgs);
 
         if(c.moveToFirst()) {
             do{
@@ -307,6 +307,6 @@ public class A05PatientListActivity extends AppCompatActivity {
         //Log.d("がんばたて取得した詳細",patientDetail);
 
         c.close();
-        dbAdapter.closeDB();
+        dbAdapterPatientList.closeDB();
     }
 }

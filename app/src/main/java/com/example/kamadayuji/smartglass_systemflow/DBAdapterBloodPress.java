@@ -7,28 +7,28 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBAdapter {
+public class DBAdapterBloodPress {
 
     private final static String DB_NAME = "medicalDataAutoReadSystem.db";
-    private final static String DB_TABLE = "patientList";
+    private final static String DB_TABLE = "patientBP_";
     private final static int DB_VERSION = 1;
 
     /**
-     * DBのカラム名 PatientList
+     * DBのカラム名 patientBP_(患者ID)
      */
     public final static String COL_ID = "_id";
-    public final static String COL_NAME = "name";
-    public final static String COL_AGE = "age";
-    public final static String COL_SEX = "sex";
-    public final static String COL_AFFILIATION = "affiliation";
-    public final static String COL_DETAIL = "detail";
+    public final static String COL_DATE = "date";       //UnixTime
+    public final static String COL_SBP = "sbp";         //最高血圧
+    public final static String COL_DBP = "dbp";         //最低血圧
+    public final static String COL_PR = "pr";           //pulse rate
+    public final static String COL_DETAIL = "detail";   //備考
 
     private SQLiteDatabase db = null;
     private DBHelper dbHelper = null;
     protected Context context;
 
     //コンストラクタ
-    public DBAdapter(Context context) {
+    public DBAdapterBloodPress(Context context) {
         this.context = context;
         dbHelper = new DBHelper(this.context);
     }
@@ -38,7 +38,7 @@ public class DBAdapter {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapter openDB() {
+    public DBAdapterBloodPress openDB() {
         db = dbHelper.getWritableDatabase(); //DB読み書き
         return this;
     }
@@ -49,7 +49,7 @@ public class DBAdapter {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapter readDB() {
+    public DBAdapterBloodPress readDB() {
         db = dbHelper.getReadableDatabase();        // DBの読み込み
         return this;
     }
@@ -68,22 +68,22 @@ public class DBAdapter {
      * DBのレコードへ登録
      * saveDB()
      *
-     * @param name        氏名
-     * @param age         年齢
-     * @param sex         性別
-     * @param affiliation 所属
+     * @param date        日時
+     * @param sbp         最高血圧
+     * @param dbp         最低血圧
+     * @param pr          脈拍数
      * @param detail      詳細
      */
 
-    public void saveDB(String name, int age, String sex, String affiliation, String detail) {
+    public void saveDB(String date, int sbp, String dbp, String pr, String detail) {
         db.beginTransaction();
 
         try {
             ContentValues values = new ContentValues();  // ContentValuesでデータを設定していく
-            values.put(COL_NAME, name);
-            values.put(COL_AGE, age);
-            values.put(COL_SEX, sex);
-            values.put(COL_AFFILIATION, affiliation);
+            values.put(COL_DATE, date);
+            values.put(COL_SBP, sbp);
+            values.put(COL_DBP, dbp);
+            values.put(COL_PR, pr);
             values.put(COL_DETAIL, detail);
 
             // insertメソッド データ登録
@@ -210,10 +210,10 @@ public class DBAdapter {
             //テーブルを作成するSQL文の定義 ※スペースに気を付ける
             String createTbl = "CREATE TABLE " + DB_TABLE + " ("
                     + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + COL_NAME + " TEXT NOT NULL,"
-                    + COL_AGE + " INTGER NOT NULL,"
-                    + COL_SEX + " TEXT NOT NULL,"
-                    + COL_AFFILIATION + " TEXT,"
+                    + COL_DATE + " INTEGER NOT NULL,"
+                    + COL_SBP + " INTEGER NOT NULL,"
+                    + COL_DBP + " INTEGER NOT NULL,"
+                    + COL_PR + " INTEGER NOT NULL,"
                     + COL_DETAIL + " TEXT"
                     + ");";
             //Log.d("log","createtable");

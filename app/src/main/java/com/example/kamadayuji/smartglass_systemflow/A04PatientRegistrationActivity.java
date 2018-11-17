@@ -168,10 +168,10 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
             int iAge = Integer.parseInt(strAge);
 
             // DBへの登録処理
-            DBAdapter dbAdapter = new DBAdapter(this);
-            dbAdapter.openDB();                                         // DBの読み書き
-            dbAdapter.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
-            dbAdapter.closeDB();                                        // DBを閉じる
+            DBAdapterPatientList dbAdapterPatientList = new DBAdapterPatientList(this);
+            dbAdapterPatientList.openDB();                                         // DBの読み書き
+            dbAdapterPatientList.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
+            dbAdapterPatientList.closeDB();                                        // DBを閉じる
 
             displayId();
             init();     // 初期値設定

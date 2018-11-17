@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -34,34 +35,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="日時"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="68dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08DateAndTime"
+        app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/text08Id2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ID"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <TextView
         android:id="@+id/text08IdNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:text="001"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toEndOf="@+id/text08Id2"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <EditText
         android:id="@+id/edit08DateAndTime"
-        android:layout_width="210dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="YYYY/MM/DD HH:MM"
         android:inputType="date|time"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="53dp" />
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <EditText
         android:id="@+id/edit08DiastolicPress"
@@ -92,5 +94,33 @@
         android:inputType="number"
         tools:layout_editor_absoluteX="81dp"
         tools:layout_editor_absoluteY="114dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.054054055" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.13006757" />
 
 </android.support.constraint.ConstraintLayout>

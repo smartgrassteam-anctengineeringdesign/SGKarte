@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/** AutoIncrementに関するDBである"sqlite_sequenc"から情報を取得するためのアダプター **/
+
 public class DBAdapterSqliteSequence {
 
     private final static String DB_NAME = "medicalDataAutoReadSystem.db";
