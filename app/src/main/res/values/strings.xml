@@ -36,6 +36,10 @@
     <!-- patient_info_detail 06 関連-->
     <string name="PatientInfoDetailActivity_label_name">PatientInfoDetail</string>
 
+    <!-- patient_inspection_result 07 関連-->
+    <string name="PatientInspectionResultActivity">患者検査結果</string>
+
+
 
 
 </resources>

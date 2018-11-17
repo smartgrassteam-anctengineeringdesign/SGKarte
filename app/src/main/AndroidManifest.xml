@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/My_Theme">
         <activity
-            android:name=".MainActivity"
+            android:name=".A01MainActivity"
             android:label="@string/MainActivity_label_name"
             android:screenOrientation="landscape"
             android:theme="@style/My_Theme">
@@ -20,28 +20,33 @@
             </intent-filter>
         </activity>
         <activity
-        android:name=".PatientListActivity"
+        android:name=".A05PatientListActivity"
         android:label="@string/PatientListActivity_label_name"
         android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".QRCodeRecognitionActivity"
+            android:name=".A03QRCodeRecognitionActivity"
             android:label="@string/QRCodeRecognitionActivity_label_name"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".CheakQRcodeActivity"
+            android:name=".A02CheakQRcodeActivity"
             android:label="@string/CheakQRcodeActivity_label_name"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-        android:name=".PatientInfoDetailActivity"
+        android:name=".A06PatientInfoDetailActivity"
         android:label="@string/PatientInfoDetailActivity_label_name"
         android:screenOrientation="landscape" >
     </activity>
         <activity
-            android:name=".PatientRegistrationActivity"
-            android:label="@string/PatientRegistrationlActivity_label_name"
+        android:name=".A04PatientRegistrationActivity"
+        android:label="@string/PatientRegistrationlActivity_label_name"
+        android:screenOrientation="landscape" >
+    </activity>
+        <activity
+            android:name=".A07PatientInspectionResultActivity"
+            android:label="@string/PatientInspectionResultActivity"
             android:screenOrientation="landscape" >
         </activity>
     </application>

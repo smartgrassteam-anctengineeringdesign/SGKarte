@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientInfoDetailActivity extends AppCompatActivity {
+public class A06PatientInfoDetailActivity extends AppCompatActivity {
 
     private static String KEYWORD_PATIENT = "KEY_PATIENT";
     private List<Patient> patientItems;
@@ -37,6 +38,17 @@ public class PatientInfoDetailActivity extends AppCompatActivity {
     private ListView mListView06;
 //    protected PatientInsReListItem patientInsReListItem;
 
+
+    //リスナ登録
+    View.OnClickListener button06MoveDetailInsReOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplication(), A07PatientInspectionResultActivity.class);
+            intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
+            startActivity(intent);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +62,6 @@ public class PatientInfoDetailActivity extends AppCompatActivity {
 
         //取得した患者情報をset
         setPatientInfo();
-
     }
 
     private void findViews() {
@@ -65,6 +76,9 @@ public class PatientInfoDetailActivity extends AppCompatActivity {
         mButton06MoveDetailInsRe = (Button) findViewById(R.id.button06MoveDetailtInsRe);
 
         mListView06 = (ListView) findViewById(R.id.listView06);
+
+        //リスナ登録
+        mButton06MoveDetailInsRe.setOnClickListener(button06MoveDetailInsReOnClickListener);
     }
 
     private void getSelectedPatientId(){

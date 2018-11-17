@@ -22,7 +22,7 @@ import java.util.List;
 
 
 //ToDo : 患者一覧閲覧時、一度読み込んだ患者情報について、二度読み込むような動きをするため動作が遅い。改善したい。
-public class PatientListActivity extends AppCompatActivity {
+public class A05PatientListActivity extends AppCompatActivity {
 
     private DBAdapter dbAdapter;
     private MyBaseAdapter myBaseAdapter;
@@ -51,7 +51,7 @@ public class PatientListActivity extends AppCompatActivity {
         public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
             //アラートダイアログ表示
-            AlertDialog.Builder builder = new AlertDialog.Builder(PatientListActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(A05PatientListActivity.this);
             builder.setTitle("削除");
             builder.setMessage("削除しますか？");
 
@@ -117,7 +117,7 @@ public class PatientListActivity extends AppCompatActivity {
 
             patientItems.add(patient);
 
-            Intent intent = new Intent(getApplication(), PatientInfoDetailActivity.class);
+            Intent intent = new Intent(getApplication(), A06PatientInfoDetailActivity.class);
 
             //患者情報をintentに入れる
             intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
@@ -303,8 +303,8 @@ public class PatientListActivity extends AppCompatActivity {
                 patientDetail = c.getString(1);
             } while (c.moveToNext());
         }
-        Log.d("がんばって取得した所属",patientAffiliation);
-        Log.d("がんばたて取得した詳細",patientDetail);
+        //Log.d("がんばって取得した所属",patientAffiliation);
+        //Log.d("がんばたて取得した詳細",patientDetail);
 
         c.close();
         dbAdapter.closeDB();

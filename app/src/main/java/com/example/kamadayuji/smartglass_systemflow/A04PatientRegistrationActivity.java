@@ -3,7 +3,6 @@ package com.example.kamadayuji.smartglass_systemflow;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,7 +18,7 @@ import android.widget.Toast;
 // ToDo:IDの仕組みをしっかりする
 
 
-public class PatientRegistrationActivity extends AppCompatActivity {
+public class A04PatientRegistrationActivity extends AppCompatActivity {
 
     private TextView mText04Id;   //Id primaryautocrementの最大値(table patientListより自動生成)+1の値を入れる
 
@@ -45,7 +44,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
     View.OnClickListener button04MovePatientListOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplication(), PatientListActivity.class);
+            Intent intent = new Intent(getApplication(), A05PatientListActivity.class);
             startActivity(intent);
         }
     };
@@ -161,7 +160,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
             }
 
 
-            Toast.makeText(PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
+            Toast.makeText(A04PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
 
         } else {        // EditTextが全て入力されている場合
 

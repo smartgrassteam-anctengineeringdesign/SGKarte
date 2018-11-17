@@ -23,8 +23,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ListView07BodyTemp"
-        app:layout_constraintTop_toTopOf="@+id/ListView07BodyTemp" />
+        app:layout_constraintStart_toEndOf="@+id/listView07BodyTemp"
+        app:layout_constraintTop_toTopOf="@+id/listView07BodyTemp" />
 
     <TextView
         android:id="@+id/text07BodyTemp"
@@ -34,8 +34,8 @@
         android:layout_marginStart="24dp"
         android:text="体温"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/ListView07BodyTemp"
-        app:layout_constraintStart_toStartOf="@+id/ListView07BodyTemp" />
+        app:layout_constraintBottom_toTopOf="@+id/listView07BodyTemp"
+        app:layout_constraintStart_toStartOf="@+id/listView07BodyTemp" />
 
     <Button
         android:id="@+id/button07MoveBloodPressReg"
@@ -46,7 +46,7 @@
         android:text="血圧新規登録"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ListView07BodyTemp"
+        app:layout_constraintStart_toEndOf="@+id/listView07BodyTemp"
         app:layout_constraintTop_toBottomOf="@+id/listView07BloodPressure" />
 
     <TextView
@@ -58,10 +58,10 @@
         android:text="血圧"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/listView07BloodPressure"
-        app:layout_constraintStart_toEndOf="@+id/ListView07BodyTemp" />
+        app:layout_constraintStart_toEndOf="@+id/listView07BodyTemp" />
 
     <ListView
-        android:id="@+id/ListView07BodyTemp"
+        android:id="@+id/listView07BodyTemp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
@@ -82,102 +82,102 @@
         android:layout_marginStart="8dp"
         android:text="体温新規登録"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/ListView07BodyTemp"
+        app:layout_constraintEnd_toEndOf="@+id/listView07BodyTemp"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/ListView07BodyTemp"
-        app:layout_constraintTop_toBottomOf="@+id/ListView07BodyTemp"
+        app:layout_constraintStart_toStartOf="@+id/listView07BodyTemp"
+        app:layout_constraintTop_toBottomOf="@+id/listView07BodyTemp"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/text08-2TitleId"
+        android:id="@+id/text07TitleId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ID"
-        app:layout_constraintStart_toStartOf="@+id/text08-2Name"
-        app:layout_constraintTop_toBottomOf="@+id/text08-2Name" />
+        app:layout_constraintStart_toStartOf="@+id/text07Name"
+        app:layout_constraintTop_toBottomOf="@+id/text07Name" />
 
     <TextView
-        android:id="@+id/text08-2Name"
+        android:id="@+id/text07Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yuji Kamada"
-        app:layout_constraintStart_toStartOf="@+id/ListView07BodyTemp"
+        app:layout_constraintStart_toStartOf="@+id/listView07BodyTemp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text08-2TitleAge"
+        android:id="@+id/text07TitleAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="年齢"
-        app:layout_constraintStart_toEndOf="@+id/text08-2ID2"
-        app:layout_constraintTop_toBottomOf="@+id/text08-2Name" />
+        app:layout_constraintStart_toEndOf="@+id/text07Id"
+        app:layout_constraintTop_toBottomOf="@+id/text07Name" />
 
     <TextView
-        android:id="@+id/text08-2ID2"
+        android:id="@+id/text07Id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="1"
-        app:layout_constraintStart_toEndOf="@+id/text08-2TitleId"
-        app:layout_constraintTop_toBottomOf="@+id/text08-2Name" />
+        app:layout_constraintStart_toEndOf="@+id/text07TitleId"
+        app:layout_constraintTop_toBottomOf="@+id/text07Name" />
 
     <TextView
-        android:id="@+id/text08-2Age"
+        android:id="@+id/text07Age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="22"
-        app:layout_constraintStart_toEndOf="@+id/text08-2TitleAge"
-        app:layout_constraintTop_toTopOf="@+id/text08-2TitleAge" />
+        app:layout_constraintStart_toEndOf="@+id/text07TitleAge"
+        app:layout_constraintTop_toTopOf="@+id/text07TitleAge" />
 
     <TextView
-        android:id="@+id/text08-2TitleSex"
+        android:id="@+id/text07TitleSex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="性別"
-        app:layout_constraintStart_toEndOf="@+id/text08-2Age"
-        app:layout_constraintTop_toTopOf="@+id/text08-2Age" />
+        app:layout_constraintStart_toEndOf="@+id/text07Age"
+        app:layout_constraintTop_toTopOf="@+id/text07Age" />
 
     <TextView
-        android:id="@+id/text08-2Sex"
+        android:id="@+id/text07Sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="男"
-        app:layout_constraintStart_toEndOf="@+id/text08-2TitleSex"
-        app:layout_constraintTop_toTopOf="@+id/text08-2TitleSex" />
+        app:layout_constraintStart_toEndOf="@+id/text07TitleSex"
+        app:layout_constraintTop_toTopOf="@+id/text07TitleSex" />
 
     <TextView
-        android:id="@+id/text08-2TitleAffiliation"
+        android:id="@+id/text07TitleAffiliation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="所属"
-        app:layout_constraintStart_toEndOf="@+id/text08-2Sex"
-        app:layout_constraintTop_toTopOf="@+id/text08-2Sex" />
+        app:layout_constraintStart_toEndOf="@+id/text07Sex"
+        app:layout_constraintTop_toTopOf="@+id/text07Sex" />
 
     <TextView
-        android:id="@+id/text08-2Affiliation"
+        android:id="@+id/text07Affiliation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="旭川高専"
-        app:layout_constraintStart_toEndOf="@+id/text08-2TitleAffiliation"
-        app:layout_constraintTop_toTopOf="@+id/text08-2TitleAffiliation" />
+        app:layout_constraintStart_toEndOf="@+id/text07TitleAffiliation"
+        app:layout_constraintTop_toTopOf="@+id/text07TitleAffiliation" />
 
     <TextView
-        android:id="@+id/text08-2TitleDetail"
+        android:id="@+id/text07TitleDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="詳細"
-        app:layout_constraintStart_toEndOf="@+id/text08-2Affiliation"
-        app:layout_constraintTop_toTopOf="@+id/text08-2Affiliation" />
+        app:layout_constraintStart_toEndOf="@+id/text07Affiliation"
+        app:layout_constraintTop_toTopOf="@+id/text07Affiliation" />
 
     <TextView
-        android:id="@+id/text08-2Detail"
+        android:id="@+id/text07Detail"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -185,7 +185,7 @@
         android:text="若年高血圧で少し困っている"
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/listView07BloodPressure"
-        app:layout_constraintStart_toEndOf="@+id/text08-2TitleDetail"
-        app:layout_constraintTop_toTopOf="@+id/text08-2TitleDetail" />
+        app:layout_constraintStart_toEndOf="@+id/text07TitleDetail"
+        app:layout_constraintTop_toTopOf="@+id/text07TitleDetail" />
 
 </android.support.constraint.ConstraintLayout>
