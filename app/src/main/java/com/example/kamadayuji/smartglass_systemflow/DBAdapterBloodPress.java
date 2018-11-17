@@ -10,7 +10,7 @@ import android.util.Log;
 public class DBAdapterBloodPress {
 
     private final static String DB_NAME = "medicalDataAutoReadSystem.db";
-    private final static String DB_TABLE = "patientBP_";
+    private static String DB_TABLE = "patientBP_";
     private final static int DB_VERSION = 1;
 
     /**
@@ -26,10 +26,12 @@ public class DBAdapterBloodPress {
     private SQLiteDatabase db = null;
     private DBHelper dbHelper = null;
     protected Context context;
+    protected static String patientId;
 
     //コンストラクタ
-    public DBAdapterBloodPress(Context context) {
+    public DBAdapterBloodPress(Context context,String patientId) {
         this.context = context;
+        this.patientId = patientId;
         dbHelper = new DBHelper(this.context);
     }
 
@@ -76,6 +78,10 @@ public class DBAdapterBloodPress {
      */
 
     public void saveDB(String date, int sbp, String dbp, String pr, String detail) {
+
+        //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
+        DB_TABLE = DB_TABLE+patientId;
+
         db.beginTransaction();
 
         try {
@@ -112,6 +118,10 @@ public class DBAdapterBloodPress {
 
     public Cursor getDB(String[] columns) {
 
+        //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
+        DB_TABLE = DB_TABLE+patientId;
+
+
         // queryメソッド DBのデータを取得
         // 第1引数：DBのテーブル名
         // 第2引数：取得するカラム名
@@ -134,6 +144,8 @@ public class DBAdapterBloodPress {
      */
 
     public Cursor searchDB(String[] columns, String column, String[] name) {
+        //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
+        DB_TABLE = DB_TABLE+patientId;
         return db.query(DB_TABLE, columns, column + " like ?", name, null, null, null);
     }
 
@@ -143,6 +155,9 @@ public class DBAdapterBloodPress {
      */
 
     public void allDelete() {
+
+        //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
+        DB_TABLE = DB_TABLE+patientId;
 
         db.beginTransaction();                      // トランザクション開始
         try {
@@ -167,6 +182,9 @@ public class DBAdapterBloodPress {
      */
 
     public void selectDelete(String position) {
+
+        //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
+        DB_TABLE = DB_TABLE+patientId;
 
         db.beginTransaction();                      // トランザクション開始
         try {
@@ -193,6 +211,7 @@ public class DBAdapterBloodPress {
             //第2引数：DB名
             //第3引数：factory nullでよい
             //第4引数：DBのバージョン
+
             super(context, DB_NAME, null, DB_VERSION);
         }
 
@@ -206,6 +225,9 @@ public class DBAdapterBloodPress {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+
+            //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
+            DB_TABLE = DB_TABLE+patientId;
 
             //テーブルを作成するSQL文の定義 ※スペースに気を付ける
             String createTbl = "CREATE TABLE " + DB_TABLE + " ("
@@ -230,6 +252,10 @@ public class DBAdapterBloodPress {
          */
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+            //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
+            DB_TABLE = DB_TABLE+patientId;
+
             // DBからテーブル削除
             db.execSQL("DROP TABLE IF EXISTS" + DB_TABLE);
             // テーブル生成
