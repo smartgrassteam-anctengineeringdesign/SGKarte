@@ -15,9 +15,9 @@
 
 
     <!-- patient_registration 04 関連-->
-    <string name="PatientRegistrationlActivity_label_name">患者新規登録</string>
+    <string name="PatientRegistrationActivity_label_name">患者新規登録</string>
 
-    <string-array name="PatientRegistrationlActivity_sex_list">
+    <string-array name="PatientRegistrationActivity_sex_list">
     <item>男</item>
     <item>女</item>
     </string-array>

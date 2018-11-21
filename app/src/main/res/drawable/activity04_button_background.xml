@@ -20,10 +20,10 @@
         android:right="0dp"
         android:bottom="0dp"
         />
-    <size
-        android:width="230dp"
-        android:height="60dp"
-        />
+    <!--<size-->
+        <!--android:width="230dp"-->
+        <!--android:height="60dp"-->
+        <!--/>-->
     <stroke
         android:width="0dp"
         android:color="@color/Black"

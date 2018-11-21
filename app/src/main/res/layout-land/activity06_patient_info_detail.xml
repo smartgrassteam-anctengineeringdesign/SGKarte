@@ -120,7 +120,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="詳細"
-        android:textColor="@android:color/holo_blue_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
