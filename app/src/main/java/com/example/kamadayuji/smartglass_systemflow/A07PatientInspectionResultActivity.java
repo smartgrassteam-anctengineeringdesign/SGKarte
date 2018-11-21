@@ -1,11 +1,14 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +30,26 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
 
     private ListView mListView07BloodPressure;
     private ListView mListView07BodyTemp;
+
+    //リスナ登録
+    View.OnClickListener button07MoveBloodPressRegOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplication(), A08_2PatientBloodPressRegAndEdit.class);
+            //intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
+            startActivity(intent);
+        }
+    };
+
+    View.OnClickListener button07MoveBodyTempRegOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplication(), A08_1PatientBodyTempRegAndEdit.class);
+            //intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
+            startActivity(intent);
+        }
+    };
+
 
 
     @Override
@@ -58,6 +81,11 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
 
         mListView07BloodPressure = (ListView) findViewById(R.id.listView07BloodPressure);
         mListView07BodyTemp = (ListView) findViewById(R.id.listView07BodyTemp);
+
+        //リスナ登録
+        mButton07MoveBloodPressReg.setOnClickListener(button07MoveBloodPressRegOnClickListener);
+        mButton07MoveBodyTempReg.setOnClickListener(button07MoveBodyTempRegOnClickListener);
+
     }
 
 

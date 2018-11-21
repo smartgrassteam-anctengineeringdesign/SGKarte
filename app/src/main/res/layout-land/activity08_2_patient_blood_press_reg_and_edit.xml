@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:text="最高血圧"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit08SystolicPress"
-        tools:layout_editor_absoluteX="32dp" />
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/text08Date2"
@@ -92,7 +93,7 @@
 
     <EditText
         android:id="@+id/edit08SystolicPress"
-        android:layout_width="match_constraint"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:ems="10"
@@ -302,7 +303,7 @@
         app:layout_constraintTop_toTopOf="@+id/text08_2Affiliation" />
 
     <TextView
-        android:id="@+id/text08_2Affiliation"
+        android:id="@+id/text08_2Detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="若年高血圧"

@@ -165,10 +165,11 @@
 
     <ListView
         android:id="@+id/listView06"
-        android:layout_width="606dp"
-        android:layout_height="117dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/text06TitleRecentInsRe"
         app:layout_constraintVertical_bias="0.0" />

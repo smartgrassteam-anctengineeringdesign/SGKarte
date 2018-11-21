@@ -45,10 +45,25 @@
         android:screenOrientation="landscape" >
     </activity>
         <activity
-            android:name=".A07PatientInspectionResultActivity"
-            android:label="@string/PatientInspectionResultActivity"
+        android:name=".A07PatientInspectionResultActivity"
+        android:label="@string/PatientInspectionResultActivity"
+        android:screenOrientation="landscape" >
+    </activity>
+
+        <activity
+        android:name=".A08_2PatientBloodPressRegAndEdit"
+        android:label="@string/PatientBloodPressRegAndEdit"
+        android:screenOrientation="landscape" >
+    </activity>
+
+        <activity
+            android:name=".A08_1PatientBodyTempRegAndEdit"
+            android:label="@string/PatientBodyTempRegAndEdit"
             android:screenOrientation="landscape" >
         </activity>
+
+
+
     </application>
 
 </manifest>
