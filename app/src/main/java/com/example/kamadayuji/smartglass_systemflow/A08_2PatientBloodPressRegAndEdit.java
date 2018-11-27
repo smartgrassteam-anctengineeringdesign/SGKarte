@@ -2,8 +2,10 @@ package com.example.kamadayuji.smartglass_systemflow;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +59,7 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getApplication(), A07PatientInspectionResultActivity.class);
+            intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
             startActivity(intent);
         }
     };
@@ -100,7 +104,11 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
 
         //初期値設定
         init();
+
+        //最新Idの取得＆更新
+        displayId();
     }
+
 
     private void findViews() {
 
@@ -163,4 +171,36 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
         mText08_2Detail.setText(patient.getDetail());
     }
 
+
+    //Idの取得＆表示
+    private void displayId() {
+
+        //患者Idを取得
+        String patientId = String.valueOf(patient.getId());
+        //table名を生成（患者ごとに血圧のデータベースが生成されるため）
+        String BpTableName = "patientBP_"+ patientId;
+
+        //dbの中で自動で生成されるsqlite_sequenceテーブルにある各テーブルの要素の最大値を得る
+        DBAdapterSqliteSequence dbAdapter = new DBAdapterSqliteSequence(this);
+        String[] columns = {"seq"};
+        String[] name ={BpTableName};
+        String column = "name";
+
+        int getNumber = 0;
+
+        dbAdapter.openDB();
+        Cursor c = dbAdapter.searchDB(columns,column,name);
+
+        if (c.moveToFirst()) {
+            do {
+                getNumber = c.getInt(0);    //c.getInt(0);についてはif文の外でやるとエラーになる
+                Log.d("取得したIDの最大値", String.valueOf(getNumber));
+            } while (c.moveToNext());
+        }
+
+        mText08_2BpId.setText(String.valueOf(++getNumber));
+
+        c.close();
+        dbAdapter.closeDB();
+    }
 }
