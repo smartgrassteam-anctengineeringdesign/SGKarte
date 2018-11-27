@@ -36,7 +36,7 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getApplication(), A08_2PatientBloodPressRegAndEdit.class);
-            //intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
+            intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
             startActivity(intent);
         }
     };

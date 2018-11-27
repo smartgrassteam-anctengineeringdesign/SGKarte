@@ -1,13 +1,166 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
+
+    private static String KEYWORD_PATIENT = "KEY_PATIENT";
+    private List<Patient> patientItems;
+    private Patient patient;
+
+    //患者情報を表示する部品
+    private TextView mText08_2Name;             // 氏名
+    private TextView mText08_2Id;               // ID
+    private TextView mText08_2Age;              // 年齢
+    private TextView mText08_2Sex;              // 性別
+    private TextView mText08_2Affiliation;      // 所属
+    private TextView mText08_2Detail;           // 詳細
+
+    //血圧データ入力に関する部品
+    private TextView mText08_2BpId;
+    private EditText mEditText08_2DateAndTime;
+    private EditText mEditText08_2SystolicPress;
+    private EditText mEditText08_2DiastolicPress;
+    private EditText mEditText08_2Pulse;
+    private EditText mEditText08_2Remarks;
+
+    //入力を促す警告に使用する「※」
+    private TextView mText08_2Kome01;             // 氏名の※印
+    private TextView mText08_2Kome02;             // 年齢の※印
+    private TextView mText08_2Kome03;             // 性別の※印
+    private TextView mText08_2Kome04;
+    private TextView mText08_2Kome05;
+
+    //ボタン
+    private Button mButton08_2MovePatientInspectionResult;          //[血圧＆体温情報一覧] 07患者血圧＆体温情報一覧へ遷移
+    private Button mButton08_2BpReg;                                //[登録] DBへデータを登録
+    private Button mButton08_2Clear;                                //[クリア] EditTextに入力されている文字をクリアする
+
+    //リスナ登録
+    //[患者一覧]押下で07PatientInspectionResultActivityへ遷移
+    View.OnClickListener button08_2MovePatientInspectionResultOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplication(), A07PatientInspectionResultActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    //[登録]ボタン押下でデータベースに登録
+    View.OnClickListener button08_2BpRegOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // キーボードを非表示
+            InputMethodManager inputMethodManager =
+                    (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+            // DBに登録
+            //saveList();
+        }
+    };
+
+    //[クリア]ボタンを押した時の処理
+    View.OnClickListener button08_2ClearOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            //初期値処理
+            init();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity08_2_patient_blood_press_reg_and_edit);
+
+        //部品の結びつけ
+        findViews();
+
+        //前Activityにて選択した患者のIDを取得
+        getSelectedPatientId();
+
+        //取得した患者情報をset
+        setPatientInfo();
+
+        //初期値設定
+        init();
     }
+
+    private void findViews() {
+
+        //患者の情報
+        mText08_2Name = (TextView) findViewById(R.id.text08_2Name);
+        mText08_2Id = (TextView) findViewById(R.id.text08_2Id);
+        mText08_2Age = (TextView) findViewById(R.id.text08_2Age);
+        mText08_2Sex = (TextView) findViewById(R.id.text08_2Sex);
+        mText08_2Affiliation = (TextView) findViewById(R.id.text08_2Affiliation);
+        mText08_2Detail = (TextView) findViewById(R.id.text08_2Detail);
+
+        //血圧データ入力に関する部品
+        mText08_2BpId = (TextView) findViewById(R.id.text08_2BpId);
+        mEditText08_2DateAndTime = (EditText) findViewById(R.id.edit08_2DateAndTime);
+        mEditText08_2SystolicPress = (EditText) findViewById(R.id.edit08_2SystolicPress);
+        mEditText08_2DiastolicPress = (EditText) findViewById(R.id.edit08_2DiastolicPress);
+        mEditText08_2Pulse = (EditText) findViewById(R.id.edit08_2Pulse);
+        mEditText08_2Remarks = (EditText) findViewById(R.id.edit08_2Remarks);
+
+        //※マーク
+        mText08_2Kome01 = (TextView) findViewById(R.id.text08_2Kome01);             // 日時の※印
+        mText08_2Kome02 = (TextView) findViewById(R.id.text08_2Kome02);             // 最高血圧※印
+        mText08_2Kome03 = (TextView) findViewById(R.id.text08_2Kome03);             // 最低血圧の※印
+        mText08_2Kome04 = (TextView) findViewById(R.id.text08_2Kome04);             // 脈拍の※印
+        mText08_2Kome05 = (TextView) findViewById(R.id.text08_2Kome05);             // 備考の※印
+
+        //ボタン
+        mButton08_2MovePatientInspectionResult = (Button) findViewById(R.id.button08_2MovePatientInspectionResult);
+        mButton08_2Clear = (Button) findViewById(R.id.button08_2Clear);
+        mButton08_2BpReg = (Button) findViewById(R.id.button08_2BpReg);
+
+        //リスナ登録
+        mButton08_2MovePatientInspectionResult.setOnClickListener(button08_2MovePatientInspectionResultOnClickListener);
+        mButton08_2Clear.setOnClickListener(button08_2ClearOnClickListener);
+        mButton08_2BpReg.setOnClickListener(button08_2BpRegOnClickListener);
+    }
+
+    private void init() {
+        mEditText08_2DateAndTime.setText("");
+        mEditText08_2SystolicPress.setText("");
+        mEditText08_2DiastolicPress.setText("");
+        mEditText08_2Pulse.setText("");
+        mEditText08_2Remarks.setText("");
+
+        mEditText08_2DateAndTime.requestFocus();     //フォーカスを氏名のEditTextに指定
+    }
+
+    private void getSelectedPatientId(){
+
+        patientItems = (ArrayList<Patient>)getIntent().getSerializableExtra(KEYWORD_PATIENT);
+        patient = patientItems.get(0);
+    }
+
+    private void setPatientInfo(){
+        mText08_2Name.setText(patient.getName());
+        mText08_2Id.setText(String.valueOf(patient.getId()));
+        mText08_2Age.setText(String.valueOf(patient.getAge()));
+        mText08_2Sex.setText(patient.getSex());
+        mText08_2Affiliation.setText(patient.getAffiliation());
+        mText08_2Detail.setText(patient.getDetail());
+    }
+
 }

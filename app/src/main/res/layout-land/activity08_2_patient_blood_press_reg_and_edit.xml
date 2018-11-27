@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="最低血圧"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edit08SystolicPress"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2SystolicPress"
         app:layout_constraintStart_toStartOf="@+id/guideline16" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="脈拍"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edit08Pulse"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2Pulse"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="最高血圧"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edit08SystolicPress"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2SystolicPress"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         tools:ignore="MissingConstraints" />
 
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="日時"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edit08DateAndTime"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2DateAndTime"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
     <TextView
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <TextView
-        android:id="@+id/text08BpId"
+        android:id="@+id/text08_2BpId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="001"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <EditText
-        android:id="@+id/edit08DateAndTime"
+        android:id="@+id/edit08_2DateAndTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <EditText
-        android:id="@+id/edit08DiastolicPress"
+        android:id="@+id/edit08_2DiastolicPress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -80,7 +80,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline17" />
 
     <EditText
-        android:id="@+id/edit08Pulse"
+        android:id="@+id/edit08_2Pulse"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -92,7 +92,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline19" />
 
     <EditText
-        android:id="@+id/edit08SystolicPress"
+        android:id="@+id/edit08_2SystolicPress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -108,14 +108,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.054054055" />
+        app:layout_constraintGuide_percent="0.035472974" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.20" />
+        app:layout_constraintGuide_percent="0.22" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline9"
@@ -129,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.15033785" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline15"
@@ -143,14 +143,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.30" />
+        app:layout_constraintGuide_percent="0.3006757" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.40" />
+        app:layout_constraintGuide_percent="0.4206081" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline19"
@@ -164,7 +164,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.5692568" />
 
     <TextView
         android:id="@+id/text08_2Name"
@@ -277,7 +277,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.46" />
+        app:layout_constraintGuide_percent="0.45945945" />
 
     <TextView
         android:id="@+id/text08_2Affiliation"
@@ -304,10 +304,13 @@
 
     <TextView
         android:id="@+id/text08_2Detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
         android:text="若年高血圧"
         android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline28"
         app:layout_constraintTop_toTopOf="@+id/text08_2TitleAffiliation" />
 
@@ -319,7 +322,7 @@
         app:layout_constraintGuide_percent="0.77" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button08_2Clear"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -333,7 +336,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline19" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button08_2MovePatientInspectionResult"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -349,7 +352,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button08_2BpReg"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -396,5 +399,50 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/text08_2Kome03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2DiastolicPress"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17" />
+
+    <TextView
+        android:id="@+id/text08_2Kome05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2Remarks"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
+
+    <TextView
+        android:id="@+id/text08_2Kome04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2Pulse"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
+
+    <TextView
+        android:id="@+id/text08_2Kome02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2SystolicPress"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
+
+    <TextView
+        android:id="@+id/text08_2Kome01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2DateAndTime"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
 
 </android.support.constraint.ConstraintLayout>
