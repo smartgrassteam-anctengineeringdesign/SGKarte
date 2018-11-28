@@ -63,6 +63,7 @@
         android:ems="10"
         android:hint="YYYY/MM/DD HH:MM"
         android:inputType="date|time"
+        android:background="@drawable/activity08_2_inputframe_background"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
@@ -75,6 +76,7 @@
         android:ems="10"
         android:hint="最低血圧"
         android:inputType="number"
+        android:background="@drawable/activity08_2_inputframe_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/text08DiastolicPress"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="@+id/guideline17" />
@@ -87,6 +89,7 @@
         android:ems="10"
         android:hint="脈拍"
         android:inputType="number"
+        android:background="@drawable/activity08_2_inputframe_background"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline19" />
@@ -99,6 +102,7 @@
         android:ems="10"
         android:hint="最高血圧"
         android:inputType="number"
+        android:background="@drawable/activity08_2_inputframe_background"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline15" />
@@ -330,6 +334,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="クリア"
+        android:background="@drawable/activity08_2_button_background"
+        android:backgroundTint="@color/Accent"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toStartOf="@+id/guideline28"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
@@ -343,6 +349,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/activity08_2_button_background"
+        android:backgroundTint="@color/Main"
         android:text="血圧＆体温\n情報一覧"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toEndOf="parent"
@@ -360,6 +368,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="登録"
+        android:background="@drawable/activity08_2_button_background"
+        android:backgroundTint="@color/Main"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline28"
@@ -378,17 +388,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.84" />
+        app:layout_constraintGuide_percent="0.77" />
 
     <EditText
         android:id="@+id/edit08_2Remarks"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/activity08_2_inputframe_background"
         android:ems="10"
         android:hint="備考"
         android:inputType="textMultiLine"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline29" />

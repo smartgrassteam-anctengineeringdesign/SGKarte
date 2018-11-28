@@ -4,8 +4,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/sg_icon"
-        android:roundIcon="@mipmap/sg_icon"
+        android:icon="@drawable/ic_sgicon"
+        android:roundIcon="@drawable/ic_sgicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/My_Theme">
@@ -40,9 +40,9 @@
         android:screenOrientation="landscape" >
     </activity>
         <activity
-        android:name=".A04PatientRegistrationActivity"
-        android:label="@string/PatientRegistrationlActivity_label_name"
-        android:screenOrientation="landscape" >
+            android:name=".A04PatientRegistrationActivity"
+            android:label="@string/PatientRegistrationActivity_label_name"
+            android:screenOrientation="landscape" >
     </activity>
         <activity
         android:name=".A07PatientInspectionResultActivity"
@@ -59,10 +59,8 @@
         <activity
             android:name=".A08_1PatientBodyTempRegAndEdit"
             android:label="@string/PatientBodyTempRegAndEdit"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape">
         </activity>
-
-
 
     </application>
 

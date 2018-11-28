@@ -65,6 +65,7 @@ public class A06PatientInfoDetailActivity extends AppCompatActivity {
     }
 
     private void findViews() {
+
         mText06Name = (TextView) findViewById(R.id.text06Name);
         mText06Id = (TextView) findViewById(R.id.text06Id);
         mText06Age = (TextView) findViewById(R.id.text06Age);
@@ -95,4 +96,5 @@ public class A06PatientInfoDetailActivity extends AppCompatActivity {
         mText06Affiliation.setText(patient.getAffiliation());
         mText06Detail.setText(patient.getDetail());
     }
+
 }
