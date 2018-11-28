@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBAdapter {
+public class DBAdapterPatientList {
 
     private final static String DB_NAME = "medicalDataAutoReadSystem.db";
     private final static String DB_TABLE = "patientList";
@@ -28,7 +28,7 @@ public class DBAdapter {
     protected Context context;
 
     //コンストラクタ
-    public DBAdapter(Context context) {
+    public DBAdapterPatientList(Context context) {
         this.context = context;
         dbHelper = new DBHelper(this.context);
     }
@@ -38,7 +38,7 @@ public class DBAdapter {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapter openDB() {
+    public DBAdapterPatientList openDB() {
         db = dbHelper.getWritableDatabase(); //DB読み書き
         return this;
     }
@@ -49,7 +49,7 @@ public class DBAdapter {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapter readDB() {
+    public DBAdapterPatientList readDB() {
         db = dbHelper.getReadableDatabase();        // DBの読み込み
         return this;
     }

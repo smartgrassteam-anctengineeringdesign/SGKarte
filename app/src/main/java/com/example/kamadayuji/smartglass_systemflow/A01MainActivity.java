@@ -5,27 +5,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class A01MainActivity extends AppCompatActivity {
 
     //リスナー登録
     View.OnClickListener button01MoveQRcodeOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-        Intent intent = new Intent(getApplication(), QRCodeRecognitionActivity.class);
+        Intent intent = new Intent(getApplication(), A03QRCodeRecognitionActivity.class);
         startActivity(intent);
         }
     };
     View.OnClickListener button01MovePatientListOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplication(), PatientListActivity.class);
+            Intent intent = new Intent(getApplication(), A05PatientListActivity.class);
             startActivity(intent);
         }
     };
     View.OnClickListener button01MovePatientRegistrationOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplication(), PatientRegistrationActivity.class);
+            Intent intent = new Intent(getApplication(), A04PatientRegistrationActivity.class);
             startActivity(intent);
         }
     };

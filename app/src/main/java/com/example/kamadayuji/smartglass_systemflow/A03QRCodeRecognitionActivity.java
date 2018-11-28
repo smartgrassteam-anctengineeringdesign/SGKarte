@@ -5,13 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class QRCodeRecognitionActivity extends AppCompatActivity {
+public class A03QRCodeRecognitionActivity extends AppCompatActivity {
 
     //ボタンのリスナー登録
     View.OnClickListener button02MoveAfterQrRecognitonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplication(), CheakQRcodeActivity.class);
+            Intent intent = new Intent(getApplication(), A02CheakQRcodeActivity.class);
             startActivity(intent);
         }
     };

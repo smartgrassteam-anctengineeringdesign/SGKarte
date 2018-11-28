@@ -3,7 +3,6 @@ package com.example.kamadayuji.smartglass_systemflow;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,19 +12,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.AdapterView;
 
 // ToDo:年齢のedittextには整数しか入力できないようにする
 // ToDo:性別はテキスト入力ではなく、選択制にする
 // ToDo:IDの仕組みをしっかりする
 
 
-public class PatientRegistrationActivity extends AppCompatActivity {
+public class A04PatientRegistrationActivity extends AppCompatActivity {
 
     private TextView mText04Id;   //Id primaryautocrementの最大値(table patientListより自動生成)+1の値を入れる
 
     private EditText mEditText04Name;           // 氏名
     private EditText mEditText04Age;            // 年齢
-    private EditText mEditText04Sex;            // 性別
+    private Spinner mSpinner04Sex;            // 性別
     private EditText mEditText04Affiliation;    // 所属
     private EditText mEditText04Detail;         // 詳細
 
@@ -45,7 +47,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
     View.OnClickListener button04MovePatientListOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplication(), PatientListActivity.class);
+            Intent intent = new Intent(getApplication(), A05PatientListActivity.class);
             startActivity(intent);
         }
     };
@@ -79,6 +81,8 @@ public class PatientRegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity04_patient_registration);
 
+        //スピナー
+        initSpinners();
 
         //各部品の結びつけ
         findViews();
@@ -97,6 +101,30 @@ public class PatientRegistrationActivity extends AppCompatActivity {
 
     }
 
+    //スピナー
+    private void initSpinners() {
+        Spinner Spinner04Sex = (Spinner)findViewById(R.id.spinner04Sex);
+        String[] labels = getResources().getStringArray(R.array.PatientRegistrationActivity_sex_list);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, labels);
+        Spinner04Sex.setAdapter(adapter);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+    }
+
+
+    public void onItemSelected(AdapterView parent,View view, int position,long id) {
+        String spinner=mSpinner04Sex.getSelectedItem().toString();
+
+        Toast.makeText(getApplicationContext(), spinner ,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    // 何も選択されなかった時の動作
+    public void onNothingSelected(AdapterView parent) {
+    }
+
 
     private void findViews() {
 
@@ -104,7 +132,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
 
         mEditText04Name = (EditText) findViewById(R.id.editText04Name);   // 氏名
         mEditText04Age = (EditText) findViewById(R.id.editText04Age);     // 年齢
-        mEditText04Sex = (EditText) findViewById(R.id.editText04Sex);     // 性別
+        mSpinner04Sex = (Spinner) findViewById(R.id.spinner04Sex);     // 性別
         mEditText04Affiliation = (EditText) findViewById(R.id.editText04Affiliation);       // 単価
         mEditText04Detail = (EditText) findViewById(R.id.editText04Detail);       // 単価
 
@@ -121,7 +149,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
     private void init() {
         mEditText04Name.setText("");
         mEditText04Age.setText("");
-        mEditText04Sex.setText("");
+
         mEditText04Affiliation.setText("");
         mEditText04Detail.setText("");
 
@@ -136,7 +164,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
         // 各EditTextで入力されたテキストを取得
         String strName = mEditText04Name.getText().toString();
         String strAge = mEditText04Age.getText().toString();
-        String strSex = mEditText04Sex.getText().toString();
+        String strSex = (String)mSpinner04Sex.getSelectedItem();
         String strAffiliation = mEditText04Affiliation.getText().toString();
         String strDetail = mEditText04Detail.getText().toString();
 
@@ -161,7 +189,7 @@ public class PatientRegistrationActivity extends AppCompatActivity {
             }
 
 
-            Toast.makeText(PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
+            Toast.makeText(A04PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
 
         } else {        // EditTextが全て入力されている場合
 
@@ -169,10 +197,10 @@ public class PatientRegistrationActivity extends AppCompatActivity {
             int iAge = Integer.parseInt(strAge);
 
             // DBへの登録処理
-            DBAdapter dbAdapter = new DBAdapter(this);
-            dbAdapter.openDB();                                         // DBの読み書き
-            dbAdapter.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
-            dbAdapter.closeDB();                                        // DBを閉じる
+            DBAdapterPatientList dbAdapterPatientList = new DBAdapterPatientList(this);
+            dbAdapterPatientList.openDB();                                         // DBの読み書き
+            dbAdapterPatientList.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
+            dbAdapterPatientList.closeDB();                                        // DBを閉じる
 
             displayId();
             init();     // 初期値設定
@@ -205,4 +233,12 @@ public class PatientRegistrationActivity extends AppCompatActivity {
         c.close();
         dbAdapter.closeDB();
     }
+
+
+
+
+
+
+
+
 }

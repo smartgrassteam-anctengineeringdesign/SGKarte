@@ -36,6 +36,16 @@
     <!-- patient_info_detail 06 関連-->
     <string name="PatientInfoDetailActivity_label_name">PatientInfoDetail</string>
 
+    <!-- patient_inspection_result 07 関連-->
+    <string name="PatientInspectionResultActivity">患者検査結果</string>
+
+    <!-- patient_body_temp_reg_and_edit 08_1 関連-->
+    <string name="PatientBodyTempRegAndEdit">患者体温登録＆編集</string>
+
+    <!-- patient_blood_press_reg_and_edit 08_2 関連-->
+    <string name="PatientBloodPressRegAndEdit">患者血圧登録＆編集</string>
+
+
 
 
 </resources>

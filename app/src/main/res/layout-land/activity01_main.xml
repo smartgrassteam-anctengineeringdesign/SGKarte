@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".A01MainActivity">
 
     <Button
         android:id="@+id/button01MoveQRcode"
         android:layout_width="200dp"
         android:layout_height="250dp"
 
-        android:background="@color/Main"
-        android:backgroundTint="@color/MainDark"
+        android:backgroundTint="@color/Main"
         android:text="QRコード読取り"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -28,8 +27,7 @@
         android:id="@+id/button01MovePatientList"
         android:layout_width="200dp"
         android:layout_height="250dp"
-        android:background="@color/Main"
-        android:backgroundTint="@color/MainDark"
+        android:backgroundTint="@color/Main"
         android:text="患者一覧"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -45,8 +43,7 @@
         android:id="@+id/button01MovePatientRegistration"
         android:layout_width="200dp"
         android:layout_height="250dp"
-        android:background="@color/Main"
-        android:backgroundTint="@color/MainDark"
+        android:backgroundTint="@color/Main"
         android:text="患者登録"
         android:textColor="#FFFFFF"
         android:textSize="20sp"

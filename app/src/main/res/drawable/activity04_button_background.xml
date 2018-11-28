@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
     <corners
-        android:radius="40dp"
+        android:radius="30dp"
         />
-    <gradient
-        android:gradientRadius="100dp"
-        android:centerX="50%"
-        android:centerY="50%"
-        android:startColor="@color/MainDark"
-        android:endColor="@color/Base"
-        android:type="radial"
-        />
+    <!--<gradient-->
+        <!--android:gradientRadius="100dp"-->
+        <!--android:centerX="50%"-->
+        <!--android:centerY="50%"-->
+        <!--android:startColor="@color/MainDark"-->
+        <!--android:endColor="@color/Base"-->
+        <!--android:type="radial"-->
+        <!--/>-->
     <!--solid
         android:color="@color/Base"
         /-->
-    <padding
-        android:left="0dp"
-        android:top="0dp"
-        android:right="0dp"
-        android:bottom="0dp"
-        />
+    <!--<padding-->
+        <!--android:left="0dp"-->
+        <!--android:top="0dp"-->
+        <!--android:right="0dp"-->
+        <!--android:bottom="0dp"-->
+        <!--/>-->
     <!--<size-->
         <!--android:width="230dp"-->
         <!--android:height="60dp"-->
         <!--/>-->
-    <stroke
-        android:width="0dp"
-        android:color="@color/Black"
-        />
+    <!--<stroke-->
+        <!--android:width="0dp"-->
+        <!--android:color="@color/Black"-->
+        <!--/>-->
 </shape>

@@ -27,10 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="aaa"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText04Id"
         app:layout_constraintStart_toEndOf="@+id/editText04Id"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="41dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/text04Name"
@@ -49,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="氏名"
+        android:inputType="text"
+        android:background="@drawable/activity04_inputframe_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Name"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         tools:ignore="MissingConstraints" />
@@ -70,6 +72,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="年齢"
+        android:background="@drawable/activity04_inputframe_background"
+        android:inputType="number"
+        android:imeOptions="actionDone"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Age"
         app:layout_constraintEnd_toStartOf="@+id/text04Sex"
         app:layout_constraintHorizontal_bias="0.0"
@@ -84,7 +89,7 @@
         android:layout_marginStart="160dp"
         android:text="性別"
         app:layout_constraintBottom_toTopOf="@+id/text04Affiliation"
-        app:layout_constraintEnd_toStartOf="@+id/editText04Sex"
+        app:layout_constraintEnd_toStartOf="@+id/spinner04Sex"
         app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text04Name"
@@ -92,13 +97,17 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/editText04Sex"
+        android:id="@+id/spinner04Sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:entries="@array/PatientRegistrationActivity_sex_list"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text04Sex"
-        tools:layout_editor_absoluteX="213dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text04Kome03"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/text04Kome03"
         tools:ignore="MissingConstraints" />
+
 
 
     <!--<EditText-->
@@ -131,6 +140,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="所属"
+        android:imeOptions="actionDone"
+        android:background="@drawable/activity04_inputframe_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Affiliation"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         tools:ignore="MissingConstraints" />
@@ -153,6 +164,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="詳細"
+        android:imeOptions="actionDone"
+        android:background="@drawable/activity04_inputframe_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Detail"
         app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
@@ -186,8 +199,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
-        android:background="@color/Main"
-        android:backgroundTint="@color/MainDark"
+        android:background="@drawable/activity04_button_background"
+        android:backgroundTint="@color/Main"
         android:text="登録"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -207,8 +220,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_weight="1"
-        android:background="@color/Main"
-        android:backgroundTint="@color/MainDark"
+        android:background="@drawable/activity04_button_background"
+        android:backgroundTint="@color/Main"
         android:text="患者一覧"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -229,7 +242,7 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:background="@drawable/activity04_button_background"
-        android:backgroundTint="@color/MainDark"
+        android:backgroundTint="@color/Accent"
         android:elevation="0dp"
         android:text="クリア"
         android:textColor="#FFFFFF"
