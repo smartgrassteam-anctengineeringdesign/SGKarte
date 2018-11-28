@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -107,6 +108,9 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
 
         //最新Idの取得＆更新
         displayId();
+
+        // DBに登録
+        //saveList();
     }
 
 
@@ -170,6 +174,55 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
         mText08_2Affiliation.setText(patient.getAffiliation());
         mText08_2Detail.setText(patient.getDetail());
     }
+
+//    private void saveList() {
+//
+//        // 各EditTextで入力されたテキストを取得
+//        String strName = mEditText04Name.getText().toString();
+//        String strAge = mEditText04Age.getText().toString();
+//        String strSex = mEditText04Sex.getText().toString();
+//        String strAffiliation = mEditText04Affiliation.getText().toString();
+//        String strDetail = mEditText04Detail.getText().toString();
+//
+//        //EditTextが空白の場合
+//        if (strName.equals("") || strAge.equals("") || strSex.equals("") ) {
+//            if (strName.equals("")) {
+//                mText04Kome01.setText("※");     // 氏名が空白の場合、※印を表示
+//            } else {
+//                mText04Kome01.setText("");      // 空白でない場合は※印を消す
+//            }
+//
+//            if (strAge.equals("")) {
+//                mText04Kome02.setText("※");     // 年齢が空白の場合、※印を表示
+//            } else {
+//                mText04Kome02.setText("");      // 空白でない場合は※印を消す
+//            }
+//
+//            if (strSex.equals("")) {
+//                mText04Kome03.setText("※");     // 性別が空白の場合、※印を表示
+//            } else {
+//                mText04Kome03.setText("");      // 空白でない場合は※印を消す
+//            }
+//
+//
+//            Toast.makeText(A04PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
+//
+//        } else {        // EditTextが全て入力されている場合
+//
+//            // 入力された単価と個数は文字列からint型へ変換
+//            int iAge = Integer.parseInt(strAge);
+//
+//            // DBへの登録処理
+//            DBAdapterPatientList dbAdapterPatientList = new DBAdapterPatientList(this);
+//            dbAdapterPatientList.openDB();                                         // DBの読み書き
+//            dbAdapterPatientList.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
+//            dbAdapterPatientList.closeDB();                                        // DBを閉じる
+//
+//            displayId();
+//            init();     // 初期値設定
+//
+//        }
+//    }
 
 
     //Idの取得＆表示
