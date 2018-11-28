@@ -90,7 +90,6 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
         //最新Idの取得＆更新
         displayId();
 
-
         //初期値設定
         init();
 

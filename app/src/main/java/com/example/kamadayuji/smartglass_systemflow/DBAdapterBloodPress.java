@@ -16,12 +16,12 @@ public class DBAdapterBloodPress {
     /**
      * DBのカラム名 patientBP_(患者ID)
      */
-    public final static String COL_ID = "_id";
+    public final static String COL_BPID = "_id";
     public final static String COL_DATE = "date";       //UnixTime
     public final static String COL_SBP = "sbp";         //最高血圧
     public final static String COL_DBP = "dbp";         //最低血圧
     public final static String COL_PR = "pr";           //pulse rate
-    public final static String COL_DETAIL = "detail";   //備考
+    public final static String COL_REMARKS = "remarks";   //備考
 
     private SQLiteDatabase db = null;
     private DBHelper dbHelper = null;
@@ -70,14 +70,14 @@ public class DBAdapterBloodPress {
      * DBのレコードへ登録
      * saveDB()
      *
-     * @param date        日時
+     * @param dateAndTime        日時
      * @param sbp         最高血圧
      * @param dbp         最低血圧
      * @param pr          脈拍数
-     * @param detail      詳細
+     * @param remarks     備考
      */
 
-    public void saveDB(String date, int sbp, String dbp, String pr, String detail) {
+    public void saveDB(int dateAndTime, int sbp, int dbp, int pr, String remarks) {
 
         //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
         DB_TABLE = DB_TABLE+patientId;
@@ -86,11 +86,11 @@ public class DBAdapterBloodPress {
 
         try {
             ContentValues values = new ContentValues();  // ContentValuesでデータを設定していく
-            values.put(COL_DATE, date);
+            values.put(COL_DATE, dateAndTime);
             values.put(COL_SBP, sbp);
             values.put(COL_DBP, dbp);
             values.put(COL_PR, pr);
-            values.put(COL_DETAIL, detail);
+            values.put(COL_REMARKS, remarks);
 
             // insertメソッド データ登録
             // 第1引数：DBのテーブル名
@@ -98,7 +98,6 @@ public class DBAdapterBloodPress {
             // 第3引数：ContentValues
             db.insert(DB_TABLE, null, values);      // レコードへ登録
             Log.d("log","insert " + values);
-
 
             db.setTransactionSuccessful();
         } catch (Exception e) {
@@ -188,7 +187,7 @@ public class DBAdapterBloodPress {
 
         db.beginTransaction();                      // トランザクション開始
         try {
-            db.delete(DB_TABLE, COL_ID + "=?", new String[]{position});
+            db.delete(DB_TABLE, COL_BPID + "=?", new String[]{position});
             db.setTransactionSuccessful();          // トランザクションへコミット
         } catch (Exception e) {
             e.printStackTrace();
@@ -219,7 +218,7 @@ public class DBAdapterBloodPress {
         /**
          * DB生成時に呼ばれる
          * onCreate()
-         *
+
          * @param db SQLiteDatabase
          */
 
@@ -228,17 +227,19 @@ public class DBAdapterBloodPress {
 
             //患者ごとに血圧のDBを作成するため，テーブル名は可変となる．そのため，後ろに患者IDを結合してテーブル名とする
             DB_TABLE = DB_TABLE+patientId;
+            Log.d("log","beforecreatetable");
+
 
             //テーブルを作成するSQL文の定義 ※スペースに気を付ける
             String createTbl = "CREATE TABLE " + DB_TABLE + " ("
-                    + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + COL_BPID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COL_DATE + " INTEGER NOT NULL,"
                     + COL_SBP + " INTEGER NOT NULL,"
                     + COL_DBP + " INTEGER NOT NULL,"
                     + COL_PR + " INTEGER NOT NULL,"
-                    + COL_DETAIL + " TEXT"
+                    + COL_REMARKS + " TEXT"
                     + ");";
-            //Log.d("log","createtable");
+            Log.d("log","createtable");
 
             db.execSQL(createTbl);      //SQL文の実行
         }
@@ -260,6 +261,8 @@ public class DBAdapterBloodPress {
             db.execSQL("DROP TABLE IF EXISTS" + DB_TABLE);
             // テーブル生成
             onCreate(db);
+
+            Log.d("log","upgradeTable");
         }
     }
 }

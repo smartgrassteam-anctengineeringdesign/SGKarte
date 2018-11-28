@@ -423,15 +423,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline17" />
 
     <TextView
-        android:id="@+id/text08_2Kome05"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2Remarks"
-        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
-
-    <TextView
         android:id="@+id/text08_2Kome04"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
