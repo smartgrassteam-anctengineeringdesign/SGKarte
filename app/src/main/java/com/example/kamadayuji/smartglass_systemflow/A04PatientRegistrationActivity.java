@@ -163,12 +163,12 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
         // 各EditTextで入力されたテキストを取得
         String strName = mEditText04Name.getText().toString();
         String strAge = mEditText04Age.getText().toString();
-        String strSex = (String)mSpinner04Sex.getSelectedItem();
+        String strSex = (String) mSpinner04Sex.getSelectedItem();
         String strAffiliation = mEditText04Affiliation.getText().toString();
         String strDetail = mEditText04Detail.getText().toString();
 
         //EditTextが空白の場合
-        if (strName.equals("") || strAge.equals("") || strSex.equals("") ) {
+        if (strName.equals("") || strAge.equals("") || strSex.equals("")) {
             if (strName.equals("")) {
                 mText04Kome01.setText("※");     // 氏名が空白の場合、※印を表示
             } else {
@@ -201,14 +201,20 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
             dbAdapterPatientList.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
             dbAdapterPatientList.closeDB();                                        // DBを閉じる
 
-            displayId();
+            int patientId = displayId();
+
+            //体温と血圧を保存するデータベースを作成する
+            DBAdapterCreateBPandBTdatabase dbAdapterCreateBPandBTdatabase = new DBAdapterCreateBPandBTdatabase(this, String.valueOf(patientId));
+            dbAdapterCreateBPandBTdatabase.openDB();
+            dbAdapterCreateBPandBTdatabase.closeDB();
+
             init();     // 初期値設定
 
         }
     }
 
     //Idの取得＆表示
-    private void displayId() {
+    private int displayId() {
 
         DBAdapterSqliteSequence dbAdapter = new DBAdapterSqliteSequence(this);
         String[] columns = {"seq"};
@@ -227,10 +233,12 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
             } while (c.moveToNext());
         }
 
-        mText04Id.setText(String.valueOf(++getNumber));
+        mText04Id.setText(String.valueOf(1+getNumber));
 
         c.close();
         dbAdapter.closeDB();
+
+        return getNumber;
     }
 
 
