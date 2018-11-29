@@ -373,6 +373,23 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="281dp" />
 
+    <TextView
+        android:id="@+id/text08_1Kome01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_1DateAndTime"
+        app:layout_constraintEnd_toStartOf="@+id/edit08_1DateAndTime" />
+
+    <TextView
+        android:id="@+id/text08_1Kome02"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_1BodyTemp"
+        app:layout_constraintEnd_toStartOf="@+id/edit08_1BodyTemp" />
 
 
 </android.support.constraint.ConstraintLayout>
