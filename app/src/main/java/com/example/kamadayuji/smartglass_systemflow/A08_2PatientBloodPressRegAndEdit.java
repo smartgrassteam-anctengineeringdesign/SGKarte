@@ -217,11 +217,8 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
             //日付に関しては後で変更が必要
             int iDateAndTime = Integer.parseInt(strDateAndTime);
 
-            //患者ごとに血圧DB作成
             //患者Idを取得
             String patientId = String.valueOf(patient.getId());
-            //table名を生成（患者ごとに血圧のデータベースが生成されるため）
-            String BpTableName = "patientBP_"+ patientId;
 
             // DBへの登録処理
             DBAdapterBloodPress dbAdapterBloodPress = new DBAdapterBloodPress(this,patientId);
@@ -239,15 +236,10 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
     //Idの取得＆表示
     private void displayId() {
 
-        //患者Idを取得
-        String patientId = String.valueOf(patient.getId());
-        //table名を生成（患者ごとに血圧のデータベースが生成されるため）
-        String BpTableName = "patientBP_"+ patientId;
-
         //dbの中で自動で生成されるsqlite_sequenceテーブルにある各テーブルの要素の最大値を得る
-        DBAdapterSqliteSequence dbAdapter = new DBAdapterSqliteSequence(this);
+        DBAdapterInspectionResultSqliteSequence dbAdapter = new DBAdapterInspectionResultSqliteSequence(this,String.valueOf(patient.getId()));
         String[] columns = {"seq"};
-        String[] name ={BpTableName};
+        String[] name ={"bodyPress"};
         String column = "name";
 
         int getNumber = 0;
