@@ -10,11 +10,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -113,7 +110,7 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
     private void findViews() {
 
         //患者の情報
-        mText08_2Name = (TextView) findViewById(R.id.text08_2Name);
+        mText08_2Name = (TextView) findViewById(R.id.text08_1Name);
         mText08_2Id = (TextView) findViewById(R.id.text08_2Id);
         mText08_2Age = (TextView) findViewById(R.id.text08_2Age);
         mText08_2Sex = (TextView) findViewById(R.id.text08_2Sex);
