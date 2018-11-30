@@ -22,6 +22,26 @@
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:layout_marginStart="154dp"
+        android:onClick="showDatePickerDialog"
+        android:text="@string/pick_date"
+        app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"
+        app:layout_constraintStart_toEndOf="@+id/text08BpId" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_date"
+        android:textSize="50sp"
+        android:textColor="#000"
+        android:layout_margin="30dp" />
+
     <EditText
         android:id="@+id/edit08DateAndTime"
         android:layout_width="0dp"
@@ -40,6 +60,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         tools:ignore="MissingConstraints" />
+
 
     <EditText
         android:id="@+id/edit08BodyTemp"

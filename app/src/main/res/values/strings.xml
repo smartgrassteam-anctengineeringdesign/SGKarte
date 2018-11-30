@@ -42,6 +42,9 @@
     <!-- patient_body_temp_reg_and_edit 08_1 関連-->
     <string name="PatientBodyTempRegAndEdit">患者体温登録＆編集</string>
 
+    <string name="no_date">No Data</string>
+    <string name="pick_date">Pick Date</string>
+
     <!-- patient_blood_press_reg_and_edit 08_2 関連-->
     <string name="PatientBloodPressRegAndEdit">患者血圧登録＆編集</string>
 

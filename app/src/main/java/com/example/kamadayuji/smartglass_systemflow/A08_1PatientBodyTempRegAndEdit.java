@@ -20,5 +20,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
         et.setInputType( InputType.TYPE_CLASS_DATETIME | InputType.TYPE_DATETIME_VARIATION_NORMAL);
 
 
+
+
     }
 }
