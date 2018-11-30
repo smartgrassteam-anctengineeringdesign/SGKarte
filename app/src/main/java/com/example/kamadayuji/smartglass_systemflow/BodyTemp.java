@@ -5,10 +5,10 @@ import android.util.Log;
 import java.io.Serializable;
 
 public class BodyTemp implements Serializable{
-    protected int id;
-    protected int date;
-    protected int bt;
-    protected String remarks;
+    protected static int id;
+    protected static int date;
+    protected static int bt;
+    protected static String remarks;
 
     /**
      * Patient
@@ -31,7 +31,7 @@ public class BodyTemp implements Serializable{
      *
      * @return id int ID
      */
-    public int getId() {
+    public static int getId() {
         Log.d("取得したID：", String.valueOf(id));
         return id;
     }
@@ -42,7 +42,7 @@ public class BodyTemp implements Serializable{
      *
      * @return date int 日時
      */
-    public int getDate() {
+    public static int getDate() {
         Log.d("取得したdate：", String.valueOf(date));
         return date;
     }
@@ -53,7 +53,7 @@ public class BodyTemp implements Serializable{
      *
      * @return bt int 体温
      */
-    public int getBt() {
+    public static int getBt() {
         Log.d("取得したbt：", String.valueOf(bt));
         return bt;
     }
