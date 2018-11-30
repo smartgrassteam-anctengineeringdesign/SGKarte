@@ -6,6 +6,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+//    DatePicker
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/text08_1Detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/Button08_1_DatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginStart="154dp"
+            android:text="日付"
+            app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"
+            app:layout_constraintStart_toEndOf="@+id/text08BpId" />
+
+        <TextView
+            android:id="@+id/Text08_1_DatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:gravity="center"
+            android:text="@string/no_date"
+            android:textColor="#000"
+            android:textSize="50sp" />
+
+
+    </LinearLayout>
+
+
+//    TimePicker
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit08DateAndTime">
+
+
+        <Button
+            android:id="@+id/Button08_1_TimePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginStart="154dp"
+            android:text="時刻"
+            app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"
+            app:layout_constraintStart_toEndOf="@+id/text08BpId" />
+
+        <TextView
+            android:id="@+id/Text08_1_TimePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:gravity="center"
+            android:text="@string/no_date"
+            android:textColor="#000"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/text08TitleBpId"
         android:layout_width="wrap_content"
@@ -22,25 +93,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:layout_marginStart="154dp"
-        android:onClick="showDatePickerDialog"
-        android:text="@string/pick_date"
-        app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"
-        app:layout_constraintStart_toEndOf="@+id/text08BpId" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/no_date"
-        android:textSize="50sp"
-        android:textColor="#000"
-        android:layout_margin="30dp" />
 
     <EditText
         android:id="@+id/edit08DateAndTime"
