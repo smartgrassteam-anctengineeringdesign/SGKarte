@@ -120,7 +120,8 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
         mEditText08_1Remarks = (EditText) findViewById(R.id.edit08_1Remarks);
 
         //標準設定：日付と時刻の入力
-        mEditText08_1DateAndTime.setInputType(InputType.TYPE_CLASS_DATETIME | InputType.TYPE_DATETIME_VARIATION_NORMAL);
+       // @SuppressLint("WrongViewCast");//エラーをなかったことにするやつ？
+            mEditText08_1DateAndTime.setInputType(InputType.TYPE_CLASS_DATETIME | InputType.TYPE_DATETIME_VARIATION_NORMAL);
 
 
         //※マーク
