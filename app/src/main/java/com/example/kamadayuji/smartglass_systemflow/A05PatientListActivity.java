@@ -248,7 +248,8 @@ public class A05PatientListActivity extends AppCompatActivity {
             if (view == null) {
                 LayoutInflater inflater =
                         (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = inflater.inflate(R.layout.activity05_row_sheet_listview, parent, false);
+                view = inflater.inflate(R.layout.activity05_row_sheet_patient_listview, parent, false);
+
 
                 TextView text05Name = (TextView) view.findViewById(R.id.text05Name);        // 名前のTextView
                 TextView text05Id = (TextView) view.findViewById(R.id.text05Id);            // IdのTextView
