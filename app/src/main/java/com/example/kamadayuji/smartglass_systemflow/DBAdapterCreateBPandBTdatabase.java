@@ -14,6 +14,7 @@ public class DBAdapterCreateBPandBTdatabase {
     private static String DB_NAME;
     private final static String DB_NAME1 = "patientID_";
     private final static String DB_NAME2 = ".db";
+    //テーブル名をbloodPressに直したい
     private static String DB_TABLE_BP = "bodyPress";
     private static String DB_TABLE_BT = "bodyTemp";
     private final static int DB_VERSION = 1;

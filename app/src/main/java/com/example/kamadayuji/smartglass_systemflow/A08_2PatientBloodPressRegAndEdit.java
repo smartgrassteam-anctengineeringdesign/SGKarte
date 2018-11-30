@@ -236,6 +236,7 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
         //dbの中で自動で生成されるsqlite_sequenceテーブルにある各テーブルの要素の最大値を得る
         DBAdapterInspectionResultSqliteSequence dbAdapter = new DBAdapterInspectionResultSqliteSequence(this,String.valueOf(patient.getId()));
         String[] columns = {"seq"};
+        //デーブル名bloodPressに直したい
         String[] name ={"bodyPress"};
         String column = "name";
 

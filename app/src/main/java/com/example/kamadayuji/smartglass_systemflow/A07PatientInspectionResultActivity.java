@@ -18,6 +18,22 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
     private List<Patient> patientItems;
     private Patient patient;
 
+    //listViewに関して
+    private DBAdapterBodyTemp dbAdapterBodyTemp;
+    private DBAdapterBloodPress dbAdapterBloodPress;
+    private BTBaseAdapter btBaseAdapter;
+    private BPBaseAdapter bpBaseAdapter;
+    private List<BloodPress> bpItems;
+    private List<BodyTemp> btItems;
+    private ListView mListView07BloodPress;
+    private ListView mListView07BodyTemp;
+    protected BodyTempListItem bodyTempListItem;
+    protected BloodPressListItem bloodPressListItem;
+
+    //参照するテーブル「bodyTemp」のカラム
+    private String[] btColumns = {"_id","date","bt"};
+
+
     private TextView mText07Name;
     private TextView mText07Id;
     private TextView mText07Age;
