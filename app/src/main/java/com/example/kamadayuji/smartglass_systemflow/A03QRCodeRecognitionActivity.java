@@ -21,6 +21,8 @@ public class A03QRCodeRecognitionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity02_qrcode_recognition);
 
+
+        
         //ボタンが押された時に発動
         findViewById(R.id.MoveAfterQrRecognitonButton).setOnClickListener(button02MoveAfterQrRecognitonOnClickListener);
     }
