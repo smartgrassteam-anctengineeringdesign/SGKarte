@@ -181,9 +181,10 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
                 Log.d("取得したCursorBodyTemp(体温):", String.valueOf(cBt.getInt(2)));
 
                 btItems.add(bodyTempListItem);          // 取得した要素をitemsに追加
-
             } while (cBt.moveToNext());
         }
+        Log.d("DBからの読み取り終了", "狩猟");
+
         cBt.close();
         dbAdapterBodyTemp.closeDB();                    // DBを閉じる
         mListView07BodyTemp.setAdapter(btBaseAdapter);  // ListViewにmyBaseAdapterをセット
@@ -238,9 +239,11 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
             View view = convertView;
             A07PatientInspectionResultActivity.BTBaseAdapter.ViewHolder holder;
 
-            // データを取得
-            bodyTempListItem = items.get(position);
+            //データを日時の新しい順に表示したい
 
+
+            // データを取得
+            bodyTempListItem = items.get(items.size() - 1 - position);
 
             if (view == null) {
                 LayoutInflater inflater =
