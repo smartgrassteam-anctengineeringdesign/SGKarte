@@ -12,6 +12,7 @@ public class A03QRCodeRecognitionActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getApplication(), A02CheakQRcodeActivity.class);
+            
             startActivity(intent);
         }
     };
