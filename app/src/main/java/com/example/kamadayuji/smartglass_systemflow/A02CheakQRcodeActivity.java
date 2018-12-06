@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class A02CheakQRcodeActivity extends AppCompatActivity {
 
@@ -34,8 +35,17 @@ public class A02CheakQRcodeActivity extends AppCompatActivity {
         findViewById(R.id.MovePatientInfoDetailButton).setOnClickListener(MovePatientInfoDetailButtonOnClickListener);
 
 
+        Intent intent = getIntent();
+        String data = intent.getStringExtra("readQR");
+        TextView textView = findViewById(R.id.textView);
+        textView.setText(data);
+
     }
 
     //QRコードから読み取った情報を整理して表示する
 
+
+
+
 }
+
