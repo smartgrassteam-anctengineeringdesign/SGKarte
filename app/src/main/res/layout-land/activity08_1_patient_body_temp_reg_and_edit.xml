@@ -6,82 +6,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-//    DatePicker
+<!--//    DatePicker-->
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/text08_1Detail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="4dp"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/button2"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/text08_1Detail"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent">-->
 
-        <Button
-            android:id="@+id/Button08_1_DatePicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:layout_marginStart="154dp"
-            android:text="日付"
-            app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"
-            app:layout_constraintStart_toEndOf="@+id/text08BpId" />
+        <!--<Button-->
+            <!--android:id="@+id/Button08_1_DatePicker"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="14dp"-->
+            <!--android:layout_marginStart="154dp"-->
+            <!--android:text="日付"-->
+            <!--app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/text08BpId" />-->
 
-        <TextView
-            android:id="@+id/Text08_1_DatePicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center"
-            android:text="@string/no_date"
-            android:textColor="#000"
-            android:textSize="50sp" />
-
-
-    </LinearLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/Text08_1_DatePicker"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="30dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/no_date"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="50sp" />-->
 
 
-//    TimePicker
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginTop="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit08DateAndTime">
+    <!--</LinearLayout>-->
 
 
-        <Button
-            android:id="@+id/Button08_1_TimePicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:layout_marginStart="154dp"
-            android:text="時刻"
-            app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"
-            app:layout_constraintStart_toEndOf="@+id/text08BpId" />
+<!--//    TimePicker-->
 
-        <TextView
-            android:id="@+id/Text08_1_TimePicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center"
-            android:text="@string/no_date"
-            android:textColor="#000"
-            android:textSize="50sp" />
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="17dp"-->
+        <!--android:layout_marginEnd="23dp"-->
+        <!--android:layout_marginTop="34dp"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/button"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/button3"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/edit08DateAndTime">-->
 
-    </LinearLayout>
+
+        <!--<Button-->
+            <!--android:id="@+id/Button08_1_TimePicker"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="14dp"-->
+            <!--android:layout_marginStart="154dp"-->
+            <!--android:text="時刻"-->
+            <!--app:layout_constraintBottom_toTopOf="@+id/edit08DateAndTime"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/text08BpId" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/Text08_1_TimePicker"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="30dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/no_date"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="50sp" />-->
+
+    <!--</LinearLayout>-->
 
     <TextView
         android:id="@+id/text08TitleBpId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BPID"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
@@ -90,29 +91,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="001"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
 
-
     <EditText
-        android:id="@+id/edit08DateAndTime"
+        android:id="@+id/text08Date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="日付を入力"
-        android:inputType="datetime"
         android:background="@drawable/activity08_1_inputframe_background"
-        app:layout_constraintBottom_toTopOf="@+id/guideline15"
-        app:layout_constraintEnd_toStartOf="@+id/guideline20"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="日付入力"
+        android:imeOptions="actionDone"
+        android:inputType="date"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/text08Time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/activity08_1_inputframe_background"
+        android:hint="時刻入力"
+        android:focusable="false"
+        android:imeOptions="actionDone"
+        android:inputType="time"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20"
+        app:layout_constraintStart_toStartOf="@+id/guideline24" />
 
 
     <EditText
@@ -125,7 +141,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="体温を入力"
-        android:inputType="number"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionDone"
         android:background="@drawable/activity08_1_inputframe_background"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
@@ -201,6 +218,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yuji Kamada"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
@@ -216,6 +234,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ID"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/text08_2Name" />
 
@@ -224,8 +243,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/text08_2TitleId" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1TitleId"
+        app:layout_constraintStart_toStartOf="@+id/guideline21" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline21"
@@ -239,16 +259,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="年齢"
-        app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="@+id/text08_2TitleId" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1TitleId"
+        app:layout_constraintStart_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/text08_1Age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="22"
-        app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toTopOf="@+id/text08_2TitleAge" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1TitleAge"
+        app:layout_constraintStart_toStartOf="@+id/guideline22" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline22"
@@ -269,16 +291,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="性別"
-        app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/text08_2Age" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1Age"
+        app:layout_constraintStart_toStartOf="@+id/guideline23" />
 
     <TextView
         android:id="@+id/text08_1Sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="男"
-        app:layout_constraintStart_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/text08_2TitleSex" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1TitleSex"
+        app:layout_constraintStart_toStartOf="@+id/guideline24" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline24"
@@ -299,8 +323,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="所属"
-        app:layout_constraintStart_toStartOf="@+id/guideline25"
-        app:layout_constraintTop_toTopOf="@+id/text08_2Sex" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1Sex"
+        app:layout_constraintStart_toStartOf="@+id/guideline25" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline26"
@@ -314,8 +339,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="旭川高専"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/text08_2TitleAffiliation" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1TitleAffiliation"
+        app:layout_constraintStart_toStartOf="@+id/guideline26" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline27"
@@ -329,17 +355,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="詳細"
-        app:layout_constraintStart_toStartOf="@+id/guideline27"
-        app:layout_constraintTop_toTopOf="@+id/text08_2Affiliation" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1Affiliation"
+        app:layout_constraintStart_toStartOf="@+id/guideline27" />
 
     <TextView
         android:id="@+id/text08_1Detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="若年高血圧"
+        android:textColor="#FFFFFF"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline28"
-        app:layout_constraintTop_toTopOf="@+id/text08_2TitleAffiliation" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/text08_1TitleDetail"
+        app:layout_constraintStart_toStartOf="@+id/guideline28" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline28"
@@ -359,6 +387,7 @@
         android:text="クリア"
         android:background="@drawable/activity08_1_button_background"
         android:backgroundTint="@color/Accent"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toStartOf="@+id/guideline28"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
@@ -375,6 +404,7 @@
         android:background="@drawable/activity08_1_button_background"
         android:backgroundTint="@color/Main"
         android:text="血圧＆体温\n情報一覧"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -391,6 +421,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="登録"
+        android:textColor="#FFFFFF"
         android:background="@drawable/activity08_1_button_background"
         android:backgroundTint="@color/Main"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
@@ -445,8 +476,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="281dp" />
+        app:layout_constraintGuide_percent="0.7260982" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="日付"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/guideline15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline21"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="時刻"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintStart_toStartOf="@+id/guideline16" />
 
 
 </android.support.constraint.ConstraintLayout>

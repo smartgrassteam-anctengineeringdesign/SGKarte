@@ -14,6 +14,8 @@ import android.widget.TimePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Timer;
 
 
@@ -23,6 +25,8 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
     Button mBtn_D;  //Button_DatePicker
     TextView mTv_T; //TextView_TimePicker
     Button mBtn_T;  //Button_Time_Picker
+    EditText mEt_D;
+    EditText mEt_T;
 
     Calendar c;
     DatePickerDialog dpd;
@@ -33,25 +37,28 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity08_1_patient_body_temp_reg_and_edit);
 
+//        mTv_D = (TextView) findViewById(R.id.Text08_1_DatePicker);
+//        mBtn_D = (Button) findViewById(R.id.Button08_1_DatePicker);
+//        mTv_T = (TextView) findViewById(R.id.Text08_1_TimePicker);
+//        mBtn_T = (Button) findViewById(R.id.Button08_1_TimePicker);
+//        mTv_D = (TextView) findViewById(R.id.text08Date);
+//        mTv_T = (TextView) findViewById(R.id.text08Time);
+        mEt_D = (EditText) findViewById(R.id.text08Date);
+        mEt_T = (EditText) findViewById(R.id.text08Time) ;
 
-        mTv_D = (TextView) findViewById(R.id.Text08_1_DatePicker);
-        mBtn_D = (Button) findViewById(R.id.Button08_1_DatePicker);
-        mTv_T = (TextView) findViewById(R.id.Text08_1_TimePicker);
-        mBtn_T = (Button) findViewById(R.id.Button08_1_TimePicker);
 
-
-        mBtn_D.setOnClickListener(new View.OnClickListener(){
+        mEt_D.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                c = Calendar.getInstance();
-                int day = c.get(Calendar.DAY_OF_MONTH);
-                int month = c.get(Calendar.MONTH);
-                int year = c.get(Calendar.YEAR);
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
 
                 dpd = new DatePickerDialog(A08_1PatientBodyTempRegAndEdit.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datepicker, int mYear, int mMonth, int mDay) {
-                        mTv_D.setText(mDay + "/" + (mMonth+1) + "/" + mYear);
+                        mEt_D.setText(mYear+"年"+mMonth+"月"+mDay+"日");
                     }
                 }, day, month, year);
                 dpd.show();
@@ -59,25 +66,22 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             }
         });
 
-        mBtn_T.setOnClickListener(new View.OnClickListener(){
+        mEt_T.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                c = Calendar.getInstance();
-                int hour = c.get(Calendar.HOUR_OF_DAY);
-                int minute = c.get(Calendar.MINUTE);
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
 
                 tpd = new TimePickerDialog(A08_1PatientBodyTempRegAndEdit.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timepicker, int mHour, int mMinute) {
-                        mTv_T.setText(mHour + ":" + mMinute);
+                        mEt_T.setText(mHour + "時" + mMinute+"分");
                     }
                 }, hour, minute, true);
                 tpd.show();
 
             }
         });
-
-
-
     }
 }

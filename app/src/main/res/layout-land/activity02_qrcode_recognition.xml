@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="カメラを起動し、QRコードを読取り後自動遷移する"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/MoveAfterQrRecognitonButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

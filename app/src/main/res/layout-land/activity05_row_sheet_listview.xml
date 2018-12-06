@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -30,6 +30,7 @@
             android:layout_weight="0.2"
             android:paddingLeft="8dp"
             android:text="@string/text05_title_id"
+            android:textColor="#FFFFFF"
             android:textSize="14sp" />
 
         <!-- データ表示用：ID -->
@@ -38,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="14sp" />
 
         <!-- タイトル：年齢 -->
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:text="@string/text05_title_age"
+            android:textColor="#FFFFFF"
             android:textSize="14sp" />
 
         <!-- データ表示用：年齢 -->
@@ -56,7 +58,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="14sp" />
 
         <!-- タイトル：性別 -->
@@ -66,6 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:text="@string/text05_title_sex"
+            android:textColor="#FFFFFF"
             android:textSize="14sp" />
 
         <!-- データ表示用：性別 -->
@@ -74,7 +77,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="14sp" />
 
     </LinearLayout>
