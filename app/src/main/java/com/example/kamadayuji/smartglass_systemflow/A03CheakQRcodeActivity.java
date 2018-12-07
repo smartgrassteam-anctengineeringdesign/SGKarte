@@ -146,6 +146,7 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
                     getAffiliation,
                     getDetail);
 
+            //読み取ったQRデータとDBから参照した名前を表示
             textView.setText("ID: "+qrRegIddata+" Name: "+ getStringName);
         }
     }
