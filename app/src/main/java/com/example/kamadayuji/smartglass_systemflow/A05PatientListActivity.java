@@ -186,6 +186,9 @@ public class A05PatientListActivity extends AppCompatActivity {
 
             } while (c.moveToNext());
         }
+
+        Log.d("DBからの読み取り終了", "狩猟");
+
         c.close();
         dbAdapterPatientList.closeDB();                    // DBを閉じる
         mListView05.setAdapter(myBaseAdapter);  // ListViewにmyBaseAdapterをセット
@@ -243,12 +246,21 @@ public class A05PatientListActivity extends AppCompatActivity {
 
             // データを取得
             patientListItem = items.get(position);
+            //以下は逆順に表示したい場合に使用
+            //patientListItem = items.get(items.size()-1-position);
+
+
+            Log.d("取得したああああああああ",String.valueOf(items.get(position)));
+            Log.d("取得したいいいいい",String.valueOf(position));
+            Log.d("取得したうううう" ,String.valueOf(items.size()));
+
 
 
             if (view == null) {
                 LayoutInflater inflater =
                         (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = inflater.inflate(R.layout.activity05_row_sheet_listview, parent, false);
+                view = inflater.inflate(R.layout.activity05_row_sheet_patient_listview, parent, false);
+
 
                 TextView text05Name = (TextView) view.findViewById(R.id.text05Name);        // 名前のTextView
                 TextView text05Id = (TextView) view.findViewById(R.id.text05Id);            // IdのTextView

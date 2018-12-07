@@ -10,11 +10,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -47,7 +44,6 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
     private TextView mText08_2Kome02;             // 年齢の※印
     private TextView mText08_2Kome03;             // 性別の※印
     private TextView mText08_2Kome04;
-    private TextView mText08_2Kome05;
 
     //ボタン
     private Button mButton08_2MovePatientInspectionResult;          //[血圧＆体温情報一覧] 07患者血圧＆体温情報一覧へ遷移
@@ -75,7 +71,7 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
             inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
             // DBに登録
-            //saveList();
+            saveList();
         }
     };
 
@@ -103,21 +99,18 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
         //取得した患者情報をset
         setPatientInfo();
 
-        //初期値設定
-        init();
-
         //最新Idの取得＆更新
         displayId();
 
-        // DBに登録
-        //saveList();
+        //初期値設定
+        init();
     }
 
 
     private void findViews() {
 
         //患者の情報
-        mText08_2Name = (TextView) findViewById(R.id.text08_2Name);
+        mText08_2Name = (TextView) findViewById(R.id.text08_1Name);
         mText08_2Id = (TextView) findViewById(R.id.text08_2Id);
         mText08_2Age = (TextView) findViewById(R.id.text08_2Age);
         mText08_2Sex = (TextView) findViewById(R.id.text08_2Sex);
@@ -137,7 +130,6 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
         mText08_2Kome02 = (TextView) findViewById(R.id.text08_2Kome02);             // 最高血圧※印
         mText08_2Kome03 = (TextView) findViewById(R.id.text08_2Kome03);             // 最低血圧の※印
         mText08_2Kome04 = (TextView) findViewById(R.id.text08_2Kome04);             // 脈拍の※印
-        mText08_2Kome05 = (TextView) findViewById(R.id.text08_2Kome05);             // 備考の※印
 
         //ボタン
         mButton08_2MovePatientInspectionResult = (Button) findViewById(R.id.button08_2MovePatientInspectionResult);
@@ -175,68 +167,77 @@ public class A08_2PatientBloodPressRegAndEdit extends AppCompatActivity {
         mText08_2Detail.setText(patient.getDetail());
     }
 
-//    private void saveList() {
-//
-//        // 各EditTextで入力されたテキストを取得
-//        String strName = mEditText04Name.getText().toString();
-//        String strAge = mEditText04Age.getText().toString();
-//        String strSex = mEditText04Sex.getText().toString();
-//        String strAffiliation = mEditText04Affiliation.getText().toString();
-//        String strDetail = mEditText04Detail.getText().toString();
-//
-//        //EditTextが空白の場合
-//        if (strName.equals("") || strAge.equals("") || strSex.equals("") ) {
-//            if (strName.equals("")) {
-//                mText04Kome01.setText("※");     // 氏名が空白の場合、※印を表示
-//            } else {
-//                mText04Kome01.setText("");      // 空白でない場合は※印を消す
-//            }
-//
-//            if (strAge.equals("")) {
-//                mText04Kome02.setText("※");     // 年齢が空白の場合、※印を表示
-//            } else {
-//                mText04Kome02.setText("");      // 空白でない場合は※印を消す
-//            }
-//
-//            if (strSex.equals("")) {
-//                mText04Kome03.setText("※");     // 性別が空白の場合、※印を表示
-//            } else {
-//                mText04Kome03.setText("");      // 空白でない場合は※印を消す
-//            }
-//
-//
-//            Toast.makeText(A04PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
-//
-//        } else {        // EditTextが全て入力されている場合
-//
-//            // 入力された単価と個数は文字列からint型へ変換
-//            int iAge = Integer.parseInt(strAge);
-//
-//            // DBへの登録処理
-//            DBAdapterPatientList dbAdapterPatientList = new DBAdapterPatientList(this);
-//            dbAdapterPatientList.openDB();                                         // DBの読み書き
-//            dbAdapterPatientList.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
-//            dbAdapterPatientList.closeDB();                                        // DBを閉じる
-//
-//            displayId();
-//            init();     // 初期値設定
-//
-//        }
-//    }
+    private void saveList() {
+
+        // 各EditTextで入力されたテキストを取得
+        String strDateAndTime = mEditText08_2DateAndTime.getText().toString();
+        String strSysPress = mEditText08_2SystolicPress.getText().toString();
+        String strDisPress = mEditText08_2DiastolicPress.getText().toString();
+        String strPulse = mEditText08_2Pulse.getText().toString();
+        String strRemarks = mEditText08_2Remarks.getText().toString();
+
+        //EditTextが空白の場合
+        if (strDateAndTime.equals("") || strSysPress.equals("") || strDisPress.equals("") || strPulse.equals("")) {
+            if (strDateAndTime.equals("")) {
+                mText08_2Kome01.setText("※");     // 氏名が空白の場合、※印を表示
+            } else {
+                mText08_2Kome01.setText("");      // 空白でない場合は※印を消す
+            }
+
+            if (strSysPress.equals("")) {
+                mText08_2Kome02.setText("※");     // 年齢が空白の場合、※印を表示
+            } else {
+                mText08_2Kome02.setText("");      // 空白でない場合は※印を消す
+            }
+
+            if (strDisPress.equals("")) {
+                mText08_2Kome03.setText("※");     // 性別が空白の場合、※印を表示
+            } else {
+                mText08_2Kome03.setText("");      // 空白でない場合は※印を消す
+            }
+
+            if(strPulse.equals("")) {
+                mText08_2Kome04.setText("※");
+            } else {
+                mText08_2Kome04.setText("");
+            }
+
+            Toast.makeText(A08_2PatientBloodPressRegAndEdit.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
+
+        } else {        // EditTextが全て入力されている場合
+
+            // 入力された単価と個数は文字列からint型へ変換
+            int iSysPress = Integer.parseInt(strSysPress);
+            int iDisPress = Integer.parseInt(strDisPress);
+            int iPulse = Integer.parseInt(strPulse);
+
+            //日付に関しては後で変更が必要
+            int iDateAndTime = Integer.parseInt(strDateAndTime);
+
+            //患者Idを取得
+            String patientId = String.valueOf(patient.getId());
+
+            // DBへの登録処理
+            DBAdapterBloodPress dbAdapterBloodPress = new DBAdapterBloodPress(this,patientId);
+            dbAdapterBloodPress.openDB();                                         // DBの読み書き
+            dbAdapterBloodPress.saveDB(iDateAndTime, iSysPress, iDisPress, iPulse, strRemarks);   // DBに登録
+            dbAdapterBloodPress.closeDB();                                        // DBを閉じる
+
+            displayId();
+            init();     // 初期値設定
+
+        }
+    }
 
 
     //Idの取得＆表示
     private void displayId() {
 
-        //患者Idを取得
-        String patientId = String.valueOf(patient.getId());
-        //table名を生成（患者ごとに血圧のデータベースが生成されるため）
-        String BpTableName = "patientBP_"+ patientId;
-
         //dbの中で自動で生成されるsqlite_sequenceテーブルにある各テーブルの要素の最大値を得る
-        DBAdapterSqliteSequence dbAdapter = new DBAdapterSqliteSequence(this);
+        DBAdapterInspectionResultSqliteSequence dbAdapter = new DBAdapterInspectionResultSqliteSequence(this,String.valueOf(patient.getId()));
         String[] columns = {"seq"};
-        String[] name ={BpTableName};
+        //デーブル名bloodPressに直したい
+        String[] name ={"bodyPress"};
         String column = "name";
 
         int getNumber = 0;

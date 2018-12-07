@@ -35,7 +35,6 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
 
     private TextView mText04Kome01;             // 氏名の※印
     private TextView mText04Kome02;             // 年齢の※印
-    private TextView mText04Kome03;             // 性別の※印
 
     private Button mButton04MovePatientList;         //[患者一覧] 患者一覧へ遷移
     private Button mButton04PatientRegistration;     //[登録] DBへデータを登録
@@ -95,7 +94,6 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
         //最新Idの取得＆更新
         displayId();
 
-
         //初期値設定
         init();
 
@@ -145,7 +143,6 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
 
          mText04Kome01 = (TextView) findViewById(R.id.text04Kome01);             // 氏名の※印
          mText04Kome02 = (TextView) findViewById(R.id.text04Kome02);             // 年齢※印
-         mText04Kome03 = (TextView) findViewById(R.id.text04Kome03);             // 性別の※印
 
         mButton04MovePatientList = (Button) findViewById(R.id.button04MovePatientList);           // 遷移
         mButton04PatientRegistration = (Button) findViewById(R.id.button04PatientRegistration);   // 登録
@@ -170,12 +167,12 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
         // 各EditTextで入力されたテキストを取得
         String strName = mEditText04Name.getText().toString();
         String strAge = mEditText04Age.getText().toString();
-        String strSex = (String)mSpinner04Sex.getSelectedItem();
+        String strSex = (String) mSpinner04Sex.getSelectedItem();
         String strAffiliation = mEditText04Affiliation.getText().toString();
         String strDetail = mEditText04Detail.getText().toString();
 
         //EditTextが空白の場合
-        if (strName.equals("") || strAge.equals("") || strSex.equals("") ) {
+        if (strName.equals("") || strAge.equals("")) {
             if (strName.equals("")) {
                 mText04Kome01.setText("※");     // 氏名が空白の場合、※印を表示
             } else {
@@ -188,11 +185,7 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
                 mText04Kome02.setText("");      // 空白でない場合は※印を消す
             }
 
-            if (strSex.equals("")) {
-                mText04Kome03.setText("※");     // 性別が空白の場合、※印を表示
-            } else {
-                mText04Kome03.setText("");      // 空白でない場合は※印を消す
-            }
+
 
 
             Toast.makeText(A04PatientRegistrationActivity.this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
@@ -208,14 +201,20 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
             dbAdapterPatientList.saveDB(strName, iAge, strSex, strAffiliation, strDetail);   // DBに登録
             dbAdapterPatientList.closeDB();                                        // DBを閉じる
 
-            displayId();
+            int patientId = displayId();
+
+            //体温と血圧を保存するデータベースを作成する
+            DBAdapterCreateBPandBTdatabase dbAdapterCreateBPandBTdatabase = new DBAdapterCreateBPandBTdatabase(this, String.valueOf(patientId));
+            dbAdapterCreateBPandBTdatabase.openDB();
+            dbAdapterCreateBPandBTdatabase.closeDB();
+
             init();     // 初期値設定
 
         }
     }
 
     //Idの取得＆表示
-    private void displayId() {
+    private int displayId() {
 
         DBAdapterSqliteSequence dbAdapter = new DBAdapterSqliteSequence(this);
         String[] columns = {"seq"};
@@ -234,10 +233,12 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
             } while (c.moveToNext());
         }
 
-        mText04Id.setText(String.valueOf(++getNumber));
+        mText04Id.setText(String.valueOf(1+getNumber));
 
         c.close();
         dbAdapter.closeDB();
+
+        return getNumber;
     }
 
 

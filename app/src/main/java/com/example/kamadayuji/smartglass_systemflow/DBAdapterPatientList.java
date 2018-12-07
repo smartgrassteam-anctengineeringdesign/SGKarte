@@ -230,6 +230,9 @@ public class DBAdapterPatientList {
          */
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+            Log.d("log","onUpgradetable");
+
             // DBからテーブル削除
             db.execSQL("DROP TABLE IF EXISTS" + DB_TABLE);
             // テーブル生成
