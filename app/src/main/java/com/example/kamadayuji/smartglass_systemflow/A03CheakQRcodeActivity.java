@@ -117,7 +117,7 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
 
             //qrから読み取ったIDdateをpatientDbに探しに行く
             Cursor c = dbAdapterPatientList.searchDB(columns,column,name);
-
+            //Todo ここでTryCatch文の検討をする
             if (c.moveToFirst()) {
                 do {
                     getId = c.getInt(0);
