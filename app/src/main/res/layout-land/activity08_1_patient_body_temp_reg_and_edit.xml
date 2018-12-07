@@ -404,27 +404,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:textColor="@android:color/holo_red_dark"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit08_1Date"
-        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/edit08_1Date" />
 
     <TextView
         android:id="@+id/text08_1Kome02"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_1BodyTemp"
-        app:layout_constraintEnd_toStartOf="@+id/edit08_1BodyTemp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_1Time"
+        app:layout_constraintEnd_toStartOf="@+id/guideline25"
+        app:layout_constraintStart_toStartOf="@+id/edit08_1Time" />
 
     <TextView
         android:id="@+id/text08_1Kome03"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText"
-        app:layout_constraintEnd_toStartOf="@+id/editText" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit08_1BodyTemp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/edit08_1BodyTemp" />
 
     <TextView
         android:id="@+id/textView3"
