@@ -54,7 +54,7 @@ public class A03QRCodeRecognitionActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
-            Log.d("readQR", result.getContents());
+            //Log.d("readQR", result.getContents());
             Intent intent = new Intent(this,A02CheakQRcodeActivity.class);
             intent.putExtra("readQR",result.getContents());
             TextView textView = findViewById(R.id.textView2);
