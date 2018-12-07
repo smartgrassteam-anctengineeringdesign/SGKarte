@@ -1,8 +1,10 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -116,8 +118,34 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
             dbAdapterPatientList.openDB();     //DBの読み込み
 
             //qrから読み取ったIDdateをpatientDbに探しに行く
-            Cursor c = dbAdapterPatientList.searchDB(columns,column,name);
-            //Todo ここでTryCatch文の検討をする
+
+            Cursor c = null;
+
+            //Todo ここでTryCatch文の検討をする（実装中
+            c = dbAdapterPatientList.searchDB(columns,column,name);
+            if(c == null){//ここに書く条件式が謎、返り値が不明
+                TextView textView = findViewById(R.id.textView);
+                textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
+
+            }
+
+
+            /*try {
+
+            } catch (Exception e) {
+                //例外処理の内容を記述　ここでは警告文を出して最初の画面に戻るとする。
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("患者のデータが存在しません。")
+                        .setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // ボタンをクリックしたときの動作、現在は何もしない
+
+                            }
+                        });
+                builder.show();
+            }*/
+
+
             if (c.moveToFirst()) {
                 do {
                     getId = c.getInt(0);
