@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-public class A02CheakQRcodeActivity extends AppCompatActivity {
+public class A03CheakQRcodeActivity extends AppCompatActivity {
 
     //リスナー登録　OKボタン　患者情報の詳細を表示する
     View.OnClickListener MovePatientInfoDetailButtonOnClickListener = new View.OnClickListener() {
@@ -21,7 +21,7 @@ public class A02CheakQRcodeActivity extends AppCompatActivity {
     View.OnClickListener ReQRCodeRecognitionButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplication(), A03QRCodeRecognitionActivity.class);
+            Intent intent = new Intent(getApplication(), A02QRCodeRecognitionActivity.class);
             startActivity(intent);
         }
     };

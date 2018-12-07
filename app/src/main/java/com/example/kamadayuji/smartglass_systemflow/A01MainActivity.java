@@ -11,7 +11,7 @@ public class A01MainActivity extends AppCompatActivity {
     View.OnClickListener button01MoveQRcodeOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-        Intent intent = new Intent(getApplication(), A03QRCodeRecognitionActivity.class);
+        Intent intent = new Intent(getApplication(), A02QRCodeRecognitionActivity.class);
         startActivity(intent);
         }
     };
