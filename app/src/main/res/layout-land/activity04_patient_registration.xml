@@ -127,6 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="所属"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/text04Detail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text04Age"
@@ -151,6 +152,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
         android:text="詳細"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text04Affiliation" />

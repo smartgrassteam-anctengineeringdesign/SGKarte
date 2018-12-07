@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="最低血圧"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2SystolicPress"
         app:layout_constraintStart_toStartOf="@+id/guideline16" />
 
@@ -19,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="脈拍"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2Pulse"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
@@ -27,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="最高血圧"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2SystolicPress"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         tools:ignore="MissingConstraints" />
@@ -36,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="日時"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2DateAndTime"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
@@ -44,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BPID"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
@@ -52,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="001"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
@@ -175,6 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yuji Kamada"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
@@ -190,6 +197,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ID"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/text08_1Name" />
 
@@ -198,6 +206,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline21"
         app:layout_constraintTop_toTopOf="@+id/text08_2TitleId" />
 
@@ -213,6 +222,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="年齢"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/text08_2TitleId" />
 
@@ -221,6 +231,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="22"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
         app:layout_constraintTop_toTopOf="@+id/text08_2TitleAge" />
 
@@ -243,6 +254,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="性別"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
         app:layout_constraintTop_toTopOf="@+id/text08_2Age" />
 
@@ -251,6 +263,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="男"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline24"
         app:layout_constraintTop_toTopOf="@+id/text08_2TitleSex" />
 
@@ -273,6 +286,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="所属"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline25"
         app:layout_constraintTop_toTopOf="@+id/text08_2Sex" />
 
@@ -288,6 +302,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="旭川高専"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline26"
         app:layout_constraintTop_toTopOf="@+id/text08_2TitleAffiliation" />
 
@@ -303,6 +318,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="詳細"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/guideline27"
         app:layout_constraintTop_toTopOf="@+id/text08_2Affiliation" />
 
@@ -312,6 +328,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:text="若年高血圧"
+        android:textColor="#FFFFFF"
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
@@ -336,6 +353,7 @@
         android:text="クリア"
         android:background="@drawable/activity08_2_button_background"
         android:backgroundTint="@color/Accent"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toStartOf="@+id/guideline28"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
@@ -352,6 +370,7 @@
         android:background="@drawable/activity08_2_button_background"
         android:backgroundTint="@color/Main"
         android:text="血圧＆体温\n情報一覧"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -368,6 +387,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="登録"
+        android:textColor="#FFFFFF"
+
         android:background="@drawable/activity08_2_button_background"
         android:backgroundTint="@color/Main"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
@@ -380,6 +401,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="備考"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit08_2Remarks"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
 

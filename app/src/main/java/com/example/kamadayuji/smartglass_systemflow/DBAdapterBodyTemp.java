@@ -76,20 +76,22 @@ public class DBAdapterBodyTemp {
      * @param remarks     備考
      */
 
-    public void saveDB(int dateAndTime, int bt, String remarks) {
+    public void saveDB(int date, int time, int bt, String remarks) {
 
         db.beginTransaction();
 
         try {
             ContentValues values = new ContentValues();  // ContentValuesでデータを設定していく
-            values.put(COL_DATE, dateAndTime);
+            values.put(COL_DATE, date);
+            values.put(COL_DATE, time);
             values.put(COL_BT, bt);
             values.put(COL_REMARKS, remarks);
 
             // insertメソッド データ登録
             // 第1引数：DBのテーブル名
-            // 第2引数：更新する条件式
-            // 第3引数：ContentValues
+            // 第2引数：DBのテーブル名
+            // 第3引数：更新する条件式
+            // 第4引数：ContentValues
             db.insert(DB_TABLE, null, values);      // レコードへ登録
             Log.d("log","insert " + values);
 

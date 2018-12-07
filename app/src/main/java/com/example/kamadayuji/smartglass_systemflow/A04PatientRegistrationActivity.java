@@ -1,5 +1,6 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
@@ -39,6 +41,9 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
     private Button mButton04Clear;                   //[クリア] EditTextに入力されている文字をクリアする
 
     private Intent intent;
+
+
+
 
 
     //リスナ登録
@@ -108,6 +113,7 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
         Spinner04Sex.setAdapter(adapter);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
     }
 
@@ -234,11 +240,6 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
 
         return getNumber;
     }
-
-
-
-
-
 
 
 

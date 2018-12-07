@@ -1,6 +1,8 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,10 +13,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
-
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,13 +41,19 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
 
     //体温データ入力に関する部品
     private TextView mText08_1BtId;
-    private EditText mEditText08_1DateAndTime;
+    private EditText mEditText08_1Date;
+    private EditText mEditText08_1Time;
     private EditText mEditText08_1BodyTemp;
     private EditText mEditText08_1Remarks;
 
+    //日付取得に関する部品
+    DatePickerDialog dpd;
+    TimePickerDialog tpd;
+
     //入力を促す警告に使用する「※」
-    private TextView mText08_1Kome01;             // 日時の※印
-    private TextView mText08_1Kome02;             // 体温の※印
+    private TextView mText08_1Kome01;           // 日時の※印
+    private TextView mText08_1Kome02;              //時刻の※印
+    private TextView mText08_1Kome03;             // 体温の※印
 
     //ボタン
     private Button mButton08_1MovePatientInspectionResult;          //[血圧＆体温情報一覧] 07患者血圧＆体温情報一覧へ遷移
@@ -81,6 +93,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             //初期値処理
             init();
         }
+
     };
 
     @Override
@@ -102,6 +115,42 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
 
         //初期値設定
         init();
+
+        //日付、時刻
+        mEditText08_1Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar=Calendar.getInstance();
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+            int month = calendar.get(Calendar.MONTH);
+            int year = calendar.get(Calendar.YEAR);
+
+            dpd = new DatePickerDialog(A08_1PatientBodyTempRegAndEdit.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
+                    mEditText08_1Date.setText(mYear+"年"+mMonth+"月"+mDay+"日");
+                }
+            }, day, month, year);
+                dpd.show();
+            }
+    });
+
+        mEditText08_1Time.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int minute = calendar.get(Calendar.MINUTE);
+            tpd = new TimePickerDialog(A08_1PatientBodyTempRegAndEdit.this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int mHour, int mMinute) {
+                        mEditText08_1Time.setText(mHour + "時" + mMinute+"日");
+                    }
+                }, hour, minute, true);
+            tpd.show();
+                }
+
+        });
     }
 
     private void findViews() {
@@ -115,18 +164,21 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
 
         //血圧データ入力に関する部品
         mText08_1BtId = (TextView) findViewById(R.id.text08_1BtId);
-        mEditText08_1DateAndTime = (EditText) findViewById(R.id.edit08_1DateAndTime);
+        mEditText08_1Date = (EditText) findViewById(R.id.edit08_1Date);
+        mEditText08_1Time = (EditText) findViewById(R.id.edit08_1Time);
         mEditText08_1BodyTemp = (EditText) findViewById(R.id.edit08_1BodyTemp);
         mEditText08_1Remarks = (EditText) findViewById(R.id.edit08_1Remarks);
 
         //標準設定：日付と時刻の入力
        // @SuppressLint("WrongViewCast");//エラーをなかったことにするやつ？
-            mEditText08_1DateAndTime.setInputType(InputType.TYPE_CLASS_DATETIME | InputType.TYPE_DATETIME_VARIATION_NORMAL);
+            mEditText08_1Date.setInputType(InputType.TYPE_CLASS_DATETIME | InputType.TYPE_DATETIME_VARIATION_NORMAL);
+            mEditText08_1Time.setInputType(InputType.TYPE_CLASS_DATETIME | InputType.TYPE_DATETIME_VARIATION_NORMAL);
 
 
         //※マーク
-        mText08_1Kome01 = (TextView) findViewById(R.id.text08_1Kome01);             // 日時の※印
-        mText08_1Kome02 = (TextView) findViewById(R.id.text08_1Kome02);             // 体温※印
+        mText08_1Kome01 = (TextView) findViewById(R.id.text08_1Kome01);             // 日付の※印
+        mText08_1Kome02 = (TextView) findViewById(R.id.text08_1Kome02);             // 時刻の※印
+        mText08_1Kome03 = (TextView) findViewById(R.id.text08_1Kome03);             // 体温※印
 
         //ボタン
         mButton08_1MovePatientInspectionResult = (Button) findViewById(R.id.button08_1MovePatientInspectionResult);
@@ -140,11 +192,13 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
     }
 
     private void init() {
-        mEditText08_1DateAndTime.setText("");
+        mEditText08_1Date.setText("");
+        mEditText08_1Time.setText("");
         mEditText08_1BodyTemp.setText("");
         mEditText08_1Remarks.setText("");
 
-        mEditText08_1DateAndTime.requestFocus();     //フォーカスを氏名のEditTextに指定
+        mEditText08_1Date.requestFocus();
+        mEditText08_1Time.requestFocus();       //フォーカスを氏名のEditTextに指定
     }
 
     private void getSelectedPatientId(){
@@ -165,22 +219,29 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
     private void saveList() {
 
         // 各EditTextで入力されたテキストを取得
-        String strDateAndTime = mEditText08_1DateAndTime.getText().toString();
+        String strDate = mEditText08_1Date.getText().toString();
+        String strTime = mEditText08_1Time.getText().toString();
         String strBodyTemp = mEditText08_1BodyTemp.getText().toString();
         String strRemarks = mEditText08_1Remarks.getText().toString();
 
         //EditTextが空白の場合
-        if (strDateAndTime.equals("") || strBodyTemp.equals("")) {
-            if (strDateAndTime.equals("")) {
-                mText08_1Kome01.setText("※");     // 日時が空白の場合、※印を表示
+        if (strDate.equals("") || strBodyTemp.equals("")) {
+            if (strDate.equals("")) {
+                mText08_1Kome01.setText("※");     // 日が空白の場合、※印を表示
             } else {
                 mText08_1Kome01.setText("");      // 空白でない場合は※印を消す
             }
 
-            if (strBodyTemp.equals("")) {
-                mText08_1Kome02.setText("※");     // 体温が空白の場合、※印を表示
+            if (strTime.equals("")) {
+                mText08_1Kome02.setText("※");     // 時が空白の場合、※印を表示
             } else {
                 mText08_1Kome02.setText("");      // 空白でない場合は※印を消す
+            }
+
+            if (strBodyTemp.equals("")) {
+                mText08_1Kome03.setText("※");     // 体温が空白の場合、※印を表示
+            } else {
+                mText08_1Kome03.setText("");      // 空白でない場合は※印を消す
             }
 
             Toast.makeText(this, "※の箇所を入力して下さい。", Toast.LENGTH_SHORT).show();
@@ -191,7 +252,8 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             int iBodyTemp = Integer.parseInt(strBodyTemp);
 
             //日付に関しては後で変更が必要
-            int iDateAndTime = Integer.parseInt(strDateAndTime);
+            int iDate = Integer.parseInt(strDate);
+            int iTime = Integer.parseInt(strTime);
 
             //患者Idを取得
             String patientId = String.valueOf(patient.getId());
@@ -199,7 +261,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             // DBへの登録処理
             DBAdapterBodyTemp dbAdapterBodyTemp = new DBAdapterBodyTemp(this,patientId);
             dbAdapterBodyTemp.openDB();                                         // DBの読み書き
-            dbAdapterBodyTemp.saveDB(iDateAndTime, iBodyTemp, strRemarks);   // DBに登録
+            dbAdapterBodyTemp.saveDB(iDate, iTime, iBodyTemp, strRemarks);   // DBに登録
             dbAdapterBodyTemp.closeDB();                                        // DBを閉じる
 
             displayId();
@@ -235,4 +297,6 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
         c.close();
         dbAdapter.closeDB();
     }
-}
+
+
+    }

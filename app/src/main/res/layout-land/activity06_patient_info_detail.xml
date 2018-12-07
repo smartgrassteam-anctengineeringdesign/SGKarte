@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="yujikamada"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/text06TitleId"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/text05_title_id"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/text06Id"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/text05_title_id"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleId"
         app:layout_constraintEnd_toStartOf="@+id/text06TitleAge"
@@ -55,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:text="@string/text05_title_age"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/text06TitleSex"
         app:layout_constraintStart_toEndOf="@+id/text06Id"
@@ -66,7 +68,7 @@
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:text="12"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/text06TitleAge"
         app:layout_constraintTop_toTopOf="@+id/text06TitleAge" />
@@ -77,6 +79,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/text05_title_sex"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleAge"
         app:layout_constraintEnd_toStartOf="@+id/text06Sex"
@@ -89,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="M"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleSex"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,6 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="所属"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/text06Affiliation"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -110,6 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="acct"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text06TitleAge" />
 
@@ -119,6 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="詳細"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
@@ -128,6 +134,7 @@
         android:layout_height="38dp"
         android:layout_marginEnd="16dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleDetail"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -151,6 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="直近の検査結果"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
@@ -199,6 +207,7 @@
         android:background="@drawable/activity06_button_background"
         android:backgroundTint="@color/Main"
         android:text="体温測定"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline35"
         app:layout_constraintEnd_toStartOf="@+id/button06MoveBloodPressMeasure"
         app:layout_constraintHorizontal_bias="0.5"
@@ -219,6 +228,7 @@
         android:background="@drawable/activity06_button_background"
         android:backgroundTint="@color/Main"
         android:text="血圧測定"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline35"
         app:layout_constraintEnd_toStartOf="@+id/button06MoveDetailtInsRe"
         app:layout_constraintHorizontal_bias="0.5"
@@ -239,6 +249,7 @@
         android:background="@drawable/activity06_button_background"
         android:backgroundTint="@color/Main"
         android:text="検査結果詳細"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline35"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline38"
