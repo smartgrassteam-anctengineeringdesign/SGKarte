@@ -27,6 +27,12 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
     };
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, A02QRCodeRecognitionActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity03_cheak_qrcode);
