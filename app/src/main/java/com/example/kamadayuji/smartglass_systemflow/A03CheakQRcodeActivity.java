@@ -39,6 +39,7 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
         //ボタンが押された時に発動
         findViewById(R.id.ReQRCodeRecognitionButton).setOnClickListener(ReQRCodeRecognitionButtonOnClickListener);
         findViewById(R.id.MovePatientInfoDetailButton).setOnClickListener(MovePatientInfoDetailButtonOnClickListener);
+        
 
 
         Intent intent = getIntent();
