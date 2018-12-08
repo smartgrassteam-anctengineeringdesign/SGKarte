@@ -123,11 +123,11 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
 
             //Todo ここでTryCatch文の検討をする（実装中
             c = dbAdapterPatientList.searchDB(columns,column,name);
-            if(c == null){//ここに書く条件式が謎、返り値が不明
+            /*if(c == null){//ここに書く条件式が謎、返り値が不明
                 TextView textView = findViewById(R.id.textView);
                 textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
 
-            }
+            }*/
 
 
             /*try {
@@ -149,7 +149,7 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
             if (c.moveToFirst()) {
                 do {
                     getId = c.getInt(0);
-                    getStringName = c.getString(1);    //c.getInt(0);についてはif文の外でやるとエラーになる
+                    getStringName = c.getString(1);//c.getInt(0);についてはif文の外でやるとエラーになる
                     getAge = c.getInt(2);
                     getSex = c.getString(3);
                     getAffiliation = c.getString(4);
@@ -176,6 +176,9 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
 
             //読み取ったQRデータとDBから参照した名前を表示
             textView.setText("ID: "+qrRegIddata+" Name: "+ getStringName);
+            if(getStringName==null){
+                textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
+            }
         }
     }
 
