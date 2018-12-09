@@ -178,7 +178,17 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
             textView.setText("ID: "+qrRegIddata+" Name: "+ getStringName);
             if(getStringName==null){
                 textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("患者のデータが存在しません。");
+                builder.setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // ボタンをクリックしたときの動作、現在は何もしない
+
+                    }
+                });
+                builder.show();
             }
+
         }
     }
 
