@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -163,7 +164,10 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
                 builder.setMessage("患者のデータが存在しません。");
                 builder.setPositiveButton("了解", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // ボタンをクリックしたときの動作、現在は何もしない
+                        //安全性の向上
+                        Button button = (Button)findViewById(R.id.MovePatientInfoDetailButton);
+                        button.setEnabled(false);
+
 
                     }
                 });
