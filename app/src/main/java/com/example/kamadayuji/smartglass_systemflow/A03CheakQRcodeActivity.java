@@ -3,6 +3,7 @@ package com.example.kamadayuji.smartglass_systemflow;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -155,10 +156,12 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
                     getDetail);
 
             //読み取ったQRデータとDBから参照した名前を表示
+            Button button = (Button)findViewById(R.id.MovePatientInfoDetailButton);
+            button.setEnabled(true); //buttonの活性化
             textView.setText("ID: "+qrRegIddata+" Name: "+ getStringName);
 
             //患者がないときの動作↓
-            if(getStringName==null){
+            if(getStringName == null){
                 textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage("患者のデータが存在しません。");
@@ -166,11 +169,13 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         //安全性の向上
                         Button button = (Button)findViewById(R.id.MovePatientInfoDetailButton);
-                        button.setEnabled(false);
+                        button.setEnabled(false); //buttonの不活性化
+                        //button.setBackgroundColor(Color.rgb(1,1,1));
 
 
                     }
                 });
+
                 builder.show();
             }
 
