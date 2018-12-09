@@ -121,29 +121,8 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
 
             Cursor c = null;
 
-            //Todo ここでTryCatch文の検討をする（実装中
+
             c = dbAdapterPatientList.searchDB(columns,column,name);
-            /*if(c == null){//ここに書く条件式が謎、返り値が不明
-                TextView textView = findViewById(R.id.textView);
-                textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
-
-            }*/
-
-
-            /*try {
-
-            } catch (Exception e) {
-                //例外処理の内容を記述　ここでは警告文を出して最初の画面に戻るとする。
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("患者のデータが存在しません。")
-                        .setPositiveButton("了解", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // ボタンをクリックしたときの動作、現在は何もしない
-
-                            }
-                        });
-                builder.show();
-            }*/
 
 
             if (c.moveToFirst()) {
@@ -176,6 +155,8 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
 
             //読み取ったQRデータとDBから参照した名前を表示
             textView.setText("ID: "+qrRegIddata+" Name: "+ getStringName);
+
+            //患者がないときの動作↓
             if(getStringName==null){
                 textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
