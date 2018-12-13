@@ -1,11 +1,15 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -116,12 +120,17 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
             dbAdapterPatientList.openDB();     //DBの読み込み
 
             //qrから読み取ったIDdateをpatientDbに探しに行く
-            Cursor c = dbAdapterPatientList.searchDB(columns,column,name);
+
+            Cursor c = null;
+
+
+            c = dbAdapterPatientList.searchDB(columns,column,name);
+
 
             if (c.moveToFirst()) {
                 do {
                     getId = c.getInt(0);
-                    getStringName = c.getString(1);    //c.getInt(0);についてはif文の外でやるとエラーになる
+                    getStringName = c.getString(1);//c.getInt(0);についてはif文の外でやるとエラーになる
                     getAge = c.getInt(2);
                     getSex = c.getString(3);
                     getAffiliation = c.getString(4);
@@ -147,7 +156,29 @@ public class A03CheakQRcodeActivity extends AppCompatActivity {
                     getDetail);
 
             //読み取ったQRデータとDBから参照した名前を表示
+            Button button = (Button)findViewById(R.id.MovePatientInfoDetailButton);
+            button.setEnabled(true); //buttonの活性化
             textView.setText("ID: "+qrRegIddata+" Name: "+ getStringName);
+
+            //患者がないときの動作↓
+            if(getStringName == null){
+                textView.setText("患者データが見つかりませんでした。もう一度スキャンしてください。");
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("患者のデータが存在しません。");
+                builder.setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //安全性の向上
+                        Button button = (Button)findViewById(R.id.MovePatientInfoDetailButton);
+                        button.setEnabled(false); //buttonの不活性化
+                        //button.setBackgroundColor(Color.rgb(1,1,1));
+
+
+                    }
+                });
+
+                builder.show();
+            }
+
         }
     }
 
