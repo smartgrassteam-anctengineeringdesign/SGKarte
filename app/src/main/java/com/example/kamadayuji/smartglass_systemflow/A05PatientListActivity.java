@@ -162,6 +162,7 @@ public class A05PatientListActivity extends AppCompatActivity {
 
         //ArrayAdapterに対してListViewのリスト(items)の更新
         items.clear();
+        int PatientFlag = 0;
 
         dbAdapterPatientList.openDB();     //DBの読み込み
 
@@ -183,6 +184,7 @@ public class A05PatientListActivity extends AppCompatActivity {
                 Log.d("取得したCursor(性別):", c.getString(3));
 
                 items.add(patientListItem);          // 取得した要素をitemsに追加
+                PatientFlag++;
 
             } while (c.moveToNext());
         }
@@ -193,9 +195,21 @@ public class A05PatientListActivity extends AppCompatActivity {
         dbAdapterPatientList.closeDB();                    // DBを閉じる
         mListView05.setAdapter(myBaseAdapter);  // ListViewにmyBaseAdapterをセット
         myBaseAdapter.notifyDataSetChanged();   // Viewの更新
+        if (PatientFlag==0){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("患者のデータが存在しません。");
+            builder.setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    //Intent intent = new Intent(this, A01MainActivity.class);
+                    //startActivity(intent);
+                    }
+            });
+            builder.show();
+        }//患者データが何もない時
     }
 
-    /**
+    /*
      * BaseAdapterを継承したクラス
      * MyBaseAdapter
      */
