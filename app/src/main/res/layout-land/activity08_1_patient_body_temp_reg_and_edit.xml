@@ -65,7 +65,7 @@
         android:background="@drawable/activity08_1_inputframe_background"
         android:ems="10"
         android:hint="体温を入力"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:imeOptions="actionDone"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
