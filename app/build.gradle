@@ -31,4 +31,5 @@ dependencies {
     implementation files('libs/javase-3.3.3.jar')
     implementation files('libs/core-3.3.3.jar')
     implementation project(':zxing-android-embedded-3.6.0')
+    implementation project(':openCVLibrary343')
 }
