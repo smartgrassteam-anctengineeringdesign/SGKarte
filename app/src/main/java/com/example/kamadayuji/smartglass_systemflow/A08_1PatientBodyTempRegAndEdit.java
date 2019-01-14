@@ -128,7 +128,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             dpd = new DatePickerDialog(A08_1PatientBodyTempRegAndEdit.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                    mEditText08_1Date.setText(mYear+"年"+mMonth+"月"+mDay+"日");
+                    mEditText08_1Date.setText(mYear+"/"+mMonth+"/"+mDay);
                 }
             }, day, month, year);
                 dpd.show();
@@ -144,7 +144,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             tpd = new TimePickerDialog(A08_1PatientBodyTempRegAndEdit.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int mHour, int mMinute) {
-                        mEditText08_1Time.setText(mHour + "時" + mMinute+"日");
+                        mEditText08_1Time.setText(mHour + ":" + mMinute);
                     }
                 }, hour, minute, true);
             tpd.show();
