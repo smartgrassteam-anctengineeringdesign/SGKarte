@@ -49,6 +49,16 @@ public class A06PatientInfoDetailActivity extends AppCompatActivity {
         }
     };
 
+    View.OnClickListener button06MoveBodyTempMeasureOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplication(), A10.class);
+            startActivity(intent);
+        }
+    };
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +89,7 @@ public class A06PatientInfoDetailActivity extends AppCompatActivity {
         mListView06 = (ListView) findViewById(R.id.listView06);
 
         //リスナ登録
+        mButton06MoveBodyTempMeasure.setOnClickListener(button06MoveBodyTempMeasureOnClickListener);
         mButton06MoveDetailInsRe.setOnClickListener(button06MoveDetailInsReOnClickListener);
     }
 

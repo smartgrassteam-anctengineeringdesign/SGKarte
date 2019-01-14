@@ -62,6 +62,12 @@
             android:screenOrientation="landscape">
         </activity>
 
+        <activity
+            android:name=".A10"
+            android:label="数値読み取り"
+            android:screenOrientation="landscape">
+        </activity>
+
     </application>
 
 </manifest>
