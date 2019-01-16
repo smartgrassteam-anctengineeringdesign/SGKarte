@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto">
+
+   <!-- <org.opencv.android.JavaCameraView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"
+        android:id="@+id/activity_java_surface_view"
+        opencv:show_fps="true"
+        opencv:camera_id="any" />
+-->
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="395dp"
+        android:layout_height="262dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        opencv:layout_constraintBottom_toBottomOf="parent"
+        opencv:layout_constraintEnd_toEndOf="parent"
+        opencv:layout_constraintStart_toStartOf="parent"
+        opencv:layout_constraintTop_toTopOf="parent"
+        opencv:srcCompat="@drawable/activity01_button_background" />
+
 
 </android.support.constraint.ConstraintLayout>
