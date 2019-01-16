@@ -147,5 +147,5 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline66"
         app:layout_constraintStart_toStartOf="@+id/guideline65"
         app:layout_constraintTop_toTopOf="@+id/guideline68" />
-    
+
 </android.support.constraint.ConstraintLayout>

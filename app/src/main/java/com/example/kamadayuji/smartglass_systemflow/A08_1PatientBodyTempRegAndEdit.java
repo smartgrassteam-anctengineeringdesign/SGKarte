@@ -130,7 +130,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
                 public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
                     mEditText08_1Date.setText(mYear+"/"+mMonth+"/"+mDay);
                 }
-            }, day, month, year);
+            }, year, month, day);
                 dpd.show();
             }
     });
