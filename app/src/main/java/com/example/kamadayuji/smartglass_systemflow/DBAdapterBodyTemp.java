@@ -76,7 +76,7 @@ public class DBAdapterBodyTemp {
      * @param remarks     備考
      */
 
-    public void saveDB(int dateAndTime,  int bt, String remarks) {
+    public void saveDB(int dateAndTime,  float bt, String remarks) {
 
         db.beginTransaction();
 

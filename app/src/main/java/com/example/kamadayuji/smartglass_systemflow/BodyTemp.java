@@ -7,19 +7,18 @@ import java.io.Serializable;
 public class BodyTemp implements Serializable{
     protected int id;
     protected int date;
-    protected int bt;
+    protected float bt;
     protected String remarks;
 
     /**
      * Patient
-     *
-     * @param id      int ID
+     *  @param id      int ID
      * @param date int 日時
      * @param bt  int 体温
      * @param remarks remarks 備考
      */
 
-    public BodyTemp(int id, int date, int bt,String remarks) {
+    public BodyTemp(int id, int date, float bt, String remarks) {
         this.id = id;
         this.date = date;
         this.bt = bt;
@@ -51,9 +50,9 @@ public class BodyTemp implements Serializable{
      * 体温を取得
      * getBt()
      *
-     * @return bt int 体温
+     * @return bt float 体温
      */
-    public int getBt() {
+    public float getBt() {
         Log.d("取得したbt：", String.valueOf(bt));
         return bt;
     }

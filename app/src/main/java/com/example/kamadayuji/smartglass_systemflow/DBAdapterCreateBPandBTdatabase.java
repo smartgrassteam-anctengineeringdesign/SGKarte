@@ -124,7 +124,7 @@ public class DBAdapterCreateBPandBTdatabase {
             String createTbl_BT = "CREATE TABLE " + DB_TABLE_BT + " ("
                     + COL_BTID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COL_BT_DATE + " INTEGER NOT NULL,"
-                    + COL_BT + " INTEGER NOT NULL,"
+                    + COL_BT + " REAL NOT NULL,"
                     + COL_REMARKS + " TEXT"
                     + ");";
 

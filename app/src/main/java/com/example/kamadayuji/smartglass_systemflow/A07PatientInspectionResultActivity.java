@@ -179,11 +179,11 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
                 bodyTempListItem = new BodyTempListItem(
                         cBt.getInt(0),
                         cBt.getInt(1),
-                        cBt.getInt(2));
+                        cBt.getFloat(2));
 
                 Log.d("取得したCursorBodyTemp(ID):", String.valueOf(cBt.getInt(0)));
                 Log.d("取得したCursorBodyTemp(日時):", cBt.getString(1));
-                Log.d("取得したCursorBodyTemp(体温):", String.valueOf(cBt.getInt(2)));
+                Log.d("取得したCursorBodyTemp(体温):", String.valueOf(cBt.getFloat(2)));
 
                 btItems.add(bodyTempListItem);          // 取得した要素をitemsに追加
             } while (cBt.moveToNext());

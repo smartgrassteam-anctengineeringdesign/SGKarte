@@ -10,10 +10,10 @@ public class BodyTempListItem extends BodyTemp{
      *
      * @param id    int ID
      * @param date  String 日時
-     * @param bt   int 体温
+     * @param bt   float 体温
      */
 
-    public BodyTempListItem(int id, int date, int bt) {
+    public BodyTempListItem(int id, int date, float bt) {
         super(id,date,bt,null);
     }
 }

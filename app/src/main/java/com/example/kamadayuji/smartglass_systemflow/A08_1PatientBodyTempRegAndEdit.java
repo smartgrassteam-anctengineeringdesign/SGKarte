@@ -257,7 +257,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
         } else {        // EditTextが全て入力されている場合
 
             // 入力された単価と個数は文字列からint型へ変換
-            int iBodyTemp = Integer.parseInt(strBodyTemp);
+            float iBodyTemp = Float.parseFloat(strBodyTemp);
 
             //UnixTimeへ変換
             String dataAndTime;
