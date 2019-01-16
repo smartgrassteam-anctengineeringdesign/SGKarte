@@ -18,6 +18,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
@@ -80,8 +83,13 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
                     (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
+
             // DBに登録
-            saveList();
+            try {
+                saveList();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
     };
 
@@ -128,7 +136,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             dpd = new DatePickerDialog(A08_1PatientBodyTempRegAndEdit.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                    mEditText08_1Date.setText(mYear+"/"+mMonth+"/"+mDay);
+                    mEditText08_1Date.setText(mYear+"/"+(++mMonth)+"/"+mDay);
                 }
             }, year, month, day);
                 dpd.show();
@@ -216,7 +224,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
         mText08_1Detail.setText(patient.getDetail());
     }
 
-    private void saveList() {
+    private void saveList() throws ParseException {
 
         // 各EditTextで入力されたテキストを取得
         String strDate = mEditText08_1Date.getText().toString();
@@ -251,9 +259,17 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             // 入力された単価と個数は文字列からint型へ変換
             int iBodyTemp = Integer.parseInt(strBodyTemp);
 
-            //日付に関しては後で変更が必要
-            int iDate = Integer.parseInt(strDate);
-            int iTime = Integer.parseInt(strTime);
+            //UnixTimeへ変換
+            String dataAndTime;
+
+            dataAndTime = strDate +" " +strTime+":00";
+            Log.d("seireki",dataAndTime);
+
+            SimpleDateFormat format = new SimpleDateFormat();
+            format.applyPattern("yyyy/MM/dd HH:mm:ss");
+            Date d = format.parse(dataAndTime);
+            int intUnixTime = (int)d.getTime()/1000;
+            Log.d("unixtime",String.valueOf(intUnixTime));
 
             //患者Idを取得
             String patientId = String.valueOf(patient.getId());
@@ -261,7 +277,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             // DBへの登録処理
             DBAdapterBodyTemp dbAdapterBodyTemp = new DBAdapterBodyTemp(this,patientId);
             dbAdapterBodyTemp.openDB();                                         // DBの読み書き
-            dbAdapterBodyTemp.saveDB(iDate, iTime, iBodyTemp, strRemarks);   // DBに登録
+            dbAdapterBodyTemp.saveDB(intUnixTime, iBodyTemp, strRemarks);      // DBに登録
             dbAdapterBodyTemp.closeDB();                                        // DBを閉じる
 
             displayId();
