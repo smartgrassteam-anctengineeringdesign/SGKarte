@@ -268,8 +268,12 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             SimpleDateFormat format = new SimpleDateFormat();
             format.applyPattern("yyyy/MM/dd HH:mm:ss");
             Date d = format.parse(dataAndTime);
-            int intUnixTime = (int)d.getTime()/1000;
-            Log.d("unixtime",String.valueOf(intUnixTime));
+            long intUnixTime = d.getTime()/1000;
+            Date toUnixTime = new Date();
+            Log.d("Tounixtime",String.valueOf(intUnixTime));
+            toUnixTime.setTime(intUnixTime*1000);
+            Log.d("setTime",toUnixTime.toString());
+
 
             //患者Idを取得
             String patientId = String.valueOf(patient.getId());
@@ -277,7 +281,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             // DBへの登録処理
             DBAdapterBodyTemp dbAdapterBodyTemp = new DBAdapterBodyTemp(this,patientId);
             dbAdapterBodyTemp.openDB();                                         // DBの読み書き
-            dbAdapterBodyTemp.saveDB(intUnixTime, iBodyTemp, strRemarks);      // DBに登録
+            dbAdapterBodyTemp.saveDB((int)intUnixTime, iBodyTemp, strRemarks);      // DBに登録
             dbAdapterBodyTemp.closeDB();                                        // DBを閉じる
 
             displayId();
@@ -315,4 +319,5 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
     }
 
 
-    }
+
+}

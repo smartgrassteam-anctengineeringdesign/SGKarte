@@ -15,7 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -310,8 +312,16 @@ public class A07PatientInspectionResultActivity extends AppCompatActivity {
                 holder = (A07PatientInspectionResultActivity.BTBaseAdapter.ViewHolder) view.getTag();
             }
 
+            long unixTime = bodyTempListItem.getDate();
+            Date date = new Date();
+            date.setTime(unixTime * 1000);
+            Log.d("IIIdateandTime",date.toString());
+
+            String stringDate = new SimpleDateFormat("yyyy/MM/dd hh:mm").format(date);
+
+
             // 取得した各データを各TextViewにセット
-            holder.text07Date.setText(String.valueOf(bodyTempListItem.getDate()));
+            holder.text07Date.setText(stringDate);
             //Log.d("ok","getName");
             holder.text07Id.setText(String.valueOf(bodyTempListItem.getId()));
             //Log.d("ok","getid");
