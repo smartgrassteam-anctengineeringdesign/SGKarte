@@ -3,11 +3,14 @@ package com.example.kamadayuji.smartglass_systemflow;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.graphics.Color;
 
 
+
+import org.opencv.android.OpenCVLoader;
 
 public class A01MainActivity extends AppCompatActivity {
 
@@ -43,8 +46,17 @@ public class A01MainActivity extends AppCompatActivity {
         findViewById(R.id.button01MovePatientList).setOnClickListener(button01MovePatientListOnClickListener);
         findViewById(R.id.button01MovePatientRegistration).setOnClickListener(button01MovePatientRegistrationOnClickListener);
 
+<<<<<<< HEAD
 //        Button button = (Button) findViewById(R.id.button01MoveQRcode);
 //        button.setBackgroundColor(R.drawable.activity01_button_background);
+=======
+        //opencv導入確認
+        /*if(!OpenCVLoader.initDebug()){
+            Log.i("OpenCV", "Failed");
+        }else{
+            Log.i("OpenCV", "successfully built !");
+        }*/
+>>>>>>> feature/insertPhotoOCR
 
     }
 
