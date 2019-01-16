@@ -16,10 +16,10 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ocrimageView"
         android:layout_width="395dp"
-        android:layout_height="262dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="247dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -28,6 +28,27 @@
         opencv:layout_constraintStart_toStartOf="parent"
         opencv:layout_constraintTop_toTopOf="parent"
         opencv:srcCompat="@drawable/activity01_button_background" />
+
+    <TextView
+        android:id="@+id/ocrTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="ocrTextView"
+        android:textColor="@android:color/background_light"
+        opencv:layout_constraintStart_toStartOf="parent"
+        opencv:layout_constraintTop_toBottomOf="@+id/ocrimageView"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="登録する"
+        opencv:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="283dp" />
 
 
 </android.support.constraint.ConstraintLayout>

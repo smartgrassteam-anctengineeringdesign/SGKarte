@@ -49,6 +49,26 @@
     <string name="PatientBloodPressRegAndEdit">患者血圧登録＆編集</string>
 
 
+    <!-- activity 10 関連-->
+        <!-- アプリケーション設定 -->
+        <string name="action_settings" translatable="false">Settings</string>
+
+        <!-- Vision APIのAPIキーを設定 -->
+        <!-- 例えば、APIキーが「abcdefg12345」の場合次のように指定します -->
+        <string name="vision_api_key" translatable="false">AIzaSyBdJ_gMSk774xmKnEmF2yidruwMI3m-dCI</string>
+
+        <!-- 画面メッセージ -->
+        <string name="loading_message" translatable="false">画像を解析中です</string>
+        <string name="dialog_select_prompt">画像を選択してください</string>
+        <string name="dialog_select_camera">カメラ</string>
+        <string name="dialog_select_gallery">ギャラリー</string>
+
+        <!-- エラーメッセージ -->
+        <string name="call_api_error" translatable="false">Cloud Vision APIの呼び出しに失敗しました</string>
+        <string name="image_picker_error" translatable="false">イメージの読み込みに失敗しました</string>
+        <string name="text_detection_error" translatable="false">文字が含まれていません</string>
+
+
 
 
 </resources>
