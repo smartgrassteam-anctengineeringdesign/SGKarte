@@ -11,9 +11,12 @@
         android:layout_width="206dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="体温を登録"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="484dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline64"
+        app:layout_constraintStart_toStartOf="@+id/guideline66" />
 
     <Button
         android:id="@+id/button2"
