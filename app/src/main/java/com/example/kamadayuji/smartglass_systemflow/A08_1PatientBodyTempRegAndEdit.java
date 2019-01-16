@@ -269,10 +269,12 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
             format.applyPattern("yyyy/MM/dd HH:mm:ss");
             Date d = format.parse(dataAndTime);
             long intUnixTime = d.getTime()/1000;
-            Date toUnixTime = new Date();
             Log.d("Tounixtime",String.valueOf(intUnixTime));
-            toUnixTime.setTime(intUnixTime*1000);
-            Log.d("setTime",toUnixTime.toString());
+
+            //unixTimeを日時に戻す（yyyy/MM/dd HH:mm:ss → unixTime → yyyy/MM/dd HH:mm:ss変換が出来ているかの確認）
+            //Date toUnixTime = new Date();
+            //toUnixTime.setTime(intUnixTime*1000);
+            //Log.d("setTime",toUnixTime.toString());
 
 
             //患者Idを取得

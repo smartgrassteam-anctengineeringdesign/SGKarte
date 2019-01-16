@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,30 +15,16 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.SurfaceView;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.CameraBridgeViewBase;
-import org.opencv.android.LoaderCallbackInterface;
-import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
 
 
 // Google Cloud Vison APIの呼び出しに必要なパッケージ
 import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
@@ -56,16 +41,13 @@ import com.google.api.services.vision.v1.model.ImageContext;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-
-
-
-import static org.opencv.core.CvType.CV_8U;
 
 
 public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvCameraViewListener*/ {
@@ -86,9 +68,16 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
     private TextView ocrTextView;
     private ImageView ocrImageView;
 
-   /*
-    //[登録]ボタン押下でデータベースに登録
-    View.OnClickListener button08_1BtRegOnClickListener = new View.OnClickListener() {
+    private Button mButton10MovePatientInspectionResult;
+
+    private static String KEYWORD_PATIENT = "KEY_PATIENT";
+    private List<Patient> patientItems;
+    private Patient patient;
+    private int patientId;
+
+
+    //[体温を登録]ボタン押下でデータベースに登録
+    View.OnClickListener button10BtRegOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             // キーボードを非表示
@@ -98,61 +87,32 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
 
             // DBに登録
             saveList();
+
+            //体温及び血圧データ一覧へ遷移
+            Intent intent = new Intent(getApplication(), A07PatientInspectionResultActivity.class);
+            intent = intent.putExtra("KEY_PATIENT", (Serializable) patientItems);
+            startActivity(intent);
         }
     };
-    */
-
-
-
-/*
-    //opencv関連の設定
-    private static final String TAG = "OCVSample::Activity";
-
-    private CameraBridgeViewBase mOpenCvCameraView;
-    private boolean              mIsJavaCamera = true;
-    private MenuItem             mItemSwitchCamera = null;
-
-
-
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
-        @Override
-        public void onManagerConnected(int status) {
-            switch (status) {
-                case LoaderCallbackInterface.SUCCESS:
-                {
-                    Log.i(TAG, "OpenCV loaded successfully");
-                    mOpenCvCameraView.enableView();
-                } break;
-                default:
-                {
-                    super.onManagerConnected(status);
-                } break;
-            }
-        }
-    };
-
-    public A10(){
-        Log.i(TAG, "Instantiated new " + this.getClass());
-    }
-*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity11_read_and_check_medical_data);
+        setContentView(R.layout.activity10_read_and_check_medical_data);
 
         //ocrimageView画面のヒモ付
         ocrImageView= findViewById(R.id.ocrImageView);
         ocrTextView = (TextView) findViewById(R.id.ocrTextView);
 
+        mButton10MovePatientInspectionResult = (Button) findViewById(R.id.button10_BodyTempReg);
+        mButton10MovePatientInspectionResult.setOnClickListener(button10BtRegOnClickListener);
 
+        //前Activityにて選択した患者のIDを取得
+        getSelectedPatientId();
 
         //カメラを起動する
         startCamera();
-
-        //opencvカメラ起動
-        //opencvCameraStart();
 
     }
 
@@ -409,98 +369,40 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
         return message;
     }
 
+    //前のアクティビティから取得した患者情報を展開
+    private void getSelectedPatientId(){
+
+        patientItems = (ArrayList<Patient>)getIntent().getSerializableExtra(KEYWORD_PATIENT);
+        patient = patientItems.get(0);
+        patientId = patient.getId();
+    }
 
     private void saveList() {
 
-        /*
-            //日付に関しては後で変更が必要
-            int iDate = Integer.parseInt(strDate);
-            int iTime = Integer.parseInt(strTime);
+        //読み取られた数値を登録する
+        String strBodyTemp = ocrTextView.getText().toString();
+        String strTime;
+        String strDate;
+        String strRemarks = null;
 
-            //患者Idを取得
-            String patientId = String.valueOf(patient.getId());
+        // 入力された単価と個数は文字列からint型へ変換
+        float iBodyTemp = Float.parseFloat(strBodyTemp);
 
-            // DBへの登録処理
-            DBAdapterBodyTemp dbAdapterBodyTemp = new DBAdapterBodyTemp(this,patientId);
-            dbAdapterBodyTemp.openDB();                                         // DBの読み書き
-            dbAdapterBodyTemp.saveDB(iDate, iTime, iBodyTemp, strRemarks);   // DBに登録
-            dbAdapterBodyTemp.closeDB();                                        // DBを閉じる
+        //現在時刻を取得
+        final DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        final Date date = new Date(System.currentTimeMillis());
+        long intUnixTime = date.getTime()/1000;
 
-*/
-        //患者の体温データ一覧へ遷移
+        String strpatientId = String.valueOf(patientId);
+
+        // DBへの登録処理
+        DBAdapterBodyTemp dbAdapterBodyTemp = new DBAdapterBodyTemp(this,strpatientId);
+        dbAdapterBodyTemp.openDB();                                         // DBの読み書き
+        dbAdapterBodyTemp.saveDB((int)intUnixTime, iBodyTemp, strRemarks);      // DBに登録
+        dbAdapterBodyTemp.closeDB();                                        // DBを閉じる
 
     }
 
-
-
-
-
-
-
-
-
-
-
-    /*
-    private void opencvCameraStart(){
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.activity_java_surface_view);
-
-        mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
-
-        mOpenCvCameraView.setCvCameraViewListener(this);
-    }
-
-    @Override
-    public void onPause()
-    {
-        super.onPause();
-        if (mOpenCvCameraView != null)
-            mOpenCvCameraView.disableView();
-    }
-
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-        if (!OpenCVLoader.initDebug()) {
-            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, mLoaderCallback);
-        } else {
-            Log.d(TAG, "OpenCV library found inside package. Using it!");
-            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
-        }
-    }
-
-    public void onDestroy() {
-        super.onDestroy();
-        if (mOpenCvCameraView != null)
-            mOpenCvCameraView.disableView();
-    }
-
-    public void onCameraViewStarted(int width, int height) {
-    }
-
-    public void onCameraViewStopped() {
-    }
-
-    public Mat onCameraFrame(Mat inputFrame) {
-
-        Mat src = inputFrame;//入力画像
-        Mat dst = Mat.zeros(inputFrame.width(),inputFrame.height(),CV_8U);//初期化
-        Imgproc.cvtColor(src, dst, Imgproc.COLOR_RGB2HSV);//HSVに変換
-
-        Mat src2 = dst;//HSV画像を代入
-        Mat dst2 = Mat.zeros(inputFrame.width(),inputFrame.height(),CV_8U);//初期化
-        Scalar low = new Scalar( 0,30,90);//下限(H,S,V)
-        Scalar high = new Scalar(35,255,255);//上限(H,S,V)
-        Core.inRange( src2,  low,  high , dst2);//肌色抽出 上限と下限を設定
-
-
-        return inputFrame;
-    }
-    */
 }
 
 

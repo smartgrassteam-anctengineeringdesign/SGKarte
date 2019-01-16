@@ -32,6 +32,8 @@ public class A06PatientInfoDetailActivity extends AppCompatActivity {
     private Button mButton06MoveBloodPressMeasure;
     private Button mButton06MoveDetailInsRe;
 
+    public int patientId;
+
 //    private DBAdapterGetPatientDetail dbAdapter;
 //    private MyBaseAdapter myBaseAdapter;
 //    private List<PatientInsReListItem> items;
@@ -53,6 +55,7 @@ public class A06PatientInfoDetailActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getApplication(), A10.class);
+            intent = intent.putExtra("KEY_PATIENT",(Serializable) patientItems);
             startActivity(intent);
         }
     };
