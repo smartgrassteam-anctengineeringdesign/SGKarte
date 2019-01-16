@@ -86,6 +86,7 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
     private TextView ocrTextView;
     private ImageView ocrImageView;
 
+   /*
     //[登録]ボタン押下でデータベースに登録
     View.OnClickListener button08_1BtRegOnClickListener = new View.OnClickListener() {
         @Override
@@ -99,6 +100,7 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
             saveList();
         }
     };
+    */
 
 
 
@@ -138,10 +140,10 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity10);
+        setContentView(R.layout.activity11_read_and_check_medical_data);
 
         //ocrimageView画面のヒモ付
-        ocrImageView= findViewById(R.id.ocrimageView);
+        ocrImageView= findViewById(R.id.ocrImageView);
         ocrTextView = (TextView) findViewById(R.id.ocrTextView);
 
 
