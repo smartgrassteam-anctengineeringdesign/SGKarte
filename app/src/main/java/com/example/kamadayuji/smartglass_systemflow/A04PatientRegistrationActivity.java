@@ -224,21 +224,24 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
         int getNumber = 0;
 
         dbAdapter.openDB();
-        Cursor c = dbAdapter.searchDB(columns,column,name);
 
-        if (c.moveToFirst()) {
-            do {
-                getNumber = c.getInt(0);    //c.getInt(0);についてはif文の外でやるとエラーになる
-                Log.d("取得したIDの最大値", String.valueOf(getNumber));
-            } while (c.moveToNext());
-        }
+            Cursor c = dbAdapter.searchDB(columns, column, name);
 
-        mText04Id.setText(String.valueOf(1+getNumber));
 
-        c.close();
-        dbAdapter.closeDB();
+            if (c.moveToFirst()) {
+                do {
+                    getNumber = c.getInt(0);    //c.getInt(0);についてはif文の外でやるとエラーになる
+                    Log.d("取得したIDの最大値", String.valueOf(getNumber));
+                } while (c.moveToNext());
+            }
 
-        return getNumber;
+            mText04Id.setText(String.valueOf(1 + getNumber));
+
+            c.close();
+            dbAdapter.closeDB();
+
+            return getNumber;
+
     }
 
 

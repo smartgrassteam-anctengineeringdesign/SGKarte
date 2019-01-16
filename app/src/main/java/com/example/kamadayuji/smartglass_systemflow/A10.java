@@ -216,7 +216,7 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
                     Matrix matrix = new Matrix();
 
                     // 画像中心を基点に90度回転
-                    matrix.setRotate(-90, imageWidth/2, imageHeight/2);
+                    matrix.setRotate(0, imageWidth/2, imageHeight/2);
 
                     // 90度回転したBitmap画像を生成
                     Bitmap bitmap2 = Bitmap.createBitmap(bitmap, 0, 0,

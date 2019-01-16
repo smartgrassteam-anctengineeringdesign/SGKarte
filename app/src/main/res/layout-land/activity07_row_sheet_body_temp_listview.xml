@@ -35,38 +35,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.14" />
+        app:layout_constraintGuide_percent="0.1402027" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.12" />
+        app:layout_constraintGuide_percent="0.07" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.86" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.55197656" />
+        app:layout_constraintGuide_percent="0.67" />
 
     <TextView
         android:id="@+id/text07TitleBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="℃"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline50"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,10 +76,12 @@
         android:id="@+id/text07Bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="36.8"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline51"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,11 +89,12 @@
         android:id="@+id/text07BtDateAndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="2018/11/30 18:26"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline49"
         app:layout_constraintTop_toTopOf="parent" />
 
