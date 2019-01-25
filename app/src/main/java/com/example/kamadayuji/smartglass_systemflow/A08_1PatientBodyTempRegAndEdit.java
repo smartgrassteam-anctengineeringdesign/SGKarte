@@ -6,11 +6,13 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -107,6 +109,7 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity08_1_patient_body_temp_reg_and_edit);
 
         //部品の結びつけ
@@ -123,6 +126,8 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
 
         //初期値設定
         init();
+
+
 
         //日付、時刻
         mEditText08_1Date.setOnClickListener(new View.OnClickListener() {
@@ -197,6 +202,14 @@ public class A08_1PatientBodyTempRegAndEdit extends AppCompatActivity {
         mButton08_1MovePatientInspectionResult.setOnClickListener(button08_1MovePatientInspectionResultOnClickListener);
         mButton08_1Clear.setOnClickListener(button08_1ClearOnClickListener);
         mButton08_1BtReg.setOnClickListener(button08_1BtRegOnClickListener);
+
+        if (Build.VERSION.SDK_INT >= 11) {
+            mEditText08_1Date.setRawInputType(InputType.TYPE_CLASS_TEXT);
+            mEditText08_1Date.setTextIsSelectable(true);
+        } else {
+            mEditText08_1Date.setRawInputType(InputType.TYPE_NULL);
+            mEditText08_1Date.setFocusable(true);
+        }
     }
 
     private void init() {
