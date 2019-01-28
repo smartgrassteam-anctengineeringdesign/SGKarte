@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">smartGlass_systemflow</string>
+    <string name="app_name">SGカルテ</string>
 
 
     <!-- activity01_main 01 関連-->
-    <string name="MainActivity_label_name">smartGlass_systemflow</string>
+    <string name="MainActivity_label_name">SGカルテ</string>
 
 
     <!-- cheak_qrcode 02 関連-->
