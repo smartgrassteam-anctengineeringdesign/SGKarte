@@ -14,22 +14,25 @@
         android:layout_width="29dp"
         android:layout_height="27dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="ID"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/text04Name"
         app:layout_constraintStart_toEndOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline58"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/edit04Id"
-        android:layout_width="239dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="aaa"
         android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText04Id"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toEndOf="@+id/editText04Id"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         tools:ignore="MissingConstraints" />
@@ -41,20 +44,20 @@
         android:layout_marginStart="16dp"
         android:text="氏名"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/text04Age"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText04Id"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="97dp" />
 
     <EditText
         android:id="@+id/editText04Name"
-        android:layout_width="239dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/activity04_inputframe_background"
         android:hint="氏名"
         android:inputType="text"
-        android:background="@drawable/activity04_inputframe_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Name"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         tools:ignore="MissingConstraints" />
 
@@ -72,15 +75,14 @@
 
     <EditText
         android:id="@+id/editText04Age"
-        android:layout_width="91dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:hint="年齢"
         android:background="@drawable/activity04_inputframe_background"
-        android:inputType="number"
+        android:hint="年齢"
         android:imeOptions="actionDone"
+        android:inputType="number"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Age"
-        app:layout_constraintEnd_toStartOf="@+id/text04Sex"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         tools:ignore="MissingConstraints" />
@@ -90,22 +92,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="160dp"
         android:text="性別"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/text04Affiliation"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText04Age"
         app:layout_constraintEnd_toStartOf="@+id/spinner04Sex"
-        app:layout_constraintHorizontal_bias="0.941"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text04Name"
-        app:layout_constraintVertical_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         tools:ignore="MissingConstraints" />
 
     <Spinner
         android:id="@+id/spinner04Sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="8dp"
         android:background="#FFFFFF"
         android:entries="@array/PatientRegistrationActivity_sex_list"
         android:popupBackground="#FFFFFF"
@@ -142,13 +140,14 @@
 
     <EditText
         android:id="@+id/editText04Affiliation"
-        android:layout_width="239dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/activity04_inputframe_background"
         android:hint="所属"
         android:imeOptions="actionDone"
-        android:background="@drawable/activity04_inputframe_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Affiliation"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         tools:ignore="MissingConstraints" />
 
@@ -156,7 +155,7 @@
         android:id="@+id/text04Detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginStart="16dp"
         android:text="詳細"
         android:textColor="#FFFFFF"
@@ -167,13 +166,14 @@
 
     <EditText
         android:id="@+id/editText04Detail"
-        android:layout_width="239dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/activity04_inputframe_background"
         android:hint="詳細"
         android:imeOptions="actionDone"
-        android:background="@drawable/activity04_inputframe_background"
         app:layout_constraintBaseline_toBaselineOf="@+id/text04Detail"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     <android.support.constraint.Guideline
@@ -195,7 +195,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="13dp" />
+        app:layout_constraintGuide_percent="0.02195946" />
 
     <Button
         android:id="@+id/button04PatientRegistration"
@@ -272,10 +272,11 @@
         android:id="@+id/text04Kome01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text04Name"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        tools:layout_editor_absoluteY="97dp" />
 
     <TextView
         android:id="@+id/text04Kome02"
@@ -291,7 +292,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="250dp" />
+        app:layout_constraintGuide_percent="0.74626863" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03880597" />
 
 
 </android.support.constraint.ConstraintLayout>

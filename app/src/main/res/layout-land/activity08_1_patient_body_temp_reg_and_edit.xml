@@ -65,11 +65,11 @@
         android:background="@drawable/activity08_1_inputframe_background"
         android:ems="10"
         android:hint="体温を入力"
-        android:inputType="numberDecimal"
         android:imeOptions="actionDone"
+        android:inputType="numberDecimal"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
         tools:ignore="MissingConstraints" />
 
     <android.support.constraint.Guideline
