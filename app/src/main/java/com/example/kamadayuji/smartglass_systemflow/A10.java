@@ -24,6 +24,9 @@ import android.widget.Toast;
 
 
 // Google Cloud Vison APIの呼び出しに必要なパッケージ
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterBodyTemp;
+import com.example.kamadayuji.smartglass_systemflow.imageProcessing.PackageManagerUtils;
+import com.example.kamadayuji.smartglass_systemflow.imageProcessing.PermissionUtils;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;

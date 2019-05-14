@@ -1,4 +1,4 @@
-package com.example.kamadayuji.smartglass_systemflow;
+package com.example.kamadayuji.smartglass_systemflow.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,35 +7,29 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBAdapterBloodPress {
+public class DBAdapterPatientList {
 
-    private static String DB_NAME;
-    private final static String DB_NAME1 = "patientID_";
-    private final static String DB_NAME2 = ".db";
-    //テーブル名をbloodPressに直したい
-    private static String DB_TABLE = "bodyPress";
+    private final static String DB_NAME = "medicalDataAutoReadSystem.db";
+    private final static String DB_TABLE = "patientList";
     private final static int DB_VERSION = 1;
 
     /**
-     * DBのカラム名 patientBP_(患者ID)
+     * DBのカラム名 PatientList
      */
-    public final static String COL_BPID = "_id";
-    public final static String COL_DATE = "date";       //UnixTime
-    public final static String COL_SBP = "sbp";         //最高血圧
-    public final static String COL_DBP = "dbp";         //最低血圧
-    public final static String COL_PR = "pr";           //pulse rate
-    public final static String COL_REMARKS = "remarks";   //備考
+    public final static String COL_ID = "_id";
+    public final static String COL_NAME = "name";
+    public final static String COL_AGE = "age";
+    public final static String COL_SEX = "sex";
+    public final static String COL_AFFILIATION = "affiliation";
+    public final static String COL_DETAIL = "detail";
 
     private SQLiteDatabase db = null;
     private DBHelper dbHelper = null;
     protected Context context;
-    protected static String patientId;
 
     //コンストラクタ
-    public DBAdapterBloodPress(Context context,String patientId) {
+    public DBAdapterPatientList(Context context) {
         this.context = context;
-        this.patientId = patientId;
-        DB_NAME = DB_NAME1 + patientId + DB_NAME2;
         dbHelper = new DBHelper(this.context);
     }
 
@@ -44,7 +38,7 @@ public class DBAdapterBloodPress {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapterBloodPress openDB() {
+    public DBAdapterPatientList openDB() {
         db = dbHelper.getWritableDatabase(); //DB読み書き
         return this;
     }
@@ -55,7 +49,7 @@ public class DBAdapterBloodPress {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapterBloodPress readDB() {
+    public DBAdapterPatientList readDB() {
         db = dbHelper.getReadableDatabase();        // DBの読み込み
         return this;
     }
@@ -74,24 +68,23 @@ public class DBAdapterBloodPress {
      * DBのレコードへ登録
      * saveDB()
      *
-     * @param dateAndTime        日時
-     * @param sbp         最高血圧
-     * @param dbp         最低血圧
-     * @param pr          脈拍数
-     * @param remarks     備考
+     * @param name        氏名
+     * @param age         年齢
+     * @param sex         性別
+     * @param affiliation 所属
+     * @param detail      詳細
      */
 
-    public void saveDB(int dateAndTime, int sbp, int dbp, int pr, String remarks) {
-
+    public void saveDB(String name, int age, String sex, String affiliation, String detail) {
         db.beginTransaction();
 
         try {
             ContentValues values = new ContentValues();  // ContentValuesでデータを設定していく
-            values.put(COL_DATE, dateAndTime);
-            values.put(COL_SBP, sbp);
-            values.put(COL_DBP, dbp);
-            values.put(COL_PR, pr);
-            values.put(COL_REMARKS, remarks);
+            values.put(COL_NAME, name);
+            values.put(COL_AGE, age);
+            values.put(COL_SEX, sex);
+            values.put(COL_AFFILIATION, affiliation);
+            values.put(COL_DETAIL, detail);
 
             // insertメソッド データ登録
             // 第1引数：DBのテーブル名
@@ -99,6 +92,7 @@ public class DBAdapterBloodPress {
             // 第3引数：ContentValues
             db.insert(DB_TABLE, null, values);      // レコードへ登録
             Log.d("log","insert " + values);
+
 
             db.setTransactionSuccessful();
         } catch (Exception e) {
@@ -176,7 +170,7 @@ public class DBAdapterBloodPress {
 
         db.beginTransaction();                      // トランザクション開始
         try {
-            db.delete(DB_TABLE, COL_BPID + "=?", new String[]{position});
+            db.delete(DB_TABLE, COL_ID + "=?", new String[]{position});
             db.setTransactionSuccessful();          // トランザクションへコミット
         } catch (Exception e) {
             e.printStackTrace();
@@ -199,7 +193,6 @@ public class DBAdapterBloodPress {
             //第2引数：DB名
             //第3引数：factory nullでよい
             //第4引数：DBのバージョン
-
             super(context, DB_NAME, null, DB_VERSION);
         }
 
@@ -207,12 +200,25 @@ public class DBAdapterBloodPress {
         /**
          * DB生成時に呼ばれる
          * onCreate()
-
+         *
          * @param db SQLiteDatabase
          */
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+
+            //テーブルを作成するSQL文の定義 ※スペースに気を付ける
+            String createTbl = "CREATE TABLE " + DB_TABLE + " ("
+                    + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + COL_NAME + " TEXT NOT NULL,"
+                    + COL_AGE + " INTGER NOT NULL,"
+                    + COL_SEX + " TEXT NOT NULL,"
+                    + COL_AFFILIATION + " TEXT,"
+                    + COL_DETAIL + " TEXT"
+                    + ");";
+            //Log.d("log","createtable");
+
+            db.execSQL(createTbl);      //SQL文の実行
         }
 
         /**
@@ -225,12 +231,12 @@ public class DBAdapterBloodPress {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+            Log.d("log","onUpgradetable");
+
             // DBからテーブル削除
             db.execSQL("DROP TABLE IF EXISTS" + DB_TABLE);
             // テーブル生成
-            //onCreate(db);
-
-            Log.d("log","upgradeTable");
+            onCreate(db);
         }
     }
 }

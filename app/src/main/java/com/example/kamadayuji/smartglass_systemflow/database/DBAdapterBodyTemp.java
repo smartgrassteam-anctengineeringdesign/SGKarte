@@ -1,4 +1,4 @@
-package com.example.kamadayuji.smartglass_systemflow;
+package com.example.kamadayuji.smartglass_systemflow.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,29 +7,32 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBAdapterPatientList {
+public class DBAdapterBodyTemp {
 
-    private final static String DB_NAME = "medicalDataAutoReadSystem.db";
-    private final static String DB_TABLE = "patientList";
+    private static String DB_NAME;
+    private final static String DB_NAME1 = "patientID_";
+    private final static String DB_NAME2 = ".db";
+    private static String DB_TABLE = "bodyTemp";
     private final static int DB_VERSION = 1;
 
     /**
-     * DBのカラム名 PatientList
+     * DBのカラム名 patientBP_(患者ID)
      */
-    public final static String COL_ID = "_id";
-    public final static String COL_NAME = "name";
-    public final static String COL_AGE = "age";
-    public final static String COL_SEX = "sex";
-    public final static String COL_AFFILIATION = "affiliation";
-    public final static String COL_DETAIL = "detail";
+    public final static String COL_BPID = "_id";
+    public final static String COL_DATE = "date";       //UnixTime
+    public final static String COL_BT = "bt";         //最高血圧
+    public final static String COL_REMARKS = "remarks";   //備考
 
     private SQLiteDatabase db = null;
     private DBHelper dbHelper = null;
     protected Context context;
+    protected static String patientId;
 
     //コンストラクタ
-    public DBAdapterPatientList(Context context) {
+    public DBAdapterBodyTemp(Context context,String patientId) {
         this.context = context;
+        this.patientId = patientId;
+        DB_NAME = DB_NAME1 + patientId + DB_NAME2;
         dbHelper = new DBHelper(this.context);
     }
 
@@ -38,7 +41,7 @@ public class DBAdapterPatientList {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapterPatientList openDB() {
+    public DBAdapterBodyTemp openDB() {
         db = dbHelper.getWritableDatabase(); //DB読み書き
         return this;
     }
@@ -49,7 +52,7 @@ public class DBAdapterPatientList {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapterPatientList readDB() {
+    public DBAdapterBodyTemp readDB() {
         db = dbHelper.getReadableDatabase();        // DBの読み込み
         return this;
     }
@@ -68,31 +71,28 @@ public class DBAdapterPatientList {
      * DBのレコードへ登録
      * saveDB()
      *
-     * @param name        氏名
-     * @param age         年齢
-     * @param sex         性別
-     * @param affiliation 所属
-     * @param detail      詳細
+     * @param dateAndTime        日時
+     * @param bt         体温
+     * @param remarks     備考
      */
 
-    public void saveDB(String name, int age, String sex, String affiliation, String detail) {
+    public void saveDB(int dateAndTime,  float bt, String remarks) {
+
         db.beginTransaction();
 
         try {
             ContentValues values = new ContentValues();  // ContentValuesでデータを設定していく
-            values.put(COL_NAME, name);
-            values.put(COL_AGE, age);
-            values.put(COL_SEX, sex);
-            values.put(COL_AFFILIATION, affiliation);
-            values.put(COL_DETAIL, detail);
+            values.put(COL_DATE, dateAndTime);
+            values.put(COL_BT, bt);
+            values.put(COL_REMARKS, remarks);
 
             // insertメソッド データ登録
             // 第1引数：DBのテーブル名
-            // 第2引数：更新する条件式
-            // 第3引数：ContentValues
+            // 第2引数：DBのテーブル名
+            // 第3引数：更新する条件式
+            // 第4引数：ContentValues
             db.insert(DB_TABLE, null, values);      // レコードへ登録
             Log.d("log","insert " + values);
-
 
             db.setTransactionSuccessful();
         } catch (Exception e) {
@@ -170,7 +170,7 @@ public class DBAdapterPatientList {
 
         db.beginTransaction();                      // トランザクション開始
         try {
-            db.delete(DB_TABLE, COL_ID + "=?", new String[]{position});
+            db.delete(DB_TABLE, COL_BPID + "=?", new String[]{position});
             db.setTransactionSuccessful();          // トランザクションへコミット
         } catch (Exception e) {
             e.printStackTrace();
@@ -193,6 +193,7 @@ public class DBAdapterPatientList {
             //第2引数：DB名
             //第3引数：factory nullでよい
             //第4引数：DBのバージョン
+
             super(context, DB_NAME, null, DB_VERSION);
         }
 
@@ -200,25 +201,12 @@ public class DBAdapterPatientList {
         /**
          * DB生成時に呼ばれる
          * onCreate()
-         *
+
          * @param db SQLiteDatabase
          */
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-
-            //テーブルを作成するSQL文の定義 ※スペースに気を付ける
-            String createTbl = "CREATE TABLE " + DB_TABLE + " ("
-                    + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + COL_NAME + " TEXT NOT NULL,"
-                    + COL_AGE + " INTGER NOT NULL,"
-                    + COL_SEX + " TEXT NOT NULL,"
-                    + COL_AFFILIATION + " TEXT,"
-                    + COL_DETAIL + " TEXT"
-                    + ");";
-            //Log.d("log","createtable");
-
-            db.execSQL(createTbl);      //SQL文の実行
         }
 
         /**
@@ -231,12 +219,12 @@ public class DBAdapterPatientList {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-            Log.d("log","onUpgradetable");
-
             // DBからテーブル削除
             db.execSQL("DROP TABLE IF EXISTS" + DB_TABLE);
             // テーブル生成
-            onCreate(db);
+            //onCreate(db);
+
+            Log.d("log","upgradeTable");
         }
     }
 }

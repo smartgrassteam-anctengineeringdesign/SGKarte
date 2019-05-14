@@ -1,4 +1,4 @@
-package com.example.kamadayuji.smartglass_systemflow;
+package com.example.kamadayuji.smartglass_systemflow.imageProcessing;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;

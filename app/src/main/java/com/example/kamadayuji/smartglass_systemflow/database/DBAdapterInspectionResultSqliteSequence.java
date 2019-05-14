@@ -1,4 +1,4 @@
-package com.example.kamadayuji.smartglass_systemflow;
+package com.example.kamadayuji.smartglass_systemflow.database;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,19 +7,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /** AutoIncrementに関するDBである"sqlite_sequenc"から情報を取得するためのアダプター **/
 
-public class DBAdapterSqliteSequence {
+public class DBAdapterInspectionResultSqliteSequence {
 
-    private final static String DB_NAME = "medicalDataAutoReadSystem.db";
+    private static String DB_NAME;
+    private final static String DB_NAME1 = "patientID_";
+    private final static String DB_NAME2 = ".db";
     private final static String DB_TABLE = "sqlite_sequence";
     private final static int DB_VERSION = 1;
 
     private SQLiteDatabase db = null;
-    private DBAdapterSqliteSequence.DBHelper dbHelper = null;
+    private DBAdapterInspectionResultSqliteSequence.DBHelper dbHelper = null;
     protected Context context;
 
     //コンストラクタ
-    public DBAdapterSqliteSequence(Context context) {
+    public DBAdapterInspectionResultSqliteSequence(Context context,String patientId) {
         this.context = context;
+        DB_NAME = DB_NAME1 + patientId + DB_NAME2;
         dbHelper = new DBHelper(this.context);
     }
 
@@ -28,7 +31,7 @@ public class DBAdapterSqliteSequence {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapterSqliteSequence openDB() {
+    public DBAdapterInspectionResultSqliteSequence openDB() {
         db = dbHelper.getWritableDatabase(); //DB読み書き
         return this;
     }

@@ -1,13 +1,11 @@
-package com.example.kamadayuji.smartglass_systemflow;
+package com.example.kamadayuji.smartglass_systemflow.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import static com.example.kamadayuji.smartglass_systemflow.DBAdapterBloodPress.COL_REMARKS;
+import static com.example.kamadayuji.smartglass_systemflow.database.DBAdapterBloodPress.COL_REMARKS;
 
 public class DBAdapterCreateBPandBTdatabase {
 

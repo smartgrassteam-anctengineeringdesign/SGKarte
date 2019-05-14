@@ -1,4 +1,4 @@
-package com.example.kamadayuji.smartglass_systemflow;
+package com.example.kamadayuji.smartglass_systemflow.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,12 +7,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBAdapterBodyTemp {
+public class DBAdapterBloodPress {
 
     private static String DB_NAME;
     private final static String DB_NAME1 = "patientID_";
     private final static String DB_NAME2 = ".db";
-    private static String DB_TABLE = "bodyTemp";
+    //テーブル名をbloodPressに直したい
+    private static String DB_TABLE = "bodyPress";
     private final static int DB_VERSION = 1;
 
     /**
@@ -20,7 +21,9 @@ public class DBAdapterBodyTemp {
      */
     public final static String COL_BPID = "_id";
     public final static String COL_DATE = "date";       //UnixTime
-    public final static String COL_BT = "bt";         //最高血圧
+    public final static String COL_SBP = "sbp";         //最高血圧
+    public final static String COL_DBP = "dbp";         //最低血圧
+    public final static String COL_PR = "pr";           //pulse rate
     public final static String COL_REMARKS = "remarks";   //備考
 
     private SQLiteDatabase db = null;
@@ -29,7 +32,7 @@ public class DBAdapterBodyTemp {
     protected static String patientId;
 
     //コンストラクタ
-    public DBAdapterBodyTemp(Context context,String patientId) {
+    public DBAdapterBloodPress(Context context,String patientId) {
         this.context = context;
         this.patientId = patientId;
         DB_NAME = DB_NAME1 + patientId + DB_NAME2;
@@ -41,7 +44,7 @@ public class DBAdapterBodyTemp {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapterBodyTemp openDB() {
+    public DBAdapterBloodPress openDB() {
         db = dbHelper.getWritableDatabase(); //DB読み書き
         return this;
     }
@@ -52,7 +55,7 @@ public class DBAdapterBodyTemp {
      *
      * @return this 自身のオブジェクト
      */
-    public DBAdapterBodyTemp readDB() {
+    public DBAdapterBloodPress readDB() {
         db = dbHelper.getReadableDatabase();        // DBの読み込み
         return this;
     }
@@ -72,25 +75,28 @@ public class DBAdapterBodyTemp {
      * saveDB()
      *
      * @param dateAndTime        日時
-     * @param bt         体温
+     * @param sbp         最高血圧
+     * @param dbp         最低血圧
+     * @param pr          脈拍数
      * @param remarks     備考
      */
 
-    public void saveDB(int dateAndTime,  float bt, String remarks) {
+    public void saveDB(int dateAndTime, int sbp, int dbp, int pr, String remarks) {
 
         db.beginTransaction();
 
         try {
             ContentValues values = new ContentValues();  // ContentValuesでデータを設定していく
             values.put(COL_DATE, dateAndTime);
-            values.put(COL_BT, bt);
+            values.put(COL_SBP, sbp);
+            values.put(COL_DBP, dbp);
+            values.put(COL_PR, pr);
             values.put(COL_REMARKS, remarks);
 
             // insertメソッド データ登録
             // 第1引数：DBのテーブル名
-            // 第2引数：DBのテーブル名
-            // 第3引数：更新する条件式
-            // 第4引数：ContentValues
+            // 第2引数：更新する条件式
+            // 第3引数：ContentValues
             db.insert(DB_TABLE, null, values);      // レコードへ登録
             Log.d("log","insert " + values);
 
