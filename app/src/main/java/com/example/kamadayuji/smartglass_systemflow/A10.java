@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -77,6 +78,8 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
     private List<Patient> patientItems;
     private Patient patient;
     private int patientId;
+    private Bitmap mSource;
+    private Bitmap mResult;
 
 
     //[体温を登録]ボタン押下でデータベースに登録
@@ -191,7 +194,7 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
                 }
 
                 registerDatabase(filePath);
-                uploadImage(cameraUri);
+                uploadImage_tensor(cameraUri);
             } else {
                 Log.d("debug", "cameraUri == null");
             }
@@ -208,7 +211,28 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
     }
 
+    public void uploadImage_tensor(Uri uri){
+        if (uri != null){
+            TFModel tf = new TFModel();
+            if (tf.initialize() ==true){
+                mSource = BitmapFactory.decodeFile(uri.getPath());
+                mResult = tf.run(mSource);
+
+
+
+
+            }else{
+                ocrTextView.setText("モデルファイルが読み込めませんでした．");
+            }
+
+        }else{
+            Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
+        }
+
+    }
+
     // 画像のOCR処理
+    /*
     public void uploadImage(Uri uri) {
         if (uri != null) {
             try {
@@ -228,7 +252,7 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
             Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
     }
-
+    */
     /**
      * Google Cloud Vision APIの呼び出し
      *
@@ -241,7 +265,6 @@ public class A10 extends AppCompatActivity /*implements CameraBridgeViewBase.CvC
         // 処理中メッセージの表示
         ocrTextView.setText("画像を解析中です");
 
-        // API呼び出しを行うための非同期処理
         new AsyncTask<Object, Void, String>() {
             @Override
             protected String doInBackground(Object... params) {
