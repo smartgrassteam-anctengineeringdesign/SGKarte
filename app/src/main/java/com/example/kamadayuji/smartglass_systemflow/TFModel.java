@@ -87,13 +87,13 @@ public class TFModel {
 
         //結果をビットマップに変換
         Bitmap result=Bitmap.createBitmap(w,h, Bitmap.Config.ARGB_8888);
-        for(int y=0;y<h;y++) {
+        /*for(int y=0;y<h;y++) {
             for(int x=0;x<w;x++) {
                 int id=resultInt[y*w+x];
 //              result.setPixel(x,y,id==0? Color.TRANSPARENT:0x80FF0000);   //0x80FF0000:=半透明の赤
                 result.setPixel(x,y,id!=7? Color.TRANSPARENT:0x80FF0000);   //0x80FF0000:=半透明の赤,7=車のID
             }
-        }
+        }*/
 
         if(w!=wOrg || h!=hOrg) result=Bitmap.createScaledBitmap(result,wOrg,hOrg,true);
         if(shrinked!=null) shrinked.recycle();
