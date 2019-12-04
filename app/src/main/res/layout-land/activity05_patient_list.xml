@@ -11,17 +11,91 @@
     android:paddingTop="16dp">
 
     <!-- 説明 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_material_dark"
+        android:elevation="4dp"
+        android:minHeight="50dp">
+
+        <SearchView
+            android:id="@+id/searchview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="患者名を検索" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- タイトル：ID -->
+
+        <!-- タイトル：氏名 -->
+        <TextView
+            android:id="@+id/text05TitleId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:text="@string/text05_title_id"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text05TitleName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            android:text="@string/text05_title_Name"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <!-- タイトル：年齢 -->
+        <TextView
+            android:id="@+id/text05TitleAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/text05_title_age"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <!-- タイトル：性別 -->
+        <TextView
+            android:id="@+id/text05TitleSex"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/text05_title_sex"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+    </LinearLayout>
     <!-- ListView -->
     <ListView
         android:id="@+id/listView05"
-        android:layout_width="624dp"
-        android:layout_height="271dp"
+        android:layout_width="621dp"
+        android:layout_height="198dp"
         android:layout_gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88" />
 
 </android.support.constraint.ConstraintLayout>

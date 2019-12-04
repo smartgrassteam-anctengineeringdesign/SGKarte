@@ -4,9 +4,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.text.TextUtils;
 
 import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterPatientList;
 
@@ -261,7 +266,7 @@ public class A05PatientListActivity extends AppCompatActivity {
             if (view == null) {
                 LayoutInflater inflater =
                         (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = inflater.inflate(R.layout.activity05_row_sheet_patient_listview, parent, false);
+                view = inflater.inflate(R.layout.activity05_row_sheet_listview, parent, false);
 
 
                 TextView text05Name = (TextView) view.findViewById(R.id.text05Name);        // 名前のTextView
@@ -322,5 +327,52 @@ public class A05PatientListActivity extends AppCompatActivity {
 
         c.close();
         dbAdapterPatientList.closeDB();
+    }
+
+    public class SearchActivity extends FragmentActivity {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity05_patient_list);
+
+            Toolbar _toolbar = (Toolbar) findViewById(R.id.toolbar);
+            _toolbar.inflateMenu(R.menu.activity_toolbar);
+
+            SearchView _searchView = (SearchView) MenuItemCompat.getActionView(_toolbar.getMenu().findItem(R.id.searchview));;
+
+
+            // 検索フォーム上の検索ボタンは表示にする.
+            _searchView.setSubmitButtonEnabled(true);
+            // 入力欄が空の場合に表示する文言の設定.
+            _searchView.setQueryHint("患者名を検索");
+
+            _searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String searchWord) {
+                    // 検索ボタンの押下かEnterキーの押下で実行される.
+                    // 入力内容（searchWord）でDBを検索
+                    if (TextUtils.isEmpty(searchWord)) {
+                        mListView05.clearTextFilter();
+                    } else {
+                        mListView05.setFilterText(searchWord.toString());
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    // 入力される度に呼び出される.
+                    // 入力候補を検索して、検索フォームの下に表示する.
+                   // if (TextUtils.isEmpty(newText)) {
+                     //   mListView05.clearTextFilter();
+                    //} else {
+                      //  mListView05.setFilterText(newText.toString());
+                    //}
+                    return false;
+                }
+
+            });
+        }
     }
 }
