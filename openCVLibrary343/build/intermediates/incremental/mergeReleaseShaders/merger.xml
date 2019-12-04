@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/kamadayuji/AndroidStudioProjects/smartGlass_systemflow/openCVLibrary343/src/main/shaders"/></dataSet><dataSet config="release"><source path="/Users/kamadayuji/AndroidStudioProjects/smartGlass_systemflow/openCVLibrary343/src/release/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\hana\Documents\SGKarte\openCVLibrary343\src\main\shaders"/></dataSet><dataSet config="release"><source path="C:\Users\hana\Documents\SGKarte\openCVLibrary343\src\release\shaders"/></dataSet></merger>

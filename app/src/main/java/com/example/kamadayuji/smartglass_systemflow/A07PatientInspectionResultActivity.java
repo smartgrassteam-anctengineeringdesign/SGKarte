@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterBloodPress;
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterBodyTemp;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

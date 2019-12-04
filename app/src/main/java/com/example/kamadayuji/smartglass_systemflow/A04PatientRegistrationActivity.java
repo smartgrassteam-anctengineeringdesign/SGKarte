@@ -1,6 +1,5 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,12 +10,15 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView;
+
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterCreateBPandBTdatabase;
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterPatientList;
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterSqliteSequence;
 
 // ToDo:年齢のedittextには整数しか入力できないようにする
 // ToDo:性別はテキスト入力ではなく、選択制にする

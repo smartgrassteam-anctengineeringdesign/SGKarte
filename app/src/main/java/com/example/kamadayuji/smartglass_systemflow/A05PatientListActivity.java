@@ -16,6 +16,8 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterPatientList;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,5 @@
 package com.example.kamadayuji.smartglass_systemflow;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -21,11 +20,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterBodyTemp;
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterInspectionResultSqliteSequence;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Timer;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

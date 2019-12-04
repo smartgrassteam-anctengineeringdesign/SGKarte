@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterBloodPress;
+import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterInspectionResultSqliteSequence;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

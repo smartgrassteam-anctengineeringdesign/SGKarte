@@ -76,7 +76,7 @@
     <!-- タイトル：性別 -->
     <TextView
         android:id="@+id/text06TitleSex"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text05_title_sex"
         android:textColor="#FFFFFF"
@@ -110,33 +110,13 @@
 
     <TextView
         android:id="@+id/text06Affiliation"
-        android:layout_width="533dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
         android:text="acct"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text06TitleAffiliation"
         app:layout_constraintTop_toBottomOf="@+id/text06TitleAge" />
-
-    <TextView
-        android:id="@+id/text06TitleDetail"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="詳細"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-    <TextView
-        android:id="@+id/text06Detail"
-        android:layout_width="533dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleDetail"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline8"
@@ -287,6 +267,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9838946" />
+
+    <TextView
+        android:id="@+id/text06TitleDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="詳細"
+        android:textColor="#ffffffff"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text06Affiliation"
+        app:layout_constraintStart_toStartOf="@+id/guideline32" />
+
+    <TextView
+        android:id="@+id/text06Detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textColor="#ffffffff"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text06TitleDetail"
+        app:layout_constraintEnd_toStartOf="@+id/guideline38"
+        app:layout_constraintStart_toEndOf="@+id/text06TitleDetail" />
 
 </android.support.constraint.ConstraintLayout>
 
