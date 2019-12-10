@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:gravity="center"
-            android:text="@string/text05_title_Name"
+            android:text="氏名"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
