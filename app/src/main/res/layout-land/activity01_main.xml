@@ -44,6 +44,21 @@
         app:layout_constraintTop_toTopOf="@+id/guideline40"
         app:layout_constraintVertical_chainStyle="spread" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/debugbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:visibility="visible" />
+    </LinearLayout>
+
+
+
     <Button
         android:id="@+id/button01MovePatientRegistration"
         android:layout_width="0dp"

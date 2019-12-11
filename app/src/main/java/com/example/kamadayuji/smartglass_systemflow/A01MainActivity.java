@@ -37,6 +37,14 @@ public class A01MainActivity extends AppCompatActivity {
         }
     };
 
+    View.OnClickListener button01MovedebugmodeOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplication(), debugmode.class);
+            startActivity(intent);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +53,7 @@ public class A01MainActivity extends AppCompatActivity {
         findViewById(R.id.button01MoveQRcode).setOnClickListener(button01MoveQRcodeOnClickListener);
         findViewById(R.id.button01MovePatientList).setOnClickListener(button01MovePatientListOnClickListener);
         findViewById(R.id.button01MovePatientRegistration).setOnClickListener(button01MovePatientRegistrationOnClickListener);
-
+        findViewById(R.id.debugbutton).setOnClickListener(button01MovedebugmodeOnClickListener);
 
 //        Button button = (Button) findViewById(R.id.button01MoveQRcode);
 //        button.setBackgroundColor(R.drawable.activity01_button_background);

@@ -87,6 +87,12 @@
             android:screenOrientation="landscape">
         </activity>
 
+        <activity
+            android:name=".debugmode"
+            android:label="デバッグモード"
+            android:screenOrientation="landscape">
+        </activity>
+
     </application>
 
 </manifest>

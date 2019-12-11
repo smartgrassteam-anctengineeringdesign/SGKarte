@@ -3,47 +3,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@drawable/separator"
     android:divider="#00000000"
-    android:dividerHeight="7dp" >
-            <!-- データ表示用：ID -->
-            <TextView
-                android:id="@+id/text05Id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+    android:dividerHeight="7dp"
+    android:orientation="horizontal">
+    <!-- データ表示用：ID -->
+    <TextView
+        android:id="@+id/text05Id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
 
-            <!-- 氏名 -->
-            <TextView
-                android:id="@+id/text05Name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+    <!-- 氏名 -->
+    <TextView
+        android:id="@+id/text05Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
 
-            <!-- データ表示用：年齢 -->
-            <TextView
-                android:id="@+id/text05Age"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+    <!-- データ表示用：年齢 -->
+    <TextView
+        android:id="@+id/text05Age"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
 
-            <!-- データ表示用：性別 -->
-            <TextView
-                android:id="@+id/text05Sex"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
-        </LinearLayout>
+    <!-- データ表示用：性別 -->
+    <TextView
+        android:id="@+id/text05Sex"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
+</LinearLayout>
