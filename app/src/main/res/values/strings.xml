@@ -67,8 +67,9 @@
         <string name="call_api_error" translatable="false">Cloud Vision APIの呼び出しに失敗しました</string>
         <string name="image_picker_error" translatable="false">イメージの読み込みに失敗しました</string>
         <string name="text_detection_error" translatable="false">文字が含まれていません</string>
-
-
+    <string name="text05_title_Name" />
+    <string name="action_search" />
+    <string name="searchable_hint" />
 
 
 </resources>

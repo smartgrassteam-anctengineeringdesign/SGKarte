@@ -5,10 +5,26 @@
 5    android:versionName="3.4.3" >
 6
 7    <uses-sdk
+<<<<<<< HEAD
 7-->C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
 8        android:minSdkVersion="14"
 8-->C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
 9        android:targetSdkVersion="28" />
 9-->C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:15-44
+=======
+<<<<<<< HEAD
+7-->/Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
+8        android:minSdkVersion="14"
+8-->/Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
+9        android:targetSdkVersion="28" />
+9-->/Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml:7:15-44
+=======
+7-->C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+8        android:minSdkVersion="14"
+8-->C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+9        android:targetSdkVersion="28" />
+9-->C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:15-44
+>>>>>>> b88d22134e4ef4f4d29a1142e22076be3bc21cba
+>>>>>>> 0160e8a95fd3a803451ecc5c7706124285e5e9c2
 10
 11</manifest>
