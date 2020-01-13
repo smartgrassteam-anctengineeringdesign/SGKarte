@@ -1,5 +1,43 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< HEAD
+ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+	package
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:3:7-27
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:5:7-34
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:4:7-33
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+	android:targetSdkVersion
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:15-44
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+=======
+<<<<<<< HEAD
 ADDED from /Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
@@ -35,3 +73,41 @@ INJECTED from /Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xm
 		INJECTED from /Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml
 		ADDED from /Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
 		INJECTED from /Users/Hiroto/SGKarte/openCVLibrary343/src/main/AndroidManifest.xml
+=======
+ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:1-8:12
+	package
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:3:7-27
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:5:7-34
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:4:7-33
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+	android:targetSdkVersion
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:15-44
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+		ADDED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+		INJECTED from C:\Users\YASUTO\Documents\SGKarte\openCVLibrary343\src\main\AndroidManifest.xml
+>>>>>>> b88d22134e4ef4f4d29a1142e22076be3bc21cba
+>>>>>>> 0160e8a95fd3a803451ecc5c7706124285e5e9c2
