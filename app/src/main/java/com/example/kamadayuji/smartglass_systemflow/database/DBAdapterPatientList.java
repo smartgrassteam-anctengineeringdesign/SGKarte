@@ -6,6 +6,19 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import com.example.kamadayuji.smartglass_systemflow.database.DBAESEncryption;
+import java.nio.ByteBuffer;
+
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 
 public class DBAdapterPatientList {
 
@@ -75,16 +88,30 @@ public class DBAdapterPatientList {
      * @param detail      詳細
      */
 
-    public void saveDB(String name, int age, String sex, String affiliation, String detail) {
+    public void saveDB(String name, int age, String sex, String affiliation, String detail) throws UnsupportedEncodingException, NoSuchPaddingException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
+
+        String password = "test12345";
+        byte[] bytename = name.getBytes("UTF-8");
+        byte[] byteage = ByteBuffer.allocate(4).putInt(age).array();
+        byte[] bytesex = sex.getBytes("UTF-8");
+        byte[] byteaff = affiliation.getBytes("UTF-8");
+        byte[] bytedtl = detail.getBytes("UTF-8");
+
+        DBAESEncryption.EncryptedData Encname = DBAESEncryption.encrypt(password, bytename);
+        DBAESEncryption.EncryptedData Encage = DBAESEncryption.encrypt(password, byteage);
+        DBAESEncryption.EncryptedData Encsex = DBAESEncryption.encrypt(password, bytesex);
+        DBAESEncryption.EncryptedData Encaff = DBAESEncryption.encrypt(password, byteaff);
+        DBAESEncryption.EncryptedData Encdtl = DBAESEncryption.encrypt(password, bytedtl);
+
         db.beginTransaction();
 
         try {
             ContentValues values = new ContentValues();  // ContentValuesでデータを設定していく
-            values.put(COL_NAME, name);
-            values.put(COL_AGE, age);
-            values.put(COL_SEX, sex);
-            values.put(COL_AFFILIATION, affiliation);
-            values.put(COL_DETAIL, detail);
+            values.put(COL_NAME, new String(Encname.encryptedData));
+            values.put(COL_AGE,  ByteBuffer.wrap(Encage.encryptedData).getInt());
+            values.put(COL_SEX,  new String(Encsex.encryptedData));
+            values.put(COL_AFFILIATION,  new String(Encaff.encryptedData));
+            values.put(COL_DETAIL,  new String(Encdtl.encryptedData));
 
             // insertメソッド データ登録
             // 第1引数：DBのテーブル名
@@ -234,7 +261,7 @@ public class DBAdapterPatientList {
             Log.d("log","onUpgradetable");
 
             // DBからテーブル削除
-            db.execSQL("DROP TABLE IF EXISTS" + DB_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE);
             // テーブル生成
             onCreate(db);
         }

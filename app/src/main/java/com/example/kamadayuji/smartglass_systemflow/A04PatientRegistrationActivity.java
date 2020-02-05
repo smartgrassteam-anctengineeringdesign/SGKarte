@@ -20,6 +20,16 @@ import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterCreateBPan
 import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterPatientList;
 import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterSqliteSequence;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 // ToDo:年齢のedittextには整数しか入力できないようにする
 // ToDo:性別はテキスト入力ではなく、選択制にする
 // ToDo:IDの仕組みをしっかりする
@@ -68,7 +78,25 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
             inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
             // DBに登録
-            saveList();
+            try {
+                saveList();
+            } catch (NoSuchPaddingException e) {
+                e.printStackTrace();
+            } catch (InvalidKeyException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (IllegalBlockSizeException e) {
+                e.printStackTrace();
+            } catch (BadPaddingException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (InvalidAlgorithmParameterException e) {
+                e.printStackTrace();
+            } catch (InvalidKeySpecException e) {
+                e.printStackTrace();
+            }
         }
     };
 
@@ -164,7 +192,7 @@ public class A04PatientRegistrationActivity extends AppCompatActivity {
 
 
 
-    private void saveList() {
+    private void saveList() throws NoSuchPaddingException, InvalidKeyException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeySpecException {
 
         // 各EditTextで入力されたテキストを取得
         String strName = mEditText04Name.getText().toString();

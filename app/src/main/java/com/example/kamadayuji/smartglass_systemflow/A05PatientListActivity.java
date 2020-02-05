@@ -4,13 +4,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,13 +15,22 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.text.TextUtils;
 
 import com.example.kamadayuji.smartglass_systemflow.database.DBAdapterPatientList;
+import com.example.kamadayuji.smartglass_systemflow.database.DBAESEncryption;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 
 //ToDo : 患者一覧閲覧時、一度読み込んだ患者情報について、二度読み込むような動きをするため動作が遅い。改善したい。
@@ -75,7 +80,26 @@ public class A05PatientListActivity extends AppCompatActivity {
                     dbAdapterPatientList.selectDelete(String.valueOf(patientListId));
                     Log.d("Long click : ", String.valueOf(patientListId));
                     dbAdapterPatientList.closeDB();
-                    loadPatinentList();
+                    try {
+                        loadPatinentList();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (NoSuchPaddingException e) {
+                        e.printStackTrace();
+                    } catch (InvalidAlgorithmParameterException e) {
+                        e.printStackTrace();
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                    } catch (IllegalBlockSizeException e) {
+                        e.printStackTrace();
+                    } catch (BadPaddingException e) {
+                        e.printStackTrace();
+                    } catch (InvalidKeyException e) {
+                        e.printStackTrace();
+                    } catch (InvalidKeySpecException e) {
+                        e.printStackTrace();
+                    }
+
                 }
             });
             //キャンセルの時
@@ -152,7 +176,25 @@ public class A05PatientListActivity extends AppCompatActivity {
         //ListViewの結びつけ
         mListView05 = (ListView)findViewById(R.id.listView05);
 
-        loadPatinentList(); //DBを読み込む&更新する処理
+        try {
+            loadPatinentList(); //DBを読み込む&更新する処理
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
 
         //リスナ登録
         mListView05.setOnItemClickListener(mListView05OnItemOnClickListener);
@@ -165,7 +207,7 @@ public class A05PatientListActivity extends AppCompatActivity {
      * loadMyList()
      */
 
-    private void loadPatinentList(){
+    private void loadPatinentList() throws UnsupportedEncodingException, NoSuchPaddingException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
 
         //ArrayAdapterに対してListViewのリスト(items)の更新
         items.clear();
@@ -175,6 +217,9 @@ public class A05PatientListActivity extends AppCompatActivity {
         //DBのデータの取得
         Cursor c = dbAdapterPatientList.getDB(columns);
 
+        String password = "test12345";
+
+
         if (c.moveToFirst()) {
             do {
                 // MyListItemのコンストラクタ呼び出し(myListItemのオブジェクト生成)
@@ -183,6 +228,12 @@ public class A05PatientListActivity extends AppCompatActivity {
                         c.getString(1),
                         c.getInt(2),
                         c.getString(3));
+                DBAESEncryption.EncryptedData encdata = new DBAESEncryption.EncryptedData();
+                encdata.salt = new byte[8];
+                encdata.iv = new byte[16];
+
+              byte[] decryname =  DBAESEncryption.decrypt(password, new byte[8], new byte[16], c.getString(1).getBytes("UTF-8"));
+
 
                 Log.d("取得したCursor(ID):", String.valueOf(c.getInt(0)));
                 Log.d("取得したCursor(氏名):", c.getString(1));
@@ -266,7 +317,7 @@ public class A05PatientListActivity extends AppCompatActivity {
             if (view == null) {
                 LayoutInflater inflater =
                         (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = inflater.inflate(R.layout.activity05_row_sheet_listview, parent, false);
+                view = inflater.inflate(R.layout.activity05_row_sheet_patient_listview, parent, false);
 
 
                 TextView text05Name = (TextView) view.findViewById(R.id.text05Name);        // 名前のTextView
@@ -327,52 +378,5 @@ public class A05PatientListActivity extends AppCompatActivity {
 
         c.close();
         dbAdapterPatientList.closeDB();
-    }
-
-    public class SearchActivity extends FragmentActivity {
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity05_patient_list);
-
-            Toolbar _toolbar = (Toolbar) findViewById(R.id.toolbar);
-            _toolbar.inflateMenu(R.menu.activity_toolbar);
-
-            SearchView _searchView = (SearchView) MenuItemCompat.getActionView(_toolbar.getMenu().findItem(R.id.searchview));;
-
-
-            // 検索フォーム上の検索ボタンは表示にする.
-            _searchView.setSubmitButtonEnabled(true);
-            // 入力欄が空の場合に表示する文言の設定.
-            _searchView.setQueryHint("患者名を検索");
-
-            _searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String searchWord) {
-                    // 検索ボタンの押下かEnterキーの押下で実行される.
-                    // 入力内容（searchWord）でDBを検索
-                    if (TextUtils.isEmpty(searchWord)) {
-                        mListView05.clearTextFilter();
-                    } else {
-                        mListView05.setFilterText(searchWord.toString());
-                    }
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    // 入力される度に呼び出される.
-                    // 入力候補を検索して、検索フォームの下に表示する.
-                   // if (TextUtils.isEmpty(newText)) {
-                     //   mListView05.clearTextFilter();
-                    //} else {
-                      //  mListView05.setFilterText(newText.toString());
-                    //}
-                    return false;
-                }
-
-            });
-        }
     }
 }

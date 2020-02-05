@@ -23,7 +23,7 @@ public class DBAESEncryption {
     private static final String ENCRYPTION_ALGORITHM = "AES/CBC/PKCS5Padding";
     private static final String PBE_ALGORITHM = "PBEwithSHA256and128BITAES-CBC-BC";
 
-    public EncryptedData encrypt(String password, byte[] data) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
+    public static EncryptedData encrypt(String password, byte[] data) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
         EncryptedData encData = new EncryptedData();
         SecureRandom rnd = new SecureRandom();
         encData.salt = new byte[SALT_BYTES];
@@ -41,7 +41,7 @@ public class DBAESEncryption {
         return encData;
     }
 
-    public byte[] decrypt(String password, byte[] salt, byte[] iv, byte[] encryptedData) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
+    public static byte[] decrypt(String password, byte[] salt, byte[] iv, byte[] encryptedData) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
         PBEKeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, PBK_ITERATIONS);
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance(PBE_ALGORITHM);
         Key key = secretKeyFactory.generateSecret(keySpec);

@@ -1,13 +1,16 @@
 package com.example.kamadayuji.smartglass_systemflow.database;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabase;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteOpenHelper;
+import net.sqlcipher.database.SQLiteOpenHelper;
 import android.util.Log;
+import java.io.File;
+import android.app.Activity;
+import android.os.Bundle;
 
-public class DBAdapterBloodPress {
+public class DBAdapterBloodPress extends Activity{
 
     private static String DB_NAME;
     private final static String DB_NAME1 = "patientID_";
@@ -26,7 +29,10 @@ public class DBAdapterBloodPress {
     public final static String COL_PR = "pr";           //pulse rate
     public final static String COL_REMARKS = "remarks";   //備考
 
-    private SQLiteDatabase db = null;
+
+    String Password = "test123";
+    File databaseFile = getDatabasePath("demo.db");
+    private SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(databaseFile, Password, null);
     private DBHelper dbHelper = null;
     protected Context context;
     protected static String patientId;
@@ -45,7 +51,8 @@ public class DBAdapterBloodPress {
      * @return this 自身のオブジェクト
      */
     public DBAdapterBloodPress openDB() {
-        db = dbHelper.getWritableDatabase(); //DB読み書き
+        SQLiteDatabase.loadLibs(this);
+        db = dbHelper.getWritableDatabase(Password); //DB読み書き
         return this;
     }
 
@@ -56,7 +63,7 @@ public class DBAdapterBloodPress {
      * @return this 自身のオブジェクト
      */
     public DBAdapterBloodPress readDB() {
-        db = dbHelper.getReadableDatabase();        // DBの読み込み
+        db = dbHelper.getReadableDatabase(Password);        // DBの読み込み
         return this;
     }
 
